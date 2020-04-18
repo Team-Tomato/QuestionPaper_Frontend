@@ -1,0 +1,15 @@
+.TopNavbar {
+    background-color: rgb(218, 78, 218);
+}
+
+.TopNavbarBrand {
+    color: white;
+}
+
+.NavbarItem {
+    color: white;
+}
+
+.cardPadding {
+    padding-bottom: 15px;
+}
