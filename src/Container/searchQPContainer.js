@@ -14,22 +14,10 @@ class SearchQP extends Component {
             url: [],
         };
         this.handleSubmit = this.handleSubmit.bind(this)
-        // this.getimage = this.getimage.bind(this)
+        
     }
 
-    // getimage(images) {
-    // //   let images = this.state.urls
-    // //   let len = images.length
-    // //   for (var i = 0; i < len; i++) {
-    //     // let imageurl = this.state.person.data[i]
-    //     // console.log(imageurl)
-    //     fetch(images)
-    //       .then((imgres) => {
-    //         console.log(imgres.url)
-    //         this.state.img.push(imgres.url)
-    //       })
-    // }
-
+   
 
     async handleSubmit(event, query) {
         this.setState({
@@ -67,13 +55,9 @@ class SearchQP extends Component {
         urls = this.state.url.map((images, index) => (
             <Col lg={3} md={4} sm={12} key={index} className='cardPadding'>
             <Card>
-                <CardBody>
-                    <img src={images} alt='QP Image'/>
-                </CardBody>
-                <CardFooter>
-                    Subject | StaffName
-                    {/* API should return Subject name and staff name */}
-                </CardFooter>
+            <header align="center" className="header">Subject name</header>
+            <img className=" img-align" src={images} alt="Card image cap"/>
+            <footer align="center" className="footer">Staff name</footer>
             </Card>
             </Col>
         ))
