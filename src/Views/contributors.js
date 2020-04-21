@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import './App.css'
+import './contributors.css'
 import {Card,CardImg,CardTitle,CardBody,Container,Row,Col} from 'reactstrap'
 import '../node_modules/bootstrap/dist/css/bootstrap-grid.min.css'
 class contributors extends Component {
