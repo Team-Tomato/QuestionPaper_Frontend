@@ -1,7 +1,9 @@
 import React,{Component} from 'react';
-import './contributors.css'
-import {Card,CardImg,CardTitle,CardBody,Container,Row,Col} from 'reactstrap'
-import '../node_modules/bootstrap/dist/css/bootstrap-grid.min.css'
+import './App.css';
+import {Card,CardImg,CardTitle,CardBody,Container,CardDeck,Row,Col,CardFooter} from 'reactstrap';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import {BrowserRouter as Router,Link} from 'react-router-dom';
+
 class contributors extends Component {
 
   constructor()
@@ -42,28 +44,31 @@ class contributors extends Component {
           } 
           this.setState({fetched : true})
    }
+    
   render()
   {
     return(
-<div>     
-  <div className="container-fluid d-flex justify-content-center">
-    <div className="row">
-{ this.state.contributor.map((res,index)=>(
-      <div className="col-md-2">
-        <div key={index} className="card text-center">
-          <div className="overflow">
-            <img src={'https://avatars2.githubusercontent.com/u/' +res.id+ '?v=4'} className="profile-align" />
-          </div>
-            <div className="card-body text-dark">
-              <h2 className="card-title">{res.login}</h2>
-            </div>
+  <div> 
+    <div className="container-fluid d-flex justify-content-center">
+      <div className="row row-cols-2 row-cols-sm-3 row-cols-md-6">
+         { this.state.contributor.map((res,index)=>(
+           <div className="col">
+              <a href={'https://github.com/'+res.login} className="a" target="_blank" style={{textDecoration:'none'}} >
+                <div key={index} className="card" style={{textDecoration:'none'}}>
+                  <img src={'https://avatars2.githubusercontent.com/u/' +res.id+ '?v=4'} className="profile-align" style={{textDecoration:'none'}} />
+                    <div className="card-body text-dark">
+                       <h2 className="card-title" style={{textDecoration:'none'}}>{res.login}</h2>
+                    </div>
+                </div>
+              </a>
+             </div>
+               ))} 
         </div>
-      </div>
- ))}          
     </div>
   </div>
-</div>                 
       )
-        }}
+        }
+      }
+
 
 export default contributors;
