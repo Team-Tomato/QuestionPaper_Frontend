@@ -13,3 +13,95 @@
 .cardPadding {
     padding-bottom: 15px;
 }
+
+.container-search{
+    flex-direction: column;
+    margin: 20px;
+}
+
+.input{
+    margin-left: 10px;
+    border:8px solid rgb(221, 215, 215);
+    
+  }
+
+  .button{
+    border:8px solid rgb(221, 215, 215);
+    background:rgb(218, 78, 218);
+    color: white;
+    font-size: 12px;
+  }
+
+  .header{
+    color: black;
+    background: rgb(221, 215, 215);
+    margin: 8px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 12px;
+    padding:1px;
+  }
+  
+  .img-align{
+    padding:6px;
+  }
+
+  .footer{
+    color: black;
+    background: rgb(221, 215, 215);
+    margin: 8px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 12px;
+    padding:1px;
+  }
+
+  
+::placeholder {
+    font-size: 11px;
+    font-family: "Times New Roman", Times, serif;
+  }
+  
+
+  @media(min-width:320px){
+    .img-align{
+      width: 100%;
+    }
+ 
+    ::placeholder {
+    font-size: 11px;
+    font-family: "Times New Roman", Times, serif;
+  }
+
+  }
+  
+
+
+  @media(min-width:576px){
+    .img-align{
+      height: 300px;
+      width: 100%;
+    }
+
+    ::placeholder {
+        font-size: 15px;
+        font-family: "Times New Roman", Times, serif;
+      }
+  }
+  
+  @media(min-width:768px){
+    .img-align{
+      height: 130px;
+      width: 100%;
+    }
+
+    ::placeholder {
+        font-size: 16px;
+        font-family: "Times New Roman", Times, serif;
+      }
+  }
+  
+  @media(min-width:992px){
+    .img-align{
+      height: 150px;
+      width: 100%;
+    }
+  }

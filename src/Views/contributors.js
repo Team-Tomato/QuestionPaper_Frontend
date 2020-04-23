@@ -3,6 +3,7 @@ import './App.css';
 import {Card,CardImg,CardTitle,CardBody,Container,CardDeck,Row,Col,CardFooter} from 'reactstrap';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router,Link} from 'react-router-dom';
+
 class contributors extends Component {
 
   constructor()
@@ -68,5 +69,6 @@ class contributors extends Component {
       )
         }
       }
+
 
 export default contributors;
