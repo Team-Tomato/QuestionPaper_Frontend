@@ -1,0 +1,44 @@
+*{
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+.header{
+background-color:#ff4996;
+height:250px;
+padding: 60px;
+text-align:center;
+font-family:"Times New Roman",Times;
+font-weight:bold;
+font-size: 30px;
+line-height: 10px;
+}
+.box{
+    float: left;
+    width:50%;
+    line-height: 8px;
+    text-align: center;  
+}
+.sansserif{
+font-family:Helvetica,Arial;
+font-size:18px;
+text-align: center;
+}
+.serif{
+font-family:"Times New Roman",Times;
+font-size: 40px;
+}
+.center{ 
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+.buttonstyle{
+    margin-top: 1px;
+    background-color: #ff4996;
+    padding: 5px;
+    font-size: 15px;
+    font-family:Helvetica;
+    font-weight: bold;
+}
