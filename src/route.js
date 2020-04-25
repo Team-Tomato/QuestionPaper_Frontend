@@ -1,5 +1,7 @@
 import SearchQP from './Views/searchQP.js'
+import SearchBook from './Views/SearchBook.js'
 import TemplateQP from './Views/templateQP.js'
+import Projects from './Views/projects.js'
 import Contributors from './Views/contributors.js'
 import Contact from './Views/contact.js'
 
@@ -10,9 +12,19 @@ const Routes = [
       component: SearchQP
     },
     {
+      path: "/books",
+      name: "searchBook",
+      component: SearchBook
+    },
+    {
       path: "/templateQP",
       name: "templateQP",
       component: TemplateQP
+    },
+    {
+      path: "/projects",
+      name: "projects",
+      component: Projects
     },
     {
       path: "/contributors",

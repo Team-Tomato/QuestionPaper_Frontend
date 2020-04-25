@@ -1,8 +1,6 @@
 import React,{Component} from 'react';
-import './App.css';
 import {Card,CardImg,CardTitle,CardBody,Container,CardDeck,Row,Col,CardFooter} from 'reactstrap';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter as Router,Link} from 'react-router-dom';
+import '../Styles/contributors.css'
 
 class contributors extends Component {
 
