@@ -8,6 +8,7 @@ import {
     NavItem,
     NavLink
 } from 'reactstrap';
+import { NavLink as RRNavLink } from 'react-router-dom';
 import '../style.css'
 
 class Header extends Component {
@@ -29,28 +30,28 @@ class Header extends Component {
     activeRoute(routeName) {
         return this.props.location.pathname.indexOf(routeName) > -1 ? "active" : "";
       }
-
+     
     render() {
         return (
             <div>
-                <Navbar expand="md" className='TopNavbar'>
-                    <NavbarBrand href="/" className='TopNavbarBrand'>Team Tomato</NavbarBrand>
+                <Navbar expand="md" className='TopNavbar' >
+                    <NavbarBrand href="/" className='TopNavbarBrand' >Team Tomato</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
-                        <Nav className="mr-auto" navbar>
+                        <Nav className="mr-auto"  navbar pills>
                             <NavItem>
-                                <NavLink className='NavbarItem' href='/searchQP/'>
+                                <NavLink tag={RRNavLink} className='NavbarItem' to='/searchQP/' activeClassName="active" exact path="/searchQP/">
                                     Search QP
                                 </NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className='NavbarItem' href="/templateQP/">Template</NavLink>
+                                <NavLink tag={RRNavLink} className='NavbarItem'  to="/templateQP/" activeClassName="active" exact path="/templateQP/">Template</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className='NavbarItem' href="/contributors/">Contributors</NavLink>
-                            </NavItem>
+                                <NavLink tag={RRNavLink} className='NavbarItem' to="/contributors/" activeClassName="active" exact path="/contributors/">Contributors</NavLink>
+                            </NavItem >
                             <NavItem>
-                                <NavLink className='NavbarItem' href="/contact/">Contact</NavLink>
+                                <NavLink tag={RRNavLink} className='NavbarItem' to="/contact/" activeClassName="active" exact path="/contact/">Contact</NavLink>
                             </NavItem>
                         </Nav>
                     </Collapse>
