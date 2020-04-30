@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+
+}
+
+
+.input{
+  margin-left: 10px;
+  border:2px solid gray(165, 160, 160);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.key{
+  border:2px;
+  background:black;
+  color: white;
+  border-radius: 5px;
+}
+
+.row-align{
+  margin-top: 100px;
+}
+
+.card {
+  margin:20px;
+  height: 300px;
+}
+
+.a{
+  margin-left:210px
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.key:active {
+  background: seashell;
+}
+
+
+
