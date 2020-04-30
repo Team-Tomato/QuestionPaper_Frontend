@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../style.css'
+import '../Styles/style.css'
 import { Form, Row, Col, Input, Button, Container, Card, CardBody } from 'reactstrap'
 
 class SearchQP extends Component {

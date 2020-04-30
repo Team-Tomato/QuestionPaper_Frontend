@@ -9,7 +9,7 @@ import {
     NavLink
 } from 'reactstrap';
 import { NavLink as RRNavLink } from 'react-router-dom';
-import '../style.css'
+import '../Styles/style.css'
 
 class Header extends Component {
     constructor() {

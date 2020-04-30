@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Card, CardBody, CardFooter } from 'reactstrap'
 import { Container, Row, Col } from 'reactstrap'
 import FormQP from '../Component/searQPForm.js'
-import '../style.css'
+import '../Styles/style.css'
 
 class SearchQP extends Component {
     constructor() {
