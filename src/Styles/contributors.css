@@ -15,7 +15,6 @@
     text-decoration: none;
     color: black;
   }
-
   .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     text-align: center;
@@ -61,7 +60,7 @@
     .welcome-title {
       font-display: center;
       text-decoration: darkgrey;
-      font-size: 6px;
+      font-size: 7px;
       text-align: center;
     }
   }
@@ -91,7 +90,7 @@
     .welcome-title {
       font-display: center;
       text-decoration: darkgrey;
-      font-size: 8px;
+      font-size: 9px;
       text-align: center;
     }
     .card-title{
@@ -185,7 +184,7 @@
     .welcome-title {
       font-display: center;
       text-decoration: darkgrey;
-      font-size: 15px;
+      font-size: 18px;
       text-align: center;
     }
   }
@@ -224,7 +223,7 @@
     .welcome-title {
       font-display: center;
       text-decoration:darkgrey;
-      font-size: 20px;
+      font-size: 23px;
       text-align: center;
     }
   }
@@ -252,7 +251,7 @@
     .welcome-title {
       font-display: center;
       text-decoration: darkgrey;
-      font-size: 25px;
+      font-size: 30px;
       text-align: center;
     }
   }
@@ -269,7 +268,7 @@
     .welcome-title {
       font-display: center;
       text-decoration: darkgrey;
-      font-size: 27px;
+      font-size: 32px;
       text-align: center;
     }
   }
@@ -286,7 +285,7 @@
     .welcome-title {
       font-display: center;
       text-decoration:darkgrey;
-      font-size: 30px;
+      font-size: 35px;
       text-align: center;
     }
   }

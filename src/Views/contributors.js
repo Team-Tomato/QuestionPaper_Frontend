@@ -89,7 +89,7 @@ class contributors extends Component {
         position: 'absolute', left: '50%', top: '50%',
         transform: 'translate(-50%, -50%)'
     }}>
-<Loader type={"balls"} color={"black"}/>
+<Loader type={"bars"} color={"black"}/>
   </div>
       )
         }

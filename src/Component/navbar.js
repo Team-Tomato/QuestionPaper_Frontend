@@ -45,11 +45,18 @@ class Header extends Component {
                                 </NavLink>
                             </NavItem>
                             <NavItem>
+                                <NavLink tag={RRNavLink} className='NavbarItem' to="/books/" activeClassName="active" exact path="/books/">Search Book</NavLink>
+                            </NavItem>
+                            <NavItem>
                                 <NavLink tag={RRNavLink} className='NavbarItem'  to="/templateQP/" activeClassName="active" exact path="/templateQP/">Template</NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink tag={RRNavLink} className='NavbarItem' to="/contributors/" activeClassName="active" exact path="/contributors/">Contributors</NavLink>
                             </NavItem >
+                            <NavItem>
+                                <NavLink tag={RRNavLink} className='NavbarItem' to="/projects/" activeClassName="active" exact path="/projects/">Projects</NavLink>
+                            </NavItem>
+    
                             <NavItem>
                                 <NavLink tag={RRNavLink} className='NavbarItem' to="/contact/" activeClassName="active" exact path="/contact/">Contact</NavLink>
                             </NavItem>
