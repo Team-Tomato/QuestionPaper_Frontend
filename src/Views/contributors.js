@@ -1,7 +1,11 @@
-import React,{Component} from 'react';
-import {Card,CardImg,CardTitle,CardBody,Container,CardDeck,Row,Col,CardFooter} from 'reactstrap';
+import React,{Component,useEffect} from 'react';
 import '../Styles/contributors.css'
-
+import {Card,CardImg,CardTitle,CardBody,Container,CardDeck,Row,Col,CardFooter} from 'reactstrap';
+import {BrowserRouter as Router,Link} from 'react-router-dom';
+import Loader from 'react-loading';
+import Aos from 'aos';
+import "animate.css/animate.min.css";
+import ScrollAnimation from 'react-animate-on-scroll';
 class contributors extends Component {
 
   constructor()
@@ -12,10 +16,9 @@ class contributors extends Component {
           fetched : false,
           contributor : [],
           user : [],
-          login : [] 
+          login : []
       }
    }
-   
    async componentDidMount()
    {
     var output;
@@ -46,27 +49,50 @@ class contributors extends Component {
   render()
   {
     return(
+      this.state.fetched?
   <div> 
+    <div className="row justify-content-center">
+     <div className="card bg-secondary cardalign"  style={{color:'gray'}}>
+                    <div className="card-body text-white">
+                       <h2 className="welcome-title" style={{
+        position: 'absolute', left: '50%', top: '50%',
+        transform: 'translate(-50%, -50%)'
+    }}>Welcoming all people to contribute to our project</h2>
+                    </div>
+                </div>  
+     </div>
     <div className="container-fluid d-flex justify-content-center">
-      <div className="row row-cols-2 row-cols-sm-3 row-cols-md-6">
+      <div className="row row-cols-2 row-cols-sm-3 row-cols-md-6" >
          { this.state.contributor.map((res,index)=>(
-           <div className="col">
-              <a href={'https://github.com/'+res.login} className="a" target="_blank" style={{textDecoration:'none'}} >
-                <div key={index} className="card" style={{textDecoration:'none'}}>
+           <div key={index} className="col" >
+             <ScrollAnimation
+      animateIn="zoomIn"
+      animateOut="zoomOut"
+      duration={1.5}
+      delay={0}
+      >
+                    <a href={'https://github.com/'+res.login} className="a" target="_blank" style={{textDecoration:'none'}} >
+                <div className="card" style={{textDecoration:'none'}} >
                   <img src={'https://avatars2.githubusercontent.com/u/' +res.id+ '?v=4'} className="profile-align" style={{textDecoration:'none'}} />
                     <div className="card-body text-dark">
                        <h2 className="card-title" style={{textDecoration:'none'}}>{res.login}</h2>
                     </div>
-                </div>
+                </div>  
               </a>
-             </div>
+              </ScrollAnimation>
+           </div>
                ))} 
         </div>
+        
     </div>
+  </div>:<div style={{
+        position: 'absolute', left: '50%', top: '50%',
+        transform: 'translate(-50%, -50%)'
+    }}>
+<Loader type={"bars"} color={"black"}/>
   </div>
       )
         }
       }
-
 
 export default contributors;
