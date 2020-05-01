@@ -6,7 +6,8 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink
+    NavLink,
+    UncontrolledDropdown
 } from 'reactstrap';
 import { NavLink as RRNavLink } from 'react-router-dom';
 import '../style.css'
@@ -34,7 +35,8 @@ class Header extends Component {
     render() {
         return (
             <div>
-                <Navbar expand="md" className='TopNavbar' >
+                
+                <Navbar expand="md" className='TopNavbar' light>
                     <NavbarBrand href="/" className='TopNavbarBrand' >Team Tomato</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
@@ -61,8 +63,10 @@ class Header extends Component {
                                 <NavLink tag={RRNavLink} className='NavbarItem' to="/contact/" activeClassName="active" exact path="/contact/">Contact</NavLink>
                             </NavItem>
                         </Nav>
+                        
                     </Collapse>
                 </Navbar>
+               
             </div>
         );
     }

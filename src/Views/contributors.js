@@ -49,9 +49,8 @@ class contributors extends Component {
   render()
   {
     return(
-      this.state.fetched?
-  <div> 
-    <div className="row justify-content-center">
+    <div>  
+      <div className="row justify-content-center">
      <div className="card bg-secondary cardalign"  style={{color:'gray'}}>
                     <div className="card-body text-white">
                        <h2 className="welcome-title" style={{
@@ -60,7 +59,9 @@ class contributors extends Component {
     }}>Welcoming all people to contribute to our project</h2>
                     </div>
                 </div>  
-     </div>
+     </div> 
+      {this.state.fetched?(
+  <div> 
     <div className="container-fluid d-flex justify-content-center">
       <div className="row row-cols-2 row-cols-sm-3 row-cols-md-6" >
          { this.state.contributor.map((res,index)=>(
@@ -85,11 +86,13 @@ class contributors extends Component {
         </div>
         
     </div>
-  </div>:<div style={{
-        position: 'absolute', left: '50%', top: '50%',
+  </div>):(<div style={{
+        position: 'absolute', left: '50%', top: '90%',
         transform: 'translate(-50%, -50%)'
     }}>
 <Loader type={"bars"} color={"black"}/>
+  </div>)
+  }
   </div>
       )
         }
