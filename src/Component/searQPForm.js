@@ -21,28 +21,28 @@ class SearchQP extends Component {
   render() {
     return (
       <Container>
-          <br />
-          <Card>
-            <CardBody>
-              <Form onSubmit={(event) => {this.props.handleSubmit(event,this.state.query)}}>
-                <Row>
-                  <Col sm={6} md={8} lg={10}>
-                    <Input type="text" name="keywordSearch" id="keywordSearch" placeholder="Search subject name or staff" onChange={this.onChange} />
-                  </Col>
-                  <Col sm={6} md={4} lg={2}>
-                    <Button color='primary' block>Search</Button>
-                  </Col>
-                </Row>
-              </Form>
-            </CardBody>
-          </Card>
-        </Container>
+        <br />
+        <Card>
+          <CardBody>
+            <Form onSubmit={(event) => { this.props.handleSubmit(event, this.state.query) }}>
+              <Row>
+                <Col sm={6} md={8} lg={10}>
+                  <Input type="text" name="keywordSearch" id="keywordSearch" placeholder="Search subject name or staff" onChange={this.onChange} />
+                </Col>
+                <Col sm={6} md={4} lg={2}>
+                  <Button color='primary' block>Search</Button>
+                </Col>
+              </Row>
+            </Form>
+          </CardBody>
+        </Card>
+      </Container>
     )
   }
 }
 
 // <div>
-        {/* <div className="container-search">
+{/* <div className="container-search">
           <Form onSubmit={(event) => { this.props.handleSubmit(event, this.state.query) }}>
             <div className="row">
               <input type="text" className="offset-1 col-7 col-sm-7 input" onChange={this.onChange} placeholder="Type Sub name or Staff name"></input>
@@ -50,6 +50,6 @@ class SearchQP extends Component {
             </div>
           </Form>
         </div> */}
-      // </div>
+// </div>
 
 export default SearchQP;
