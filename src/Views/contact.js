@@ -5,7 +5,7 @@ import {
   FormGroup,Label,Input,
   Button
 } from 'reactstrap';
-import '../Styles/style.css'
+import '../Styles/contactpg.css'
 
 import axios from 'axios'
 
@@ -36,7 +36,7 @@ class App extends Component {
   return (
     <div>
 
-    <div className="cheader">
+    <div className="header">
     <h1 style={{color:"#000080"}}>We wish to hear from you!</h1>
     <p style={{color:"#E1AD01"}}>Have a question?Get in touch with us.We're here for you</p> 
     </div>
