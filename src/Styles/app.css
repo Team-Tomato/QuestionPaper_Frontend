@@ -1,0 +1,36 @@
+﻿.grid-color{ 
+  background: #8E2DE2;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #4A00E0, #8E2DE2);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+}
+.header-color{
+  background: #8E2DE2;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #4A00E0, #8E2DE2);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+}
+.banner-text{
+  background-color: black;
+  opacity: .8;
+  width: 100%;
+  margin: auto;
+  border-radius: 10px;
+}
+.imagee
+{ 
+  height: auto;
+  width: 100%;
+  image-resolution: 100%;
+}
+
+#font{
+  font-style:italic;
+   color:whitesmoke ;
+}
+
+h1{
+  font-family: 'Courier New', Courier, monospace;
+  font-style: oblique;
+  color: whitesmoke;
+}
