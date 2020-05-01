@@ -1,32 +1,31 @@
 import React, { Component } from "react";
 import {
-    Collapse,
-    Navbar,
-    NavbarToggler,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    NavLink,
-    UncontrolledDropdown
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink
 } from 'reactstrap';
 import { NavLink as RRNavLink } from 'react-router-dom';
-import '../style.css'
+import '../Styles/style.css'
 
 class Header extends Component {
-    constructor() {
-        super()
-        this.state = {
-            isOpen: false
-        };
+  constructor() {
+    super()
+    this.state = {
+      isOpen: false
+    };
 
-        this.toggle = this.toggle.bind(this)
-    }
+    this.toggle = this.toggle.bind(this)
+  }
 
-    toggle() {
-        this.setState({
-            isOpen: !this.state.isOpen
-        })
-    }
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    })
+  }
 
     activeRoute(routeName) {
         return this.props.location.pathname.indexOf(routeName) > -1 ? "active" : "";

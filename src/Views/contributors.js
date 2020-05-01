@@ -1,36 +1,30 @@
-import React,{Component,useEffect} from 'react';
+import React, { Component, useEffect } from 'react';
 import '../Styles/contributors.css'
-import {Card,CardImg,CardTitle,CardBody,Container,CardDeck,Row,Col,CardFooter} from 'reactstrap';
-import {BrowserRouter as Router,Link} from 'react-router-dom';
 import Loader from 'react-loading';
-import Aos from 'aos';
 import "animate.css/animate.min.css";
 import ScrollAnimation from 'react-animate-on-scroll';
 class contributors extends Component {
 
-  constructor()
-   {
-      super();
-      this.state = {
-          repo : null,
-          fetched : false,
-          contributor : [],
-          user : [],
-          login : []
-      }
-   }
-   async componentDidMount()
-   {
+  constructor() {
+    super();
+    this.state = {
+      repo: null,
+      fetched: false,
+      contributor: [],
+      user: [],
+      login: []
+    }
+  }
+  async componentDidMount() {
     var output;
     output = await (await fetch('https://api.github.com/orgs/Team-Tomato/repos')).json()
-    this.setState({repo : output})
+    this.setState({ repo: output })
     var person;
-    for(var i=0;i<this.state.repo.length;i++)
-          {
+    for (var i = 0; i < this.state.repo.length; i++) {
 
-           var url = this.state.repo[i].contributors_url
-       person = await (await fetch(url)).json() 
-       this.state.user.push(person)
+      var url = this.state.repo[i].contributors_url
+      person = await (await fetch(url)).json()
+      this.state.user.push(person)
     }
     for(var i=0;i<this.state.user.length;i++)
           {
@@ -95,7 +89,8 @@ class contributors extends Component {
   }
   </div>
       )
-        }
-      }
+    
+  }
+}
 
 export default contributors;
