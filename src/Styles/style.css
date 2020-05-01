@@ -14,23 +14,14 @@
     padding-bottom: 15px;
 }
 
-.container-search{
-    flex-direction: column;
-    margin: 20px;
+
+.search-label{
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 30px;
 }
 
-.input{
-    margin-left: 10px;
-    border:8px solid rgb(221, 215, 215);
-    
-  }
-
-  .button{
-    border:8px solid rgb(221, 215, 215);
-    background:rgb(218, 78, 218);
-    color: white;
-    font-size: 12px;
-  }
 
   .header{
     color: black;
@@ -65,7 +56,11 @@
     .img-align{
       width: 100%;
     }
- 
+
+    .search-card{
+      height: 350px;
+    }
+
     ::placeholder {
     font-size: 11px;
     font-family: "Times New Roman", Times, serif;
@@ -81,6 +76,10 @@
       width: 100%;
     }
 
+    .search-card{
+      height: 260px;
+    }
+
     ::placeholder {
         font-size: 15px;
         font-family: "Times New Roman", Times, serif;
@@ -90,6 +89,11 @@
   @media(min-width:768px){
     .img-align{
       height: 130px;
+      width: 100%;
+    }
+
+    .search-card{
+      height: 270px;
       width: 100%;
     }
 
