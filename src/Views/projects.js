@@ -9,46 +9,46 @@ class Project extends Component {
     return (
          <div className="containers-fluid d-flex .justify content-md-center">
                 <div className="row">
-                    <div className="col-md-4">
-                        <p className="pl-md-5">
+                <div className="col-md-4">
+                    <p className="pr-md-5">
                         <div className='card text1-center'>
                         <div className='card-Body text-dark'>
                                 <h5 className='card-Title'>Team Tomato</h5>
                             <div  className='overflow'>
                                 <img src={img1} alt='Image 1' className="card-img-top" width="200" height="220"></img>
                             </div>
-                            <p className='card-text1 text-secondary'>
-                                Team which is determined to spread the love of open source (oss)
+                           <p className='card-text1 text-secondary'>
+                           Team which is determined to spread the love of open source (oss)
                                 </p>
-                                <a class="text-primary" href="https://github.com/Team-Tomato/" role="text">Team Tomato site</a>  
+                                <a class="text-primary" href="https://github.com/Team-Tomato/" role="text">Team Tomato site</a>
                                 <p className='card-text1 text-secondary'>
                                 Top languages used-Javascript,Python,HTML
                                 </p>
                             </div>
                         </div>
                         </p>
-                    </div>
+                        </div>
                     <div className="col-md-4">
-                    <p className="pl-md-5">
+                    <p className="pr-md-5">
                         <div className='card text1-center'>
                         <div className='card-Body text-dark'>
                                 <h5 className='card-Title'>One click for CEG</h5>
                             <div  className='overflow'>
                                 <img src={img2} alt='Image 2' className="card-img-top" width="200" height="220"></img>
                             </div>
-                              <p className='card-text1 text-secondary'>
-                                 It is an extension which directs to all CEG related websites
+                           <p className='card-text1 text-secondary'>
+                           It is an extension which directs to all CEG related websites 
                                 </p>
                                 <a class="text-primary" href="https://github.com/Team-Tomato/oneClick-chrome-extension" role="text">Chrome Extension site</a>
-                                 <p className='card-text1 text-secondary'>
+                                <p className='card-text1 text-secondary'>
                                 Top languages used are-Javascript,HTML
                                 </p>
                             </div>
                         </div>
                         </p>
-                    </div>
+                        </div>
                     <div className="col-md-4">
-                    <p className="pl-md-5 pr-md-2">
+                    <p className="pr-md-5">
                         <div className='card text1-center'>
                         <div className='card-Body text-dark'>
                                 <h5 className='card-Title'>Team Tomato Action</h5>
@@ -56,7 +56,7 @@ class Project extends Component {
                                 <img src={img3} alt='Image 3' className="card-img-top" width="200" height="220"></img>
                             </div>
                            <p className='card-text1 text-secondary'>
-                                Google Assistant action for Team Tomato
+                           Google Assistant action for Team Tomato
                                 </p>
                                 <a class="text-primary" href="https://github.com/Team-Tomato/GAction_TeamTomato" role="text">Assistant site</a>
                                 <p className='card-text1 text-secondary'>
@@ -65,8 +65,8 @@ class Project extends Component {
                             </div>
                         </div>
                         </p>
-                    </div>
-                    <div className="col-md-6">
+                        </div>
+                   <div className="col-md-6">
                         <div className="float-md-right">
                     <p className="pr-md-5">
                         <div className='card text1-center'>
@@ -102,12 +102,12 @@ class Project extends Component {
                                 <p className='card-text1 text-secondary'>
                                 -------------
                                 </p>
-                            </div>
+                        </div>
                     </div>
                     </p>
                     </div>
-                </div>
-            </div>
+                    </div>
+                    </div>
         );
     }
 }
