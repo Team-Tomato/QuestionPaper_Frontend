@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import AllNavbar from '../Component/navbar.js'
 import routes from "../route.js";
+import { Layout,Header, Navigation, Drawer, Content,Grid,Cell} from 'react-mdl';
+import './app.css';
+
 
 class Admin extends Component {
 
@@ -27,6 +30,49 @@ class Admin extends Component {
                 <div id="main-panel" className="main-panel" ref="mainPanel">
                     <AllNavbar /> 
                     <Switch>{this.getRoutes(routes)}</Switch>                    
+                    <Layout>                             
+          <Header className="header-color" title="Title" scroll>
+               <Navigation>  
+                  <a href="#">Welcome</a>
+                  <a href="#">Search QP</a>
+                  <a href="#">Search Book</a>
+                  <a href="#">Template</a>
+                  <a href="#">Contributors</a>
+                  <a href="#">Projects</a>
+                  <a href="#">Contact</a>
+              </Navigation>
+          </Header>
+          <Drawer title="Tomato">
+              <Navigation>
+                  <a href="#">Search QP</a>
+                  <a href="#">Search Book</a>
+                  <a href="#">Templates</a>
+                  <a href="#">Projects</a>
+              </Navigation>
+          </Drawer>
+          <Content>
+          <Grid className='grid-color'>
+                  <Cell col={12}>
+                <div>
+                        <h1 align="center" id='font'>Refer QP , Search BOOK
+                            <br />Try PROJECTS , Grow RESUME
+                        </h1>
+                        <h3 align="center" id='font'>
+                            Keep Learning...Happy Coding...
+                        </h3>
+                </div>
+                 </Cell>
+              </Grid>
+              <image src='https://image3.mouthshut.com/images/Restaurant/Photo/-97874_130537.jpg'
+              className='imagee'
+              />
+              
+              <div className='banner-text'>'
+              <h5 id='font'></h5>        
+                </div>
+          </Content>
+      </Layout>
+
                 </div>
             </div>
         );
