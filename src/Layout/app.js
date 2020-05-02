@@ -8,22 +8,23 @@ import './app.css';
 
 class Admin extends Component {
 
-    getRoutes = routes => {
-        return routes.map((prop, key) => {
-            return (
-                <Route
-                    exact path={prop.path}
-                    render={props => (
-                        <prop.component
-                            {...props}
-                        />
-                    )}
-                    key={key}
-                />
-            );
-        });
-    }
+  getRoutes = routes => {
+    return routes.map((prop, key) => {
+      return (
+        <Route
+          exact path={prop.path}
+          render={props => (
+            <prop.component
+              {...props}
+            />
+          )}
+          key={key}
+        />
+      );
+    });
+  }
 
+<<<<<<< HEAD
     render() {
         return (
             <div className="wrapper">
@@ -77,6 +78,18 @@ class Admin extends Component {
             </div>
         );
     }
+=======
+  render() {
+    return (
+      <div className="wrapper">
+        <div id="main-panel" className="main-panel" ref="mainPanel">
+          <AllNavbar />
+          <Switch>{this.getRoutes(routes)}</Switch>
+        </div>
+      </div>
+    );
+  }
+>>>>>>> 95accfd772cd83e8231c49ae8905f86470820669
 }
 
 export default Admin;

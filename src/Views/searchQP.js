@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FormContainer from '../Container/searchQPContainer.js'
-import '../style.css'
+import '../Styles/style.css'
 
 class SearchQP extends Component {
   render() {
