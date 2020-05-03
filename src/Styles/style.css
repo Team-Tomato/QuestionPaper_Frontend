@@ -14,12 +14,8 @@
   padding-bottom: 15px;
 }
 
-.card{
-  width: 20rem;
-}
-
 .card-Body{
-  padding:3rem 0 !important;
+  padding:4rem 0 !important;
 }
 
 .card-text1{

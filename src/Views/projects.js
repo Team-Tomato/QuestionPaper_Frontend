@@ -8,10 +8,11 @@ class Project extends Component {
   render() {
     return (
          <div className="containers-fluid d-flex .justify content-md-center">
-                <div className="row">
+                <div className="row" style={{width: '90rem'}}>
                 <div className="col-md-4">
                     <p className="pr-md-5">
-                        <div className='card text1-center'>
+                    <p className= "pl-md-5">
+                        <div className='card text1-center' style={{width: '300px'}}>
                         <div className='card-Body text-dark'>
                                 <h5 className='card-Title'>Team Tomato</h5>
                             <div  className='overflow'>
@@ -27,10 +28,12 @@ class Project extends Component {
                             </div>
                         </div>
                         </p>
-                        </div>
-                    <div className="col-md-4">
+                        </p>
+                    </div>
+                   <div className="col-md-4">
                     <p className="pr-md-5">
-                        <div className='card text1-center'>
+                    <p className= "pl-md-5">
+                        <div className='card text1-center' style={{width: '300px'}}>
                         <div className='card-Body text-dark'>
                                 <h5 className='card-Title'>One click for CEG</h5>
                             <div  className='overflow'>
@@ -46,10 +49,12 @@ class Project extends Component {
                             </div>
                         </div>
                         </p>
+                        </p>
                         </div>
                     <div className="col-md-4">
                     <p className="pr-md-5">
-                        <div className='card text1-center'>
+                        <p className= "pl-md-5">
+                        <div className='card text1-center' style={{width: '300px'}}>
                         <div className='card-Body text-dark'>
                                 <h5 className='card-Title'>Team Tomato Action</h5>
                             <div  className='overflow'>
@@ -65,11 +70,12 @@ class Project extends Component {
                             </div>
                         </div>
                         </p>
+                        </p>
                         </div>
-                   <div className="col-md-6">
+                        <div className="col-md-6">
                         <div className="float-md-right">
                     <p className="pr-md-5">
-                        <div className='card text1-center'>
+                        <div className='card text1-center' style={{width: '300px'}}>
                         <div className='card-Body text-dark'>
                                 <h5 className='card-Title'>Movie-recommandation Action</h5>
                             <div  className='overflow'>
@@ -88,23 +94,27 @@ class Project extends Component {
                         </div>
                     </div>
                     <div className="col-md-6">
-                    <p className="pr-md-5">
-                        <div className='card text1-center'>
-                        <div className='card-Body text-dark'>
-                                <h5 className='card-Title'>Thoughts of People</h5>
-                            <div  className='overflow'>
-                                <img src={img5} alt='Image 5' className="card-img-top" width="200" height="220"></img>
-                            </div>
-                           <p className='card-text1 text-secondary'>
-                                ------
-                                </p>
-                                <a class="text-primary" href="" role="text">People thoughts</a>
-                                <p className='card-text1 text-secondary'>
-                                -------------
-                                </p>
-                        </div>
+                        <div className="float-md-left">
+                        <p className="pr-md-5">
+                            <p className="pl-md-5">
+                            <div className='card text1-center' style={{width: '300px'}}>
+                                <div className='card-Body text-dark'>
+                                    <h5 className='card-Title'>Thoughts of people</h5>
+                                    <div className='overflow'>
+                                        <img src={img5} alt='Image 5' className="card-img-top" width="200" height="220"></img>
+                                    </div>
+                                    <p className='card-text1 text-secondary'>
+                                        -------
+                                        </p>
+                                        <a class="text-primary" href="" role="text">People thoughts</a>
+                                        <p className='card-text1 text-secondary'>
+                                            ------
+                                            </p>  
+                                    </div>
+                                </div>
+                        </p>
+                        </p>
                     </div>
-                    </p>
                     </div>
                     </div>
                     </div>
