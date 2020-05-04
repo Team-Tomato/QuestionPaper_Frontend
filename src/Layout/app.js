@@ -3,23 +3,25 @@ import { Route, Switch } from "react-router-dom";
 import AllNavbar from '../Component/navbar.js'
 import routes from "../route.js";
 import './app.css'
+import { Layout,Header, Navigation, Drawer, Content,Grid,Cell} from 'react-mdl';
+
 class Admin extends Component {
 
-    getRoutes = routes => {
-        return routes.map((prop, key) => {
-            return (
-                <Route
-                    exact path={prop.path}
-                    render={props => (
-                        <prop.component
-                            {...props}
-                        />
-                    )}
-                    key={key}
-                />
-            );
-        });
-    }
+  getRoutes = routes => {
+    return routes.map((prop, key) => {
+      return (
+        <Route
+          exact path={prop.path}
+          render={props => (
+            <prop.component
+              {...props}
+            />
+          )}
+          key={key}
+        />
+      );
+    });
+  }
 
     render() {
         return (
