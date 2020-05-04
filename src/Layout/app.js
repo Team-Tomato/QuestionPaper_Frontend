@@ -106,8 +106,10 @@ class Admin extends Component {
                         </div>
                         <div className="card-body text-dark">
                             <h4 className="card-title">Projects</h4>
+                            <h5>Happy Coding..</h5>
                         <p className="card-text text-secondary">    
-                             Become easy through practice
+                             Become easy through practice.
+
                         </p>
                         <a href ="https://github.com/Team-Tomato/QuestionPaper_Frontend" className="btn btn-outline-success">
                             Projects
