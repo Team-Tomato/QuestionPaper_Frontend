@@ -34,7 +34,7 @@ class Header extends Component {
   render() {
     return (
       <div>
-        <Navbar expand="md" className='TopNavbar' >
+        <Navbar expand="md" className='TopNavbar' light>
           <NavbarBrand href="/" className='TopNavbarBrand' >Team Tomato</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -60,6 +60,7 @@ class Header extends Component {
             </Nav>
           </Collapse>
         </Navbar>
+
       </div>
     );
   }
