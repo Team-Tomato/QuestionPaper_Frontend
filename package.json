@@ -6,6 +6,7 @@
     "animate.css": "^3.7.2",
     "aos": "^2.3.4",
     "bootstrap": "^4.4.1",
+    "font-awesome": "^4.7.0",
     "react": "^16.13.1",
     "react-animate-on-scroll": "^2.1.5",
     "react-dom": "^16.13.1",

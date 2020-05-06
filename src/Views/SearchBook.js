@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import '../Styles/style.css'
-import '../font-awesome/css/font-awesome.css'
+//import '../font-awesome/css/font-awesome.css'
 import Loader from 'react-loading';
 import { Form, Row, Col, Input, Button, Container, Card, CardBody, CardDeck } from 'reactstrap'
 
