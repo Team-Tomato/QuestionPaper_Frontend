@@ -40,7 +40,7 @@ class contributors extends Component {
   render() {
     return (
       <div>
-        <div className="row justify-content-center">
+        <div className="row justify-content-center" style={{ marginLeft: '0px' ,marginRight:'0px'}}>
           <div className="card bg-secondary cardalign" style={{ color: 'gray' }}>
             <div className="card-body text-white">
               <h2 className="welcome-title" style={{
