@@ -3,6 +3,8 @@ import { Card, CardBody, CardFooter } from 'reactstrap'
 import { Container, Row, Col } from 'reactstrap'
 import FormQP from '../Component/searQPForm.js'
 import '../Styles/style.css'
+import Loader from 'react-loading';
+import '../Styles/contributors.css'
 
 class SearchQP extends Component {
   constructor() {
@@ -50,7 +52,8 @@ class SearchQP extends Component {
     this.state.qpData.forEach(element => {
       staffList.push(element['shortForm'])
       shortFormList.push(element['staff'])
-      urlList.push(element['url'])
+      const url='https://avatars2.githubusercontent.com/u/20479150?v=4/'
+      urlList.push(url)
     });
     console.log(shortFormList, staffList, urlList)
     urls = urlList.map((images, index) => (
@@ -72,15 +75,31 @@ class SearchQP extends Component {
         <Container>
           <Row>
             {urls}
-          </Row>
+          </Row> 
         </Container>
     }
     else {
-      QPContainer = <div></div>
+      QPContainer = <div style={{
+        position: 'absolute', left: '50%', top: '92%',
+        transform: 'translate(-50%, -50%)'
+      }}>
+        <Loader type={"bars"} color={"black"} />
+      </div>
     }
 
     return (
       <div>
+        
+        <Card style={{height:'400px',backgroundColor:'gray',margin:'0%'}}>
+          <CardBody className ="welcome-title" style={{
+                position: 'absolute', left: '50%', top: '50%',
+                transform: 'translate(-50%, -50%)',
+                color:'white'
+              }}>
+            Surf using the bar and get the needed ones
+          </CardBody>
+        </Card>
+        
         <FormQP handleSubmit={this.handleSubmit.bind(this)} />
         <br />
         {QPContainer}

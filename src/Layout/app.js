@@ -49,7 +49,6 @@ class Admin extends Component {
                         </div>
                         <div className="card-body text-dark">
                             <h4 className="card-title">Anna university</h4>
-                            <h5>Tagline : Progress Through Knowledge</h5>
                         <p className="card-text text-secondary">    
                              The place to explore every skills.
                         </p>
@@ -62,7 +61,7 @@ class Admin extends Component {
                 <div className="col-md-4">
                 <div className="card text-center">
                         <div className="overflow">
-                            <img src="https://takegrocery.com/wp-content/uploads/2018/03/thumb-1920-420022.jpg" alt ="Image-2" className="card-img-bottom" height="250" width ="200"/>
+                            <img src="https://takegrocery.com/wp-content/uploads/2018/03/thumb-1920-420022.jpg" alt ="Image-2" className="card-img-bottom" height="230" width ="200"/>
                         </div>
                         <div className="card-body text-dark">
                             <h4 className="card-title">Team Tomato</h4>

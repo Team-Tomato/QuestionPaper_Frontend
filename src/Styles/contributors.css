@@ -19,6 +19,7 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     text-align: center;
     margin:10px;
+    width : 100%;
     border-radius: 8px;
      text-decoration: none;
      background-color: gray;
@@ -50,7 +51,7 @@
   @media(min-width:320px){
     .profile-align{
       width: 100%;
-      height: 100px;
+      height: 130px;
     }
     .card-title{
       font-size: 8px;
@@ -60,14 +61,14 @@
     .welcome-title {
       font-display: center;
       text-decoration: darkgrey;
-      font-size: 7px;
+      font-size: 6px;
       text-align: center;
     }
   }
   @media(min-width:360px){
     .profile-align{
       width: 100%;
-      height: 120px;
+      height: 160px;
     }
     .welcome-title {
       font-display: center;
@@ -84,13 +85,13 @@
   
   @media(min-width:400px){
     .profile-align{
-      height: 140px;
+      height: 180px;
       width: 100%;
     }
     .welcome-title {
       font-display: center;
       text-decoration: darkgrey;
-      font-size: 9px;
+      font-size: 8px;
       text-align: center;
     }
     .card-title{
@@ -101,7 +102,7 @@
   }
   @media(min-width:450px){
     .profile-align{
-      height: 150px;
+      height: 200px;
       width: 100%;
     }
     .welcome-title {
@@ -118,7 +119,7 @@
   }
   @media(min-width:500px){
     .profile-align{
-      height: 180px;
+      height: 220px;
       width: 100%;
       padding: 5px;
       
@@ -137,7 +138,7 @@
   }
   @media(min-width:575px){
     .profile-align{
-      height: 160px;
+      height: 180px;
       width: 100%;
       padding: 5px;
     }
@@ -155,7 +156,7 @@
   }
   @media(min-width:700px){
     .profile-align{
-      height: 180px;
+      height: 200px;
       width: 100%;
       padding: 5px;
     }
@@ -173,7 +174,7 @@
   }
   @media(min-width:767px){
     .profile-align{
-      height: 90px;
+      height: 110px;
       width: 100%;
     }
     .card-title{
@@ -184,13 +185,13 @@
     .welcome-title {
       font-display: center;
       text-decoration: darkgrey;
-      font-size: 18px;
+      font-size: 16px;
       text-align: center;
     }
   }
   @media(min-width:775px){
     .profile-align{
-      height: 90px;
+      height: 110px;
       width: 100%;
     }
     .card-title{
@@ -201,7 +202,7 @@
   }
   @media(min-width:900px){
     .profile-align{
-      height: 110px;
+      height: 150px;
       width: 100%;
     }
     .card-title{
@@ -212,7 +213,7 @@
   }
   @media(min-width:1024px){
     .profile-align{
-      height: 120px;
+      height: 140px;
       width: 100%;
     }
     .card-title{
@@ -229,9 +230,10 @@
   }
   @media(min-width:1200px){
     .profile-align{
-      height: 170px;
+      height: 190px;
       width: 100%;
     }
+   
     .card-title{
       font-size: 12px;
       font-display: center;
@@ -240,7 +242,7 @@
   }
   @media(min-width:1440px){
     .profile-align{
-      height: 170px;
+      height: 190px;
       width: 100%;
     }
     .card-title{
@@ -257,7 +259,7 @@
   }
   @media(min-width:1500px){
     .profile-align{
-      height: 190px;
+      height: 210px;
       width: 100%;
     }
     .card-title{
@@ -274,7 +276,7 @@
   }
   @media(min-width:1600px){
     .profile-align{
-      height: 210px;
+      height: 230px;
       width: 100%;
     }
     .card-title{
