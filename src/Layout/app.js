@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import AllNavbar from '../Component/navbar.js'
 import routes from "../route.js";
-import './app.css';
+import '../Styles/app.css';
 
 
 class Admin extends Component {
