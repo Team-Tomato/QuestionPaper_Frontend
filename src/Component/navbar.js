@@ -35,7 +35,10 @@ class Header extends Component {
     return (
       <div>
         <Navbar expand="md" className='TopNavbar' light>
-          <NavbarBrand href="/" className='TopNavbarBrand' >Team Tomato</NavbarBrand>
+          <NavbarBrand href="/" className='TopNavbarBrand' >
+            <img src={require("../../public/logo40.png")} />
+            Team Tomato
+          </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="mr-auto" navbar pills>
