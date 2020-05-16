@@ -30,7 +30,7 @@ class SearchQP extends Component {
                   <Input type="text" name="keywordSearch" id="keywordSearch" placeholder="Search subject name or staff" onChange={this.onChange} />
                 </Col>
                 <Col sm={6} md={4} lg={2}>
-                  <Button style={{backgroundColor: "#da4eda"}} variant="contained" block>Search</Button>
+                  <Button style={{backgroundColor: "violet"}} variant="contained" block>Search</Button>
                 </Col>
               </Row>
             </Form>
