@@ -18,8 +18,8 @@ class Home extends Component {
                             <h1 className="typeText">Welcome <FontAwesomeIcon icon="users" /> <br /> <br /> </h1>
                             <h3>
                                 We Team-Tomato, <br /> <br />
-                                <FontAwesomeIcon icon="hand-point-right" color="violet" /> Nuture <FontAwesomeIcon icon="user-graduate" color="green" /> with wisdom <br /><br />
-                                <FontAwesomeIcon icon="hand-point-right" color="violet" /> Open Source <FontAwesomeIcon icon="heart" color="red" /> <br /><br />
+                                <FontAwesomeIcon icon="hand-point-right" color="violet" /> Nurture <FontAwesomeIcon icon="user-graduate" color="violet" /> with wisdom <br /><br />
+                                <FontAwesomeIcon icon="hand-point-right" color="violet" /> Open Source <FontAwesomeIcon icon="heart" color="violet" /> <br /><br />
                                 <FontAwesomeIcon icon="hand-point-right" color="violet" /> Do real time projects
                             </h3>
                             <br /><br /><br />

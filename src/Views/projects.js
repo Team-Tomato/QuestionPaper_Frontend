@@ -7,7 +7,7 @@ import webapp from '../images/webapp.png';
 import flutter from '../images/flutter.png';
 import {
   Row, Col, Card, CardImg, CardText, CardBody,
-  CardTitle, Button
+  CardTitle, Button, Badge
 } from 'reactstrap';
 
 
@@ -21,7 +21,11 @@ class Project extends Component {
             <CardBody>
               <CardTitle>Web App</CardTitle>
               <CardText>Team Tomato website</CardText>
-              <CardText>[ React.js, Flask, PostgreSQL ]</CardText>
+              <CardText> 
+                <Badge color="dark" pill>React.js</Badge>  
+                <Badge color="dark" pill>Flask</Badge>  
+                <Badge color="dark" pill>PostgreSQL</Badge>  
+              </CardText>
               <a href="https://github.com/Team-Tomato/QuestionPaper_Frontend" target="_blank"><Button style={{ backgroundColor: "#da4eda" }} variant="contained">Github Repo</Button></a>
             </CardBody>
           </Card>
@@ -32,7 +36,11 @@ class Project extends Component {
             <CardBody>
               <CardTitle>G Action-1</CardTitle>
               <CardText>Team Tomato Action</CardText>
-              <CardText>[ Node.js, Dialogflow, Canvas ]</CardText>
+              <CardText>
+                <Badge color="dark" pill>Node.js</Badge>  
+                <Badge color="dark" pill>Dialogflow</Badge>  
+                <Badge color="dark" pill>Canvas</Badge>  
+              </CardText>
               <a href="https://github.com/Team-Tomato/GAction_TeamTomato" target="_blank"><Button style={{ backgroundColor: "#da4eda" }} variant="contained">Github Repo</Button></a>
             </CardBody>
           </Card>
@@ -43,7 +51,10 @@ class Project extends Component {
             <CardBody>
               <CardTitle>G Action-2</CardTitle>
               <CardText>Movie Recommendation</CardText>
-              <CardText>[ Node.js, Dialogflow ]</CardText>
+              <CardText>
+                <Badge color="dark" pill>Node.js</Badge>  
+                <Badge color="dark" pill>Dialogflow</Badge>  
+              </CardText>
               <a href="https://github.com/Team-Tomato/GAction_MovieRecommendation" target="_blank"><Button style={{ backgroundColor: "#da4eda" }} variant="contained">Github Repo</Button></a>
             </CardBody>
           </Card>
@@ -53,8 +64,12 @@ class Project extends Component {
             <CardImg src={extension} alt="Card image cap" />
             <CardBody>
               <CardTitle>One Click Extension</CardTitle>
-              <CardText>Extension for CEG</CardText>
-              <CardText>[ HTML, CSS, Javascript ]</CardText>
+              <CardText>Extension for CEG (Learn)</CardText>
+              <CardText>
+                <Badge color="dark" pill>JavaScript</Badge>  
+                <Badge color="dark" pill>CSS</Badge>  
+                <Badge color="dark" pill>HTML</Badge> 
+              </CardText>
               <a href="https://github.com/Team-Tomato/oneClick-chrome-extension" target="_blank"><Button style={{ backgroundColor: "#da4eda" }} variant="contained">Github Repo</Button></a>
             </CardBody>
           </Card>
@@ -65,7 +80,11 @@ class Project extends Component {
             <CardBody>
               <CardTitle>Team Tomato App</CardTitle>
               <CardText>Flutter Application</CardText>
-              <CardText>[ Flutter, Dart, PostgreSQL ]</CardText>
+              <CardText>
+                <Badge color="dark" pill>Flutter</Badge>  
+                <Badge color="dark" pill>Dart</Badge>  
+                <Badge color="dark" pill>PostgreSQL</Badge> 
+              </CardText>
               <Button style={{ backgroundColor: "#da4eda" }} variant="contained">In Progress</Button>
             </CardBody>
           </Card>
@@ -76,7 +95,10 @@ class Project extends Component {
             <CardBody>
               <CardTitle>Chat Bot</CardTitle>
               <CardText>Chat bot for Maths Department</CardText>
-              <CardText>[ Node.js, Wit.ai ]</CardText>
+              <CardText>
+                <Badge color="dark" pill>Node.js</Badge>  
+                <Badge color="dark" pill>Wit.ai</Badge>  
+              </CardText>
               <Button style={{ backgroundColor: "#da4eda" }} variant="contained">In Progress</Button>
             </CardBody>
           </Card>
