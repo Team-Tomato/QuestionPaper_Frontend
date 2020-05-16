@@ -1,3 +1,4 @@
+import Home from './Views/home.js'
 import SearchQP from './Views/searchQP.js'
 import SearchBook from './Views/SearchBook.js'
 import TemplateQP from './Views/templateQP.js'
@@ -6,6 +7,11 @@ import Contributors from './Views/contributors.js'
 import Contact from './Views/contact.js'
 
 const Routes = [
+    {
+      path: "/",
+      name: "home",
+      component: Home
+    },
     {
       path: "/searchQP",
       name: "searchQP",
