@@ -41,6 +41,14 @@
     text-decoration: darkgrey;
     font-size: 20px;
   }
+
+.gradient {
+  background: linear-gradient(to bottom right, violet, pink);
+  height: 250px;
+  margin-left: 0px;
+  margin: 0px;
+} 
+
   .profile-align{
     width: 100%;
       height: 150px;

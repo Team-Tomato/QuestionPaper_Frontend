@@ -3,8 +3,10 @@ import '../Styles/contributors.css'
 import Loader from 'react-loading';
 import "animate.css/animate.min.css";
 import ScrollAnimation from 'react-animate-on-scroll';
-class contributors extends Component {
+import {Card, CardBody} from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+class contributors extends Component {
   constructor() {
     super();
     this.state = {
@@ -40,16 +42,18 @@ class contributors extends Component {
   render() {
     return (
       <div>
-        <div className="row justify-content-center" style={{ marginLeft: '0px' ,marginRight:'0px'}}>
-          <div className="card bg-secondary cardalign" style={{ color: 'gray' }}>
-            <div className="card-body text-white">
-              <h2 className="welcome-title" style={{
+        <Card className="gradient">
+          <CardBody className ="welcome-title" style={{
                 position: 'absolute', left: '50%', top: '50%',
-                transform: 'translate(-50%, -50%)'
-              }}>Welcoming all people to contribute to our project</h2>
-            </div>
-          </div>
-        </div>
+                transform: 'translate(-50%, -50%)',
+                color:'white'
+              }}>
+            <h5>Our beloved contributors <FontAwesomeIcon icon="heart" color="white"/> 
+            <br/>
+            Feel free to send your PR's to our repo</h5>
+          </CardBody>
+        </Card>
+
         {this.state.fetched ? (
           <div>
             <div className="container-fluid d-flex justify-content-center">

@@ -89,14 +89,13 @@ class SearchQP extends Component {
 
     return (
       <div>
-        
-        <Card style={{height:'400px',backgroundColor:'gray',margin:'0%'}}>
+        <Card className="gradient">
           <CardBody className ="welcome-title" style={{
                 position: 'absolute', left: '50%', top: '50%',
                 transform: 'translate(-50%, -50%)',
                 color:'white'
               }}>
-            Surf using the bar and get the needed ones
+            <h5>Search for integrated M.Sc question papers</h5>
           </CardBody>
         </Card>
         
