@@ -1,102 +1,147 @@
 import React, { Component } from 'react';
-import {
-  Card, CardBody, CardFooter
-} from 'reactstrap'
-import { Container, Row, Col } from 'reactstrap'
+import { Card, CardBody, CardFooter } from 'reactstrap'
+import { Container, Row, Col, Table } from 'reactstrap'
 import FormQP from '../Component/searQPForm.js'
-import '../style.css'
+import '../Styles/style.css'
+import Loader from 'react-loading';
+import '../Styles/contributors.css'
 
 class SearchQP extends Component {
-    constructor() {
-        super()
-        this.state = {
-            loading: false,
-            url: [],
-        };
-        this.handleSubmit = this.handleSubmit.bind(this)
-        // this.getimage = this.getimage.bind(this)
-    }
+  constructor() {
+    super()
+    this.state = {
+      loading: false,
+      qpData: [],
+    };
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
 
-    // getimage(images) {
-    // //   let images = this.state.urls
-    // //   let len = images.length
-    // //   for (var i = 0; i < len; i++) {
-    //     // let imageurl = this.state.person.data[i]
-    //     // console.log(imageurl)
-    //     fetch(images)
-    //       .then((imgres) => {
-    //         console.log(imgres.url)
-    //         this.state.img.push(imgres.url)
-    //       })
-    // }
+  async handleSubmit(event, query) {
+    this.setState({
+      loading: true
+    })
+    event.preventDefault()
+    let url = 'https://teamtomato.herokuapp.com/api/v1/question/search?search_str=' + query
+    await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
+      }
+    }).then(res => {
+      if (res.ok) {
+        return res.json();
+      }
+      throw new Error('Network response was not ok.')
+    }).then(response => {
+      this.setState({
+        qpData: response,
+        loading: false
+      })
+      console.log(response, "REs")
+    })
+  }
 
+  render() {
+    let QPContainer
+    let urls = []
 
-    async handleSubmit(event, query) {
-        this.setState({
-            loading: true
-        })
-        event.preventDefault()
-        let url = 'http://localhost:8080/api/v1/teamtomato/';
-        await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
-            },
-            body: JSON.stringify({
-                "keyword": query
-            })
-        }).then(res => {
-            if (res.ok) {
-                return res.json();
-            }
-            throw new Error('Network response was not ok.')
-        }).then(response => {
-            this.setState({
-                url: response.data,
-                loading: false
-            })
-            console.log(response, this.state.url)
-        })
-    }
+    //For Card Usgae
+    // let urlList = []
+    // let staffList = []
+    // let shortFormList = []
 
-    render() {
-        let QPContainer
-        let urls = []
-        urls = this.state.url.map((images, index) => (
-            <Col lg={3} md={4} sm={12} key={index} className='cardPadding'>
-            <Card>
-                <CardBody>
-                    <img src={images} alt='QP Image'/>
-                </CardBody>
-                <CardFooter>
-                    Subject | StaffName
-                    {/* API should return Subject name and staff name */}
-                </CardFooter>
-            </Card>
-            </Col>
-        ))
-        if (this.state.loading === false) {
-            QPContainer =
-                <Container>
-                    <Row>
-                        {urls}
-                    </Row>
-                </Container>
-        }
-        else {
-            QPContainer = <div></div>
-        }
+    // this.state.qpData.forEach(element => {
+    //   staffList.push(element['shortForm'])
+    //   shortFormList.push(element['staff'])
+    //   const url='https://avatars2.githubusercontent.com/u/20479150?v=4/'
+    //   urlList.push(url)
+    // });
+    // console.log(shortFormList, staffList, urlList)
+    // urls = urlList.map((images, index) => (
+    //   <Col lg={3} md={4} sm={12} key={index} className='cardPadding'>
+    //     <Card>
+    //       <CardBody>
+    //         <img className="img-align" src={images} alt="Card image cap" />
+    //         {/* <img src={images} alt='QP Image' /> */}
+    //       </CardBody>
+    //       <CardFooter>
+    //         Subject | StaffName
+    //                 {/* Need to make it dynamic */}
+    //       </CardFooter>
+    //     </Card>
+    //   </Col>
+    // ))
+    let table = []
 
+    //Loading Option
+    if (this.state.qpData !== [] && (this.state.qpData).length !== 0) {
+
+      // if(qpData && qpData.length) {
+      table = this.state.qpData.map((data, index) => {
+        // console.log("D",data, data[1], data['staff'])
+        // url = data['url']
         return (
-            <div>
-                <FormQP handleSubmit={this.handleSubmit.bind(this)} />
-                <br/>
-                {QPContainer}
-            </div>
+          <tr key={index}>
+            <td>{data['subjectName']}</td>
+            <td>{data['staff']}</td>
+            <td>{data['shortForm']}</td>
+            <a href={data['url']} target="blank"><td>{data['url']}</td></a>
+          </tr>
         )
-    }
-}
+      })
+      // }
 
-export default SearchQP;
+      if (this.state.loading === false) {
+        QPContainer =
+          <Container>
+            <Table striped hover responsive>
+              <thead>
+                <tr>
+                  <th>Subject Name</th>
+                  <th>Staff Name</th>
+                  <th>ShortForm</th>
+                  <th>QP Link</th>
+                </tr>
+              </thead>
+              <tbody>
+                {table}
+              </tbody>
+            </Table>
+          </Container>
+      }
+      else {
+        QPContainer = <div style={{
+          position: 'absolute', left: '50%', top: '92%',
+          transform: 'translate(-50%, -50%)'
+        }}>
+          <Loader type={"bars"} color={"black"} />
+        </div>
+      }
+    }
+    else {
+      QPContainer = <h6></h6>
+    }
+
+      return (
+        <div>
+          <Card className="gradient">
+            <CardBody className="welcome-title" style={{
+              position: 'absolute', left: '50%', top: '50%',
+              transform: 'translate(-50%, -50%)',
+              color: 'white'
+            }}>
+              <h5>Search for integrated M.Sc question papers</h5>
+            </CardBody>
+          </Card>
+
+          <FormQP handleSubmit={this.handleSubmit.bind(this)} />
+          <br />
+          {QPContainer}
+        </div>
+      )
+    }
+  }
+
+  export default SearchQP;
