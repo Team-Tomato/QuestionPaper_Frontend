@@ -10,9 +10,10 @@ class Home extends Component {
             <Container>
                 <br /><br />
                 <Row>
-                    <Col md={6} lg={6} sm={2}>
-                        <img src={require("../images/mainlogos.png")} />
+                    <Col md={6} lg={6} sm={2} >
+                        <img src={require("../images/mainlogos.png")} className="centerIt"/>
                     </Col>
+                    <br/>
                     <Col md={6} lg={6} sm={2}>
                         <Typing speed={100}>
                             <h1 className="typeText">Welcome <FontAwesomeIcon icon="users" /> <br /> <br /> </h1>
