@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {
-    Form, 
+    Form,
     Input,
-    Button
+    Button, Card, CardBody, Container
 } from 'reactstrap';
 import '../Styles/contactpg.css'
 
@@ -34,12 +34,12 @@ class App extends Component {
                 }
             })
         })
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (response) {
-            console.log(response);
-        });
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (response) {
+                console.log(response);
+            });
     }
     render() {
         const { name, email, message } = this.state;
@@ -47,13 +47,18 @@ class App extends Component {
             <div>
                 <div className="header">
                     <h1>We will be happy to hear from you !</h1>
-                    <h4 className="violet">
-                        Want to join the team? || Having an awesome idea to implement? || Any question? <br />
-                    </h4>
                     <h4>Get in touch with us.</h4>
                 </div>
+                <Container>
+                    <Card>
+                        <CardBody>
+                            <h5>Use the public key</h5>
+                            <h2 className="violet">D16C 2228 B32C EA4A B6B8 B92B EE4D DD8F DA96 7765</h2>
+                            <h5>to mail us at teamtomato.oss@gmail.com</h5>
+                        </CardBody>
+                    </Card>
 
-                <div className="center">
+                    <h3 className="center">or</h3>
                     <Form>
                         <Input type="text" name="name" value={name} placeholder="Your Name" sm={10} onChange={this.changeHandler} />
                         <br />
@@ -63,12 +68,7 @@ class App extends Component {
                         <br />
                         <Button onClick={this.submitHandler} style={{ backgroundColor: "violet" }} variant="contained" block>Send</Button>
                     </Form>
-                </div>
-
-                <div className="text">
-                    <text>For</text> <text className="violet">secreat</text> <text>conversation,</text>
-                    <h6 className="pink" > Stop by and say Hi to teamtomato.oss@gmail.com</h6>
-                </div>
+                </Container>
             </div>
         );
     }
