@@ -22,14 +22,14 @@ class SearchQP extends Component {
     return (
       <Container>
         <br />
-        <Card>
-          <CardBody>
+        <Card className="correctMargin">
+          <CardBody className="removeIndent">
             <Form onSubmit={(event) => { this.props.handleSubmit(event, this.state.query) }}>
-              <Row>
-                <Col sm={6} md={8} lg={10}>
+              <Row className="addSpace">
+                <Col sm={6} md={8} lg={10} className="addIndent">
                   <Input type="text" name="keywordSearch" id="keywordSearch" placeholder="Search subject name or staff" onChange={this.onChange} />
                 </Col>
-                <Col sm={6} md={4} lg={2}>
+                <Col sm={6} md={4} lg={2} className="addIndent">
                   <Button style={{backgroundColor: "violet"}} variant="contained" block>Search</Button>
                 </Col>
               </Row>
