@@ -53,13 +53,13 @@ class Project extends Component {
                 <br />
                 <Container>
                     <Card>
-                        <CardBody>
+                        <CardBody className="removeIndent">
                             <Form>
                                 <Row>
-                                    <Col sm={6} md={8} lg={10}>
+                                    <Col sm={6} md={8} lg={10} className="addIndent">
                                         <Input type="text" placeholder="Enter the Title or Author name" onChange={this.onChange} />
                                     </Col>
-                                    <Col sm={6} md={4} lg={2}>
+                                    <Col sm={6} md={4} lg={2} className="addIndent">
                                         <Button style={{ backgroundColor: "violet" }} variant="contained" block onClick={this.handleLogin}>Search</Button>
                                     </Col>
                                 </Row>
