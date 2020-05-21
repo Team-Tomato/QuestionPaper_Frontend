@@ -5,9 +5,10 @@ import movie from '../images/gaction2.png';
 import tableau from '../images/t20.png';
 import webapp from '../images/webapp.png';
 import flutter from '../images/flutter.png';
+import '../Styles/project.css'
 import {
     Row, Col, Card, CardImg, CardText, CardBody,
-    CardTitle, Button, Badge
+    CardTitle, Button, Badge, Container
 } from 'reactstrap';
 
 
@@ -25,8 +26,9 @@ class Project extends Component {
                     </CardBody>
                 </Card>
                 <br />
+                <Container>
                 <Row>
-                    <Col md={2} lg={2} sm={6}>
+                    <Col md={3} lg={3} sm={12} className="indentCorrection">
                         <Card>
                             <CardImg src={webapp} alt="Card image cap" />
                             <CardBody>
@@ -41,7 +43,7 @@ class Project extends Component {
                             </CardBody>
                         </Card>
                     </Col>
-                    <Col md={2} lg={2} sm={6}>
+                    <Col md={3} lg={3} sm={12} className="indentCorrection">
                         <Card>
                             <CardImg src={teamaction} alt="Card image cap" />
                             <CardBody>
@@ -56,7 +58,7 @@ class Project extends Component {
                             </CardBody>
                         </Card>
                     </Col>
-                    <Col md={2} lg={2} sm={6}>
+                    <Col md={3} lg={3} sm={12} className="indentCorrection">
                         <Card>
                             <CardImg src={movie} alt="Card image cap" />
                             <CardBody>
@@ -70,7 +72,7 @@ class Project extends Component {
                             </CardBody>
                         </Card>
                     </Col>
-                    <Col md={2} lg={2} sm={6}>
+                    <Col md={3} lg={3} sm={12} className="indentCorrection">
                         <Card>
                             <CardImg src={extension} alt="Card image cap" />
                             <CardBody>
@@ -85,7 +87,7 @@ class Project extends Component {
                             </CardBody>
                         </Card>
                     </Col>
-                    <Col md={2} lg={2} sm={6}>
+                    <Col md={3} lg={3} sm={12} className="indentCorrection">
                         <Card>
                             <CardImg src={flutter} alt="Card image cap" />
                             <CardBody>
@@ -100,7 +102,7 @@ class Project extends Component {
                             </CardBody>
                         </Card>
                     </Col>
-                    <Col md={2} lg={2} sm={6}>
+                    <Col md={3} lg={3} sm={12} className="indentCorrection">
                         <Card>
                             <CardImg src={tableau} alt="Card image cap" />
                             <CardBody>
@@ -115,6 +117,7 @@ class Project extends Component {
                         </Card>
                     </Col>
                 </Row>
+                </Container>
             </div>
         );
     }
