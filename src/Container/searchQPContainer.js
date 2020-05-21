@@ -76,24 +76,19 @@ class SearchQP extends Component {
     let table = []
 
     //Loading Option
-    if (this.state.qpData !== [] && (this.state.qpData).length !== 0) {
+    if (this.state.loading === false) {
+      if (this.state.qpData !== [] && (this.state.qpData).length !== 0) {
+        table = this.state.qpData.map((data, index) => {
+          return (
+            <tr key={index}>
+              <td>{data['subjectName']}</td>
+              <td>{data['staff']}</td>
+              <td>{data['shortForm']}</td>
+              <a href={data['url']} target="blank"><td>{data['url']}</td></a>
+            </tr>
+          )
+        })
 
-      // if(qpData && qpData.length) {
-      table = this.state.qpData.map((data, index) => {
-        // console.log("D",data, data[1], data['staff'])
-        // url = data['url']
-        return (
-          <tr key={index}>
-            <td>{data['subjectName']}</td>
-            <td>{data['staff']}</td>
-            <td>{data['shortForm']}</td>
-            <a href={data['url']} target="blank"><td>{data['url']}</td></a>
-          </tr>
-        )
-      })
-      // }
-
-      if (this.state.loading === false) {
         QPContainer =
           <Container>
             <Table striped hover responsive>
@@ -112,36 +107,35 @@ class SearchQP extends Component {
           </Container>
       }
       else {
-        QPContainer = <div style={{
-          position: 'absolute', left: '50%', top: '92%',
-          transform: 'translate(-50%, -50%)'
-        }}>
-          <Loader type={"bars"} color={"black"} />
-        </div>
+        QPContainer = <h6></h6>
       }
     }
     else {
-      QPContainer = <h6></h6>
+      QPContainer = <div style={{
+        position: 'absolute', left: '50%', top: '92%',
+        transform: 'translate(-50%, -50%)'
+      }}>
+        <Loader type={"bars"} color={"black"} />
+      </div>
     }
+    return (
+      <div>
+        <Card className="gradient">
+          <CardBody className="welcome-title" style={{
+            position: 'absolute', left: '50%', top: '50%',
+            transform: 'translate(-50%, -50%)',
+            color: 'white'
+          }}>
+            <h5>Search for integrated M.Sc question papers</h5>
+          </CardBody>
+        </Card>
 
-      return (
-        <div>
-          <Card className="gradient">
-            <CardBody className="welcome-title" style={{
-              position: 'absolute', left: '50%', top: '50%',
-              transform: 'translate(-50%, -50%)',
-              color: 'white'
-            }}>
-              <h5>Search for integrated M.Sc question papers</h5>
-            </CardBody>
-          </Card>
-
-          <FormQP handleSubmit={this.handleSubmit.bind(this)} />
-          <br />
-          {QPContainer}
-        </div>
-      )
-    }
+        <FormQP handleSubmit={this.handleSubmit.bind(this)} />
+        <br />
+        {QPContainer}
+      </div>
+    )
   }
+}
 
-  export default SearchQP;
+export default SearchQP;
