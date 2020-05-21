@@ -198,3 +198,7 @@ margin-top: 30px;
 .removeIndent {
   margin-bottom: -15px;
 }
+
+.correctMargin {
+  left: -10px;
+}

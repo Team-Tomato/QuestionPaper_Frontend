@@ -22,7 +22,7 @@ class SearchQP extends Component {
     return (
       <Container>
         <br />
-        <Card>
+        <Card className="correctMargin">
           <CardBody className="removeIndent">
             <Form onSubmit={(event) => { this.props.handleSubmit(event, this.state.query) }}>
               <Row className="addSpace">

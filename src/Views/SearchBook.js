@@ -52,7 +52,7 @@ class Project extends Component {
                 </Card>
                 <br />
                 <Container>
-                    <Card>
+                    <Card className="correctMargin">
                         <CardBody className="removeIndent">
                             <Form>
                                 <Row>
