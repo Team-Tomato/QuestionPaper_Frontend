@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import '../Styles/style.css'
 import Loader from 'react-loading';
-import { Form, Row, Col, Input, Button, Container, Card, CardBody, CardDeck } from 'reactstrap'
+import { Form, Row, Col, Input, Button, Container, Card, CardBody, CardDeck,Table } from 'reactstrap'
 
 class Project extends Component {
     state = {
         query: '',
         loading: false,
-        title: [],
         person: []
     }
 
@@ -15,21 +14,18 @@ class Project extends Component {
         const { value } = e.target;
         this.setState({
             query: value,
-            title: []
+            person:[]
         });
     };
 
     async search(query) {
-        const url = "https://www.googleapis.com/books/v1/volumes?q=" + query
+        const url = "https://teamtomato.herokuapp.com/api/v1/book/search?search_str=" + query //fetch the specific book
         const response = await fetch(url)
-        console.log(response)
         const data = await response.json();
-        this.setState({ person: data })
-        for (var i = 0; i < 10; i++) {
-            var authored = this.state.person.items[i].volumeInfo;
-            this.state.title.push(authored)
-            this.setState({ loading: false })
-        }
+        this.setState({ 
+            person: data,
+            loading:false
+         })
     }
 
     handleLogin = e => {
@@ -39,19 +35,64 @@ class Project extends Component {
     }
 
     render() {
-        return (
-            <div>
-                <Card className="gradient">
-                    <CardBody className="welcome-title" style={{
-                        position: 'absolute', left: '50%', top: '50%',
-                        transform: 'translate(-50%, -50%)',
-                        color: 'white'
-                    }}>
-                        <h5>Books destination for Integrated students</h5>
-                    </CardBody>
-                </Card>
-                <br />
-                <Container>
+        let BookContainer
+        let table = []
+    if (this.state.loading === false) {
+      if (this.state.person !== [] && (this.state.person).length !== 0) {
+        table = this.state.person.map((data, index) => {
+          return (
+            <tr key={index}>
+              <td>{data.title}</td>
+              <td>{data.author}</td>
+              <td>{data.isbn}</td>
+              <td>{data.publisher}</td>
+              <a href={data.url} target="blank" className="violet"><td>{data.url}</td></a>
+            </tr>
+          )
+        })
+        BookContainer =
+          <Container>
+            <Table striped hover responsive>
+              <thead>
+                <tr>
+                  <th>TITLE</th>
+                  <th>AUTHOR</th>
+                  <th>ISBN</th>
+                  <th>PUBLISHER</th>
+                  <th>URL</th>
+                </tr>
+              </thead>
+              <tbody>
+                {table}
+              </tbody>
+            </Table>
+          </Container>
+      }
+      else {
+        BookContainer = <h6></h6>
+      }
+    }
+    else {
+      BookContainer = <div style={{
+        position: 'absolute', left: '50%', top: '100%',
+        transform: 'translate(-50%, -50%)'
+      }}>
+        <Loader type={"bars"} color={"black"} />
+      </div>
+    }
+    return (
+      <div>
+        <Card className="gradient">
+          <CardBody className="welcome-title" style={{
+            position: 'absolute', left: '50%', top: '50%',
+            transform: 'translate(-50%, -50%)',
+            color: 'white'
+          }}>
+            <h5>Books destination for Integrated students</h5>
+          </CardBody>
+        </Card>
+        <br />
+        <Container>
                     <Card className="correctMargin">
                         <CardBody className="removeIndent">
                             <Form>
@@ -69,34 +110,10 @@ class Project extends Component {
                     <div>
                     </div>
                 </Container>
-                {this.state.loading || !this.state.title ? (
-                    <div style={{
-                        position: 'absolute', left: '50%', top: '50%',
-                        transform: 'translate(-50%, -50%)'
-                    }}><Loader type={"bars"} color={"black"} /></div>
-                ) : (
-                        <Container>
-                            <Row>
-                                {
-                                    this.state.title.map((images, index) => (
-                                        <Col key={index} xs={12} sm={3}>
-                                            <CardDeck>
-                                                <Card className="search-card">
-                                                    <img className=" img-align" src={images.imageLinks.thumbnail} alt="Card image cap" />
-                                                    <header className="header">{images.authors}</header>
-                                                    <footer className="footer">{images.title}</footer>
-                                                    <a href="https://www.google.com"><i className="fa fa-download a"></i></a>
-                                                </Card>
-                                            </CardDeck>
-                                        </Col>
-                                    ))}
-                            </Row>
-                        </Container>
-                    )}
-
-            </div>
-        )
-    }
+        {BookContainer}
+      </div>
+    )
+  }    
 }
 
 export default Project;
