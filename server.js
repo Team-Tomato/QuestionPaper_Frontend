@@ -1,4 +1,7 @@
 //Ref - https://medium.com/jeremy-gottfrieds-tech-blog/tutorial-how-to-deploy-a-production-react-app-to-heroku-c4831dfcfa08
+
+//Deploy - https://codeburst.io/deploy-react-to-github-pages-to-create-an-amazing-website-42d8b09cd4d
+// Not using this server
 const express = require('express');
 const favicon = require('express-favicon');
 const path = require('path');
