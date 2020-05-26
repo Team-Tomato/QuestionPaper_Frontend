@@ -28,12 +28,12 @@ class Project extends Component {
                 <br />
                 <Container>
                 <Row>
-                    <Col md={3} lg={3} sm={12} className="indentCorrection">
-                        <Card>
+                    <Col md={3} lg={3} sm={12}>
+                        <Card className="indentCorrection">
                             <CardImg src={webapp} alt="Card image cap" />
                             <CardBody>
                                 <CardTitle>Web App</CardTitle>
-                                <CardText>Team Tomato website</CardText>
+                                <CardText>Exclusive Team-Tomato website</CardText>
                                 <CardText>
                                     <Badge color="dark" pill>React.js</Badge>
                                     <Badge color="dark" pill>Flask</Badge>
@@ -43,12 +43,54 @@ class Project extends Component {
                             </CardBody>
                         </Card>
                     </Col>
-                    <Col md={3} lg={3} sm={12} className="indentCorrection">
-                        <Card>
+                    <Col md={3} lg={3} sm={12}>
+                        <Card className="indentCorrection">
+                            <CardImg src={flutter} alt="Card image cap" />
+                            <CardBody>
+                                <CardTitle>Chat App</CardTitle>
+                                <CardText>Chat bot for Maths Department</CardText>
+                                <CardText>
+                                    <Badge color="dark" pill>Flutter</Badge>
+                                    <Badge color="dark" pill>NLP</Badge>
+                                    <Badge color="dark" pill>PostgreSQL</Badge>
+                                </CardText>
+                                <Button style={{ backgroundColor: "violet" }} variant="contained">In Progress</Button>
+                            </CardBody>
+                        </Card>
+                    </Col>
+                    <Col md={3} lg={3} sm={12}>
+                        <Card className="indentCorrection">
+                            <CardImg src={tableau} alt="Card image cap" />
+                            <CardBody>
+                                <CardTitle>Case study</CardTitle>
+                                <CardText>Visualization of T20 Cricket data</CardText>
+                                <CardText>
+                                    <Badge color="dark" pill>Tableau</Badge>
+                                </CardText>
+                                <Button style={{ backgroundColor: "violet" }} variant="contained">In Progress</Button>
+                            </CardBody>
+                        </Card>
+                    </Col>
+                    <Col md={3} lg={3} sm={12}>
+                        <Card className="indentCorrection">
+                            <CardImg src={movie} alt="Card image cap" />
+                            <CardBody>
+                                <CardTitle>G Action-2</CardTitle>
+                                <CardText>Tamil Movie Recommendations</CardText>
+                                <CardText>
+                                    <Badge color="dark" pill>Node.js</Badge>
+                                    <Badge color="dark" pill>Dialogflow</Badge>
+                                </CardText>
+                                <a href="https://github.com/Team-Tomato/GAction_MovieRecommendation" target="_blank"><Button style={{ backgroundColor: "#da4eda" }} variant="contained">Github Repo</Button></a>
+                            </CardBody>
+                        </Card>
+                    </Col>
+                    <Col md={3} lg={3} sm={12}>
+                        <Card className="indentCorrection">
                             <CardImg src={teamaction} alt="Card image cap" />
                             <CardBody>
                                 <CardTitle>G Action-1</CardTitle>
-                                <CardText>Team Tomato Action</CardText>
+                                <CardText>Team-Tomato Action (Learning)</CardText>
                                 <CardText>
                                     <Badge color="dark" pill>Node.js</Badge>
                                     <Badge color="dark" pill>Dialogflow</Badge>
@@ -58,61 +100,18 @@ class Project extends Component {
                             </CardBody>
                         </Card>
                     </Col>
-                    <Col md={3} lg={3} sm={12} className="indentCorrection">
-                        <Card>
-                            <CardImg src={movie} alt="Card image cap" />
-                            <CardBody>
-                                <CardTitle>G Action-2</CardTitle>
-                                <CardText>Movie Recommendation</CardText>
-                                <CardText>
-                                    <Badge color="dark" pill>Node.js</Badge>
-                                    <Badge color="dark" pill>Dialogflow</Badge>
-                                </CardText>
-                                <a href="https://github.com/Team-Tomato/GAction_MovieRecommendation" target="_blank"><Button style={{ backgroundColor: "#da4eda" }} variant="contained">Github Repo</Button></a>
-                            </CardBody>
-                        </Card>
-                    </Col>
-                    <Col md={3} lg={3} sm={12} className="indentCorrection">
-                        <Card>
+                    <Col md={3} lg={3} sm={12}>
+                        <Card className="indentCorrection">
                             <CardImg src={extension} alt="Card image cap" />
                             <CardBody>
                                 <CardTitle>One Click Extension</CardTitle>
-                                <CardText>Extension for CEG (Learn)</CardText>
+                                <CardText>Simple extension for CEG (Learning)</CardText>
                                 <CardText>
                                     <Badge color="dark" pill>JavaScript</Badge>
                                     <Badge color="dark" pill>CSS</Badge>
                                     <Badge color="dark" pill>HTML</Badge>
                                 </CardText>
                                 <a href="https://github.com/Team-Tomato/oneClick-chrome-extension" target="_blank"><Button style={{ backgroundColor: "#da4eda" }} variant="contained">Github Repo</Button></a>
-                            </CardBody>
-                        </Card>
-                    </Col>
-                    <Col md={3} lg={3} sm={12} className="indentCorrection">
-                        <Card>
-                            <CardImg src={flutter} alt="Card image cap" />
-                            <CardBody>
-                                <CardTitle>Team Tomato App</CardTitle>
-                                <CardText>Flutter Application</CardText>
-                                <CardText>
-                                    <Badge color="dark" pill>Flutter</Badge>
-                                    <Badge color="dark" pill>Dart</Badge>
-                                    <Badge color="dark" pill>PostgreSQL</Badge>
-                                </CardText>
-                                <Button style={{ backgroundColor: "#da4eda" }} variant="contained">In Progress</Button>
-                            </CardBody>
-                        </Card>
-                    </Col>
-                    <Col md={3} lg={3} sm={12} className="indentCorrection">
-                        <Card>
-                            <CardImg src={tableau} alt="Card image cap" />
-                            <CardBody>
-                                <CardTitle>Chat Bot</CardTitle>
-                                <CardText>Chat bot for Maths Department</CardText>
-                                <CardText>
-                                    <Badge color="dark" pill>Node.js</Badge>
-                                    <Badge color="dark" pill>Wit.ai</Badge>
-                                </CardText>
-                                <Button style={{ backgroundColor: "#da4eda" }} variant="contained">In Progress</Button>
                             </CardBody>
                         </Card>
                     </Col>
