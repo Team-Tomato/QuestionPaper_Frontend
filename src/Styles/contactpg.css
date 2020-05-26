@@ -39,3 +39,7 @@ line-height: 10px;
 .brown{
   color: #654321;
 }
+
+.indentCorrection {
+  margin-left: 0px;
+}

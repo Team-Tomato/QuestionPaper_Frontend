@@ -6,7 +6,6 @@ import './Styles/style.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
-  // <BrowserRouter>
   <HashRouter>
     <Switch>
       <Route path="/" render={props => <Layout {...props} />} />
