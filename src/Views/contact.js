@@ -50,7 +50,7 @@ class App extends Component {
                     <h4>Get in touch with us.</h4>
                 </div>
                 <Container>
-                    <Card>
+                    <Card className="indentCorrection">
                         <CardBody>
                             <h5>Use the public key</h5>
                             <h2 className="violet">D16C 2228 B32C EA4A B6B8 B92B EE4D DD8F DA96 7765</h2>
