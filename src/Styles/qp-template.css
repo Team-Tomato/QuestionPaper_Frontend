@@ -1,0 +1,12 @@
+.container{
+    padding:20px;
+  }
+
+  .row-align{
+    justify-content: center;
+  }
+
+  ::placeholder {
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+  }
