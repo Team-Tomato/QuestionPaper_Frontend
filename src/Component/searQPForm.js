@@ -15,7 +15,7 @@ class SearchQP extends Component {
   onChange = e => {
     const { value } = e.target;
     let qperror= this.state.qperror;  
-    if (value.length == 0 || valreg.test(value))
+    if (value.length === 0 || valreg.test(value))
     {
       qperror = true;
     }
@@ -31,7 +31,7 @@ class SearchQP extends Component {
   }
 
   render() {
-    const {qperror}=this.state;
+    const {qperror}=this.state
     return (
       <Container>
         <br />
@@ -46,10 +46,7 @@ class SearchQP extends Component {
                   )}
                 </Col>
                 <Col sm={6} md={4} lg={2}>
-                  <Button disabled = {!this.state.value || this.state.value.trim().length == 0} style={{backgroundColor: "violet"}} variant="contained" block>Search</Button>
-                <Col sm={6} md={4} lg={2} className="addIndent">
-                  <Button style={{backgroundColor: "violet"}} variant="contained" block>Search</Button>
-
+                  <Button disabled={!this.state.value || this.state.value.trim().length === 0} style={{backgroundColor: "violet"}} variant="contained" block>Search</Button>
                 </Col>
               </Row>
             </Form>

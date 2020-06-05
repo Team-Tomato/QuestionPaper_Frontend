@@ -116,11 +116,7 @@ class Project extends Component {
                   )}
                   </Col>
                   <Col sm={6} md={4} lg={2} className="addIndent">
-                    <Button disabled = {!this.state.value || this.state.value.trim().length == 0} style={{ backgroundColor: "violet" }} variant="contained" block onClick={this.handleLogin}>Search</Button>
-
-                  </Col>
-                  <Col sm={6} md={4} lg={2} className="addIndent">
-                    <Button style={{ backgroundColor: "violet" }} variant="contained" block onClick={this.handleLogin}>Search</Button>
+                    <Button disabled={!this.state.value || this.state.value.trim().length === 0} style={{ backgroundColor: "violet" }} variant="contained" block onClick={this.handleLogin}>Search</Button>
                   </Col>
                 </Row>
               </Form>
