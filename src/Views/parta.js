@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import {Row,Col,Input, Label, Button} from 'reactstrap'
 import Partb from './partb'
- 
+import Math from './math' 
+import 'katex/dist/katex.min.css';
+
 class Parta extends Component {
   constructor(){
     super();
@@ -23,13 +25,12 @@ class Parta extends Component {
     
     }
   }
-  //const [inputList, setInputList] = useState([{ question: "", mark: "" }]);
- 
+
   // handle input change
    handleInputChange = (e, index) => {
     const { name, value } = e.target;
     const list = [...this.state.qp];
-    list[index][name] = value;
+    list[index][name] = value; 
     this.setState({qp:list})
   };
 
@@ -59,18 +60,12 @@ class Parta extends Component {
   };
 
   handleSubClick = index => {
-   // console.log(index)
     this.state.qp[index].subqp.push({question:"",mark:""})
-   // console.log(this.state.qp[index].subqp.length)
-    // this.setState((prevState)=>({
-    //   qp:[...prevState.qp,{subqp:[{question:"",mark:""}]}]
-    // }))
     this.setState({subload:true})
 
   };
  
   render(){
-    //console.log(this.state.sub[0])
     
   return (
     <div> 
@@ -78,71 +73,67 @@ class Parta extends Component {
                         <Col md={3} className="offset-md-4">
                             <Label  className="form-control" id="part-a" align="center">PART-A</Label>
                         </Col>
-                        
+                        <Col md={1}>
+                       { <Button id="button" className="partabut" color="primary" onClick={this.handleAddClick}>Add</Button>}
+                       </Col>
                         <Col md={3} className="offset-md-1">
                             <Input type="number" className="form-control" id="part-a_mark" placeholder="Total Mark"/>
                         </Col>
+                        
                 </Row>
       {
       this.state.qp.map((x,id) => {
         return (
-        <div><Row className="form-group" key={id}>
-        <Col md={1}>
-        
-            {this.state.qp.length !== 1 && 
-            <Button className="mr10" color="danger" onClick={() => this.handleRemoveClick(id)}>Del</Button>}
-        </Col>
-        <Col md={1}>
-            <Label type="number" className="form-control" id="q_no" name="id">{id+1}</Label>
-        </Col>
-        <Col md={7}>
-            <Input name="question" className="form-control" placeholder="Questions"
-                value={x.question} onChange={e => this.handleInputChange(e, id)}/>
-        </Col>
-        <Col md={1}>
-         
-            <Input type="number" className="form-control ml10" name="mark" placeholder="M"
-                value={x.mark} onChange={e => this.handleInputChange(e, id)}/>
-        </Col>
-        <Col md={1}>
-            {<Button className="form-control" onClick={()=>this.handleSubClick(id)}>Sub</Button>}
-        </Col>
-        <Col md={1}>
-            { <Button className="form-control" color="primary" onClick={this.handleAddClick}>Add</Button>}
-        </Col>
-       </Row>
-     {this.state.qp[id].subqp.map((x,subid)=><div><Row className="form-group" key={id}>
-        <Col md={1}>
-        
-            {
-            <Button className="mr10" color="danger" onClick={() => this.handleRemovesubClick(id,subid)}>Del</Button>}
-        </Col>
-        <Col md={1}>
-            <Label type="number" className="form-control" id="q_no" name="id">{id+1+"."+this.state.sub[subid]+")"}</Label>
-        </Col>
-        <Col md={7}>
-            <Input name="question" className="form-control" placeholder="Questions"
-                value={x.question} onChange={e => this.handleInputsubChange(e, id, subid)}/>
-        </Col>
-        <Col md={1}>
-         
-            <Input type="number" className="form-control ml10" name="mark" placeholder="M"
-                value={x.mark} onChange={e => this.handleInputsubChange(e, id)}/>
-        </Col>
-       </Row></div>)}
-       
-  </div>
-
-            
-        );
-        
-      }
+              <div>
+          {this.state.qp[id].subqp.length!==0?<div>{this.state.qp[id].subqp.map((xb,subid)=><div><Row className="form-group" key={id}>
+              <Col md={1}>
+                  {
+                  <Button id="button" className="partabut" color="danger" onClick={() => this.handleRemovesubClick(id,subid)}>Del</Button>}
+              </Col>
+              <Col md={1}>
+                  <Label type="number" className="form-control" id="q_no" name="id">{id+1+"."+this.state.sub[subid]+")"}</Label>
+              </Col>
+              <Col md={8}>
+                  <Input name="question" className="form-control" placeholder="Questions"
+                      value={xb.question} onChange={e => this.handleInputsubChange(e, id, subid)}/>
+                      <Math ques={xb.question}/>
+              </Col>
+              <Col md={1}>
+                  <Input type="number" className="form-control ml10" name="mark" placeholder="M"
+                      value={xb.mark} onChange={e => this.handleInputsubChange(e, id)}/>
+              </Col>
+              <Col md={1}>
+                  {<Button id ="button" className="partabut" onClick={()=>this.handleSubClick(id)}>Sub</Button>}
+              </Col>
+                  </Row></div>)}</div>:<div><Row className="form-group" key={id}>
+              <Col md={1}>
+                  {this.state.qp.length !== 1 && 
+                  <Button id ="button" className="partabut" color="danger" onClick={() => this.handleRemoveClick(id)}>Del</Button>}
+              </Col>
+              <Col md={1}>
+                  <Label type="number" className="form-control" id="q_no" name="id">{id+1}</Label>
+              </Col>
+              <Col md={8}>
+                  <Input name="question" className="form-control" placeholder="Questions"
+                      value={x.question} onChange={e => this.handleInputChange(e, id)}/>
+                  <Math ques={x.question}/>
+              </Col>
+              <Col md={1}>
+                <Input type="number" className="form-control ml10" name="mark" placeholder="M"
+                      value={x.mark} onChange={e => this.handleInputChange(e, id)}/>
+              </Col>
+              <Col md={1}>
+                  {<Button id ="button" className="partabut" onClick={()=>this.handleSubClick(id)}>Sub</Button>}
+              </Col>
+            </Row></div>}     
+        </div>    
+          );
+        }
       )}
       <hr/>
       <Partb id={this.state.qp.length}/>     
     </div>
   );
-    }
-}
+}}
  
 export default Parta;

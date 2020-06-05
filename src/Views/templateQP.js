@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
-import {Card, CardBody,Row,Input,Col,Form,Container} from 'reactstrap';
+import {Card, CardBody,Row,Input,Col,Form,Container,Button} from 'reactstrap';
+import { PDFExport } from "@progress/kendo-react-pdf";
 import Parta from './parta'
 import '../Styles/qp-template.css'
 
 class App extends Component {
+
+  exportPDFWithComponent = () => {
+    var highlightedItems = document.querySelectorAll(".partabut");
+    highlightedItems.forEach(function(userItem) {
+      userItem.remove();
+    });
+        this.pdfExportComponent.save();
+    };
+    
     render() {
         return (
             <div>
@@ -17,6 +27,13 @@ class App extends Component {
                 </CardBody>
             </Card>
             <Container>
+          <Button onClick={this.exportPDFWithComponent}>Generate PDF</Button>
+          <PDFExport
+              ref={component => (this.pdfExportComponent = component)}
+              paperSize="auto"
+              margin={40}
+              fileName={`Report for ${new Date().getFullYear()}`}
+              author="KendoReact Team">
           <Form onSubmit={this.handleSubmit} onChange={this.handleChange}>
           <Row className="form-group row-align">
               <Col md={3} className=" offset-md-9">
@@ -54,7 +71,8 @@ class App extends Component {
           <hr/>
           <Parta/>
           <hr/>
-        </Form>
+          </Form>
+          </PDFExport>
       </Container>
             </div>
         );
