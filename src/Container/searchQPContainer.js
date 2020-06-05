@@ -5,6 +5,8 @@ import FormQP from '../Component/searQPForm.js'
 import '../Styles/style.css'
 import Loader from 'react-loading';
 import '../Styles/contributors.css'
+import ReactPaginate from 'react-paginate';
+import '../Styles/pagination.css'
 
 class SearchQP extends Component {
   constructor() {
@@ -12,8 +14,12 @@ class SearchQP extends Component {
     this.state = {
       loading: false,
       qpData: [],
+      offset:0,
+      perPage:10,
+      currentPage:0
     };
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handlePageClick = this.handlePageClick.bind(this)
   }
 
   async handleSubmit(event, query) {
@@ -42,7 +48,16 @@ class SearchQP extends Component {
       console.log(response, "REs")
     })
   }
+  handlePageClick=(e)=>{
+    const selectedPage = e.selected;
+    const offset = selectedPage * this.state.perPage;
 
+    this.setState({
+        currentPage: selectedPage,
+        offset: offset
+    });
+
+};
   render() {
     let QPContainer
     let urls = []
@@ -78,7 +93,8 @@ class SearchQP extends Component {
     //Loading Option
     if (this.state.loading === false) {
       if (this.state.qpData !== [] && (this.state.qpData).length !== 0) {
-        table = this.state.qpData.map((data, index) => {
+        const slice=this.state.qpData.slice(this.state.offset, this.state.offset + this.state.perPage)
+        table = slice.map((data, index) => {
           return (
             <tr key={index}>
               <td>{data['subjectName']}</td>
@@ -118,6 +134,43 @@ class SearchQP extends Component {
         <Loader type={"bars"} color={"black"} />
       </div>
     }
+
+    const count=Math.ceil(this.state.qpData.length / this.state.perPage);
+    if(count!=1&&count!=0)
+    {
+      return(
+        <div>
+        <Card className="gradient">
+          <CardBody className="welcome-title" style={{
+            position: 'absolute', left: '50%', top: '50%',
+            transform: 'translate(-50%, -50%)',
+            color: 'white'
+          }}>
+            <h5>Search for integrated M.Sc question papers</h5>
+          </CardBody>
+        </Card>
+
+        <FormQP handleSubmit={this.handleSubmit.bind(this)} />
+        <br />
+        {QPContainer}    
+            <div>
+                <ReactPaginate
+                    previousLabel={"prev"}
+                    nextLabel={"next"}
+                    breakLabel={"..."}
+                    breakClassName={"break-me"}
+                    pageCount={count}
+                    marginPagesDisplayed={2}
+                    pageRangeDisplayed={5}
+                    onPageChange={this.handlePageClick}
+                    containerClassName={"pagination"}
+                    subContainerClassName={"pages pagination"}
+                    activeClassName={"active"}/>
+            </div>
+            </div>
+      )
+    }
+    else{
     return (
       <div>
         <Card className="gradient">
@@ -135,6 +188,7 @@ class SearchQP extends Component {
         {QPContainer}
       </div>
     )
+        }
   }
 }
 
