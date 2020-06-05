@@ -3,6 +3,7 @@ import '../Styles/style.css'
 import Loader from 'react-loading';
 import { Form, Row, Col, Input, Button, Container, Card, CardBody, CardDeck, Table } from 'reactstrap'
 
+const valreg=RegExp(/^\s+$/)
 class Project extends Component {
   state = {
     query: '',
@@ -12,6 +13,16 @@ class Project extends Component {
 
   onChange = e => {
     const { value } = e.target;
+    let error= this.state.error;  
+    if (value.length === 0 || valreg.test(value))
+    {
+      error = true;
+    }
+    else
+    {
+      error = false;
+    }        
+    this.setState({error,value },()=>console.log(this.state)) ;    
     this.setState({
       query: value,
       person: []
@@ -35,6 +46,7 @@ class Project extends Component {
   }
 
   render() {
+    const {error} = this.state;
     let BookContainer
     let table = []
     if (this.state.loading === false) {
@@ -99,6 +111,13 @@ class Project extends Component {
                 <Row>
                   <Col sm={6} md={8} lg={10} className="addIndent">
                     <Input type="text" placeholder="Enter the Title or Author name" onChange={this.onChange} />
+                    {error === true && (
+                    <div className="errormessage">title or author name is required</div>
+                  )}
+                  </Col>
+                  <Col sm={6} md={4} lg={2} className="addIndent">
+                    <Button disabled = {!this.state.value || this.state.value.trim().length == 0} style={{ backgroundColor: "violet" }} variant="contained" block onClick={this.handleLogin}>Search</Button>
+
                   </Col>
                   <Col sm={6} md={4} lg={2} className="addIndent">
                     <Button style={{ backgroundColor: "violet" }} variant="contained" block onClick={this.handleLogin}>Search</Button>
