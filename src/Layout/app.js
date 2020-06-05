@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import AllNavbar from '../Component/navbar.js'
 import routes from "../route.js";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faUserGraduate, faHeart, faUsers, faHandPointRight } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faUserGraduate, faHeart, faUsers, faHandPointRight);
 
 class Admin extends Component {
 

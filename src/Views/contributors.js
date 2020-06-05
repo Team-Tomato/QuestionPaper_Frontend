@@ -1,10 +1,12 @@
-import React, { Component, useEffect } from 'react';
+import React, { Component } from 'react';
 import '../Styles/contributors.css'
 import Loader from 'react-loading';
 import "animate.css/animate.min.css";
 import ScrollAnimation from 'react-animate-on-scroll';
-class contributors extends Component {
+import {Card, CardBody} from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+class contributors extends Component {
   constructor() {
     super();
     this.state = {
@@ -39,49 +41,55 @@ class contributors extends Component {
 
   render() {
     return (
-      this.state.fetched ?
-        <div>
-          <div className="row justify-content-center">
-            <div className="card bg-secondary cardalign" style={{ color: 'gray' }}>
-              <div className="card-body text-white">
-                <h2 className="welcome-title" style={{
-                  position: 'absolute', left: '50%', top: '50%',
-                  transform: 'translate(-50%, -50%)'
-                }}>Welcoming all people to contribute to our project</h2>
-              </div>
-            </div>
-          </div>
-          <div className="container-fluid d-flex justify-content-center">
-            <div className="row row-cols-2 row-cols-sm-3 row-cols-md-6" >
-              {this.state.contributor.map((res, index) => (
-                <div key={index} className="col" >
-                  <ScrollAnimation
-                    animateIn="zoomIn"
-                    animateOut="zoomOut"
-                    duration={1.5}
-                    delay={0}
-                  >
-                    <a href={'https://github.com/' + res.login} className="a" target="_blank" style={{ textDecoration: 'none' }} >
-                      <div className="card" style={{ textDecoration: 'none' }} >
-                        <img src={'https://avatars2.githubusercontent.com/u/' + res.id + '?v=4'} className="profile-align" style={{ textDecoration: 'none' }} />
-                        <div className="card-body text-dark">
-                          <h2 className="card-title" style={{ textDecoration: 'none' }}>{res.login}</h2>
-                        </div>
-                      </div>
-                    </a>
-                  </ScrollAnimation>
-                </div>
-              ))}
-            </div>
+      <div>
+        <Card className="gradient">
+          <CardBody className ="welcome-title" style={{
+                position: 'absolute', left: '50%', top: '50%',
+                transform: 'translate(-50%, -50%)',
+                color:'white'
+              }}>
+            <h5>Our beloved contributors <FontAwesomeIcon icon="heart" color="white"/> 
+            <br/>
+            Feel free to send your PR's to our repo</h5>
+          </CardBody>
+        </Card>
 
-          </div>
-        </div> : <div style={{
-          position: 'absolute', left: '50%', top: '50%',
-          transform: 'translate(-50%, -50%)'
-        }}>
-          <Loader type={"bars"} color={"black"} />
-        </div>
+        {this.state.fetched ? (
+          <div>
+            <div className="container-fluid d-flex justify-content-center">
+              <div className="row row-cols-2 row-cols-sm-3 row-cols-md-6" >
+                {this.state.contributor.map((res, index) => (
+                  <div key={index} className="col" >
+                    <ScrollAnimation
+                      animateIn="zoomIn"
+                      animateOut="zoomOut"
+                      duration={1.5}
+                      delay={0}
+                    >
+                      <a href={'https://github.com/' + res.login} className="a" target="_blank" style={{ textDecoration: 'none' }} >
+                        <div className="card" style={{ textDecoration: 'none' }} >
+                          <img src={'https://avatars2.githubusercontent.com/u/' + res.id + '?v=4'} className="profile-align" style={{ textDecoration: 'none' }} />
+                          <div className="card-body text-dark">
+                            <h2 className="card-title" style={{ textDecoration: 'none' }}>{res.login}</h2>
+                          </div>
+                        </div>
+                      </a>
+                    </ScrollAnimation>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+          </div>) : (<div style={{
+            position: 'absolute', left: '50%', top: '90%',
+            transform: 'translate(-50%, -50%)'
+          }}>
+            <Loader type={"bars"} color={"black"} />
+          </div>)
+        }
+      </div>
     )
+
   }
 }
 

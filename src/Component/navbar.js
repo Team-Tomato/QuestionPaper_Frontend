@@ -27,39 +27,46 @@ class Header extends Component {
     })
   }
 
-  activeRoute(routeName) {
-    return this.props.location.pathname.indexOf(routeName) > -1 ? "active" : "";
-  }
+  //Why did we added below lines ? (Ask Kishore)
+
+  // activeRoute(routeName) {
+  //   return this.props.location.pathname.indexOf(routeName) > -1 ? "active" : "";
+  // }
 
   render() {
     return (
       <div>
-        <Navbar expand="md" className='TopNavbar' >
-          <NavbarBrand href="/" className='TopNavbarBrand' >Team Tomato</NavbarBrand>
+        <Navbar expand="md" className='TopNavbar' light>
+          <NavbarBrand href="/" className='TopNavbarBrand' >
+            <img src={require("../../public/logo40.png")} />
+            Team Tomato
+          </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="mr-auto" navbar pills>
+            <Nav navbar pills>
+              {/* className="mr-auto" */}
               <NavItem>
-                <NavLink tag={RRNavLink} className='NavbarItem' to='/searchQP/' activeClassName="active" exact path="/searchQP/"> Search QP </NavLink>
+                <NavLink tag={RRNavLink} className='NavbarItem' to='/searchQP/' activeClassName="active" exact path="/searchQP/" activeStyle={{backgroundColor: 'violet', color: 'white'}}> Search QP </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={RRNavLink} className='NavbarItem' to="/books/" activeClassName="active" exact path="/books/">Search Book</NavLink>
+                <NavLink tag={RRNavLink} className='NavbarItem' to="/books/" activeClassName="active" exact path="/books/" activeStyle={{backgroundColor: 'violet', color: 'white'}}>Search Book</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={RRNavLink} className='NavbarItem' to="/templateQP/" activeClassName="active" exact path="/templateQP/">Template</NavLink>
+                <NavLink tag={RRNavLink} className='NavbarItem' to="/templateQP/" activeClassName="active" exact path="/templateQP/" activeStyle={{backgroundColor: 'violet', color: 'white'}}>Template</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={RRNavLink} className='NavbarItem' to="/contributors/" activeClassName="active" exact path="/contributors/">Contributors</NavLink>
+                <NavLink tag={RRNavLink} className='NavbarItem' to="/contributors/" activeClassName="active" exact path="/contributors/" activeStyle={{backgroundColor: 'violet', color: 'white'}}>Contributors</NavLink>
               </NavItem >
               <NavItem>
-                <NavLink tag={RRNavLink} className='NavbarItem' to="/projects/" activeClassName="active" exact path="/projects/">Projects</NavLink>
+                <NavLink tag={RRNavLink} className='NavbarItem' to="/projects/" activeClassName="active" exact path="/projects/" activeStyle={{backgroundColor: 'violet', color: 'white'}}>Projects</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={RRNavLink} className='NavbarItem' to="/contact/" activeClassName="active" exact path="/contact/">Contact</NavLink>
+                <NavLink tag={RRNavLink} className='NavbarItem' to="/contact/" activeClassName="active" exact path="/contact/" activeStyle={{backgroundColor: 'violet', color: 'white'}}>Contact</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
+
       </div>
     );
   }
