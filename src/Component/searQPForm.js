@@ -13,12 +13,23 @@ class SearchQP extends Component {
 
   onChange = e => {
     const { value } = e.target;
+    let qperror= this.state.qperror;  
+    if (value.length === 0 || valreg.test(value))
+    {
+      qperror = true;
+    }
+    else
+    {
+      qperror = false;
+    }         
+    this.setState({qperror,value },()=>console.log(this.state)) ;
     this.setState({
       query: value,
     });
   }
 
   render() {
+    const {qperror}=this.state
     return (
       <Container>
         <br />
@@ -29,8 +40,9 @@ class SearchQP extends Component {
                 <Col sm={6} md={8} lg={10} className="addIndent">
                   <Input type="text" name="keywordSearch" id="keywordSearch" placeholder="Search subject name or staff" onChange={this.onChange} />
                 </Col>
-                <Col sm={6} md={4} lg={2} className="addIndent">
-                  <Button style={{backgroundColor: "violet"}} variant="contained" block>Search</Button>
+
+                <Col sm={6} md={4} lg={2}>
+                  <Button disabled={!this.state.value || this.state.value.trim().length === 0} style={{backgroundColor: "violet"}} variant="contained" block>Search</Button>
                 </Col>
               </Row>
             </Form>
