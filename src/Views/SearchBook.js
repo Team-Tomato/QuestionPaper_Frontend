@@ -111,9 +111,12 @@ class Project extends Component {
                 <Row>
                   <Col sm={6} md={8} lg={10} className="addIndent">
                     <Input type="text" placeholder="Enter the Title or Author name" onChange={this.onChange} />
+                    {error === true && (
+                      <div className="errormessage">title or author name is required</div>
+                    )}
                   </Col>
                   <Col sm={6} md={4} lg={2} className="addIndent">
-                    <Button style={{ backgroundColor: "violet" }} variant="contained" block onClick={this.handleLogin}>Search</Button>
+                    <Button disabled={!this.state.value || this.state.value.trim().length === 0} style={{ backgroundColor: "violet" }} variant="contained" block onClick={this.handleLogin}>Search</Button>
                   </Col>
                 </Row>
               </Form>

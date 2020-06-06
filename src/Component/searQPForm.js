@@ -44,7 +44,7 @@ class SearchQP extends Component {
                     <div className="errormessage">subject or staff name is required</div>
                   )}
                 </Col>
-                <Col sm={6} md={4} lg={2}>
+                <Col sm={6} md={4} lg={2} className="addIndent">
                   <Button disabled={!this.state.value || this.state.value.trim().length === 0} style={{backgroundColor: "violet"}} variant="contained" block>Search</Button>
                 </Col>
               </Row>
