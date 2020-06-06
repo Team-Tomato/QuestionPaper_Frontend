@@ -4,7 +4,8 @@ import AllNavbar from '../Component/navbar.js'
 import routes from "../route.js";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUserGraduate, faHeart, faUsers, faHandPointRight } from '@fortawesome/free-solid-svg-icons';
-import Footer from '../Component/footer.js';
+//import Footer from '../Component/footer.js';
+import '../Styles/style.css';
 
 library.add(faUserGraduate, faHeart, faUsers, faHandPointRight);
 
@@ -32,7 +33,7 @@ class Admin extends Component {
         <div id="main-panel" className="main-panel" ref="mainPanel">
           <AllNavbar />
           <Switch>{this.getRoutes(routes)}</Switch>
-          <Footer />
+         
         </div>
       </div>
     );
