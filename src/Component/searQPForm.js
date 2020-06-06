@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../Styles/style.css'
 import { Form, Row, Col, Input, Button, Container, Card, CardBody } from 'reactstrap'
 
+const valreg=RegExp(/^\s+$/)
 class SearchQP extends Component {
   constructor() {
     super()
@@ -39,8 +40,10 @@ class SearchQP extends Component {
               <Row className="addSpace">
                 <Col sm={6} md={8} lg={10} className="addIndent">
                   <Input type="text" name="keywordSearch" id="keywordSearch" placeholder="Search subject name or staff" onChange={this.onChange} />
+                  {qperror === true && (
+                    <div className="errormessage">subject or staff name is required</div>
+                  )}
                 </Col>
-
                 <Col sm={6} md={4} lg={2}>
                   <Button disabled={!this.state.value || this.state.value.trim().length === 0} style={{backgroundColor: "violet"}} variant="contained" block>Search</Button>
                 </Col>

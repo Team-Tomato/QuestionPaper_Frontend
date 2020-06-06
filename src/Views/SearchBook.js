@@ -3,6 +3,7 @@ import '../Styles/style.css'
 import Loader from 'react-loading';
 import { Form, Row, Col, Input, Button, Container, Card, CardBody, CardDeck, Table } from 'reactstrap'
 
+const valreg=RegExp(/^\s+$/)
 class Project extends Component {
   state = {
     query: '',
@@ -12,6 +13,16 @@ class Project extends Component {
 
   onChange = e => {
     const { value } = e.target;
+    let error= this.state.error;  
+    if (value.length === 0 || valreg.test(value))
+    {
+      error = true;
+    }
+    else
+    {
+      error = false;
+    }        
+    this.setState({error,value },()=>console.log(this.state)) ;    
     this.setState({
       query: value,
       person: []
@@ -35,6 +46,7 @@ class Project extends Component {
   }
 
   render() {
+    const {error} = this.state;
     let BookContainer
     let table = []
     if (this.state.loading === false) {
