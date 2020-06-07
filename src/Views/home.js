@@ -11,7 +11,7 @@ class Home extends Component {
                 <br /><br />
                 <Row>
                     <Col md={6} lg={6} sm={2} >
-                        <img src={require("../images/mainlogos.png")} className="centerIt"/>
+                        <img src={require("../images/mainlogos.png")} className="centerIt" alt=""/>
                     </Col>
                     <br/>
                     <Col md={6} lg={6} sm={2}>

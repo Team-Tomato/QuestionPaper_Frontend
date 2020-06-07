@@ -1,13 +1,5 @@
 import React, { Component } from "react";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink
-} from 'reactstrap';
+import { Collapse,  Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import { NavLink as RRNavLink } from 'react-router-dom';
 import '../Styles/style.css'
 
@@ -38,7 +30,7 @@ class Header extends Component {
       <div>
         <Navbar expand="md" className='TopNavbar' light>
           <NavbarBrand href="/" className='TopNavbarBrand' >
-            <img src={require("../../public/logo40.png")} />
+            <img src={require("../../public/logo40.png")} alt=""/>
             Team Tomato
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />

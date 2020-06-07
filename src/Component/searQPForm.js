@@ -56,15 +56,4 @@ class SearchQP extends Component {
   }
 }
 
-// <div>
-{/* <div className="container-search">
-          <Form onSubmit={(event) => { this.props.handleSubmit(event, this.state.query) }}>
-            <div className="row">
-              <input type="text" className="offset-1 col-7 col-sm-7 input" onChange={this.onChange} placeholder="Type Sub name or Staff name"></input>
-              <button className="col-3 col-sm-3 button">Search</button>
-            </div>
-          </Form>
-        </div> */}
-// </div>
-
 export default SearchQP;

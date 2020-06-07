@@ -60,7 +60,6 @@ class SearchQP extends Component {
 };
   render() {
     let QPContainer
-    let urls = []
 
     //For Card Usgae
     // let urlList = []
