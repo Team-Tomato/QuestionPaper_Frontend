@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Card, CardBody, CardFooter } from 'reactstrap'
-import { Container, Row, Col, Table } from 'reactstrap'
+import { Card, CardBody } from 'reactstrap'
+import { Container, Row, Col, Table, Button } from 'reactstrap'
 import FormQP from '../Component/searQPForm.js'
 import '../Styles/style.css'
 import Loader from 'react-loading';
@@ -45,7 +45,7 @@ class SearchQP extends Component {
         qpData: response,
         loading: false
       })
-      console.log(response, "REs")
+      // console.log(response, "REs")
     })
   }
   handlePageClick=(e)=>{
@@ -100,6 +100,7 @@ class SearchQP extends Component {
               <td>{data['subjectName']}</td>
               <td>{data['staff']}</td>
               <td>{data['shortForm']}</td>
+              <td>{data.year}</td>
               <a href={data['url']} target="blank" className="violet"><td>{data['url']}</td></a>
             </tr>
           )
@@ -113,6 +114,7 @@ class SearchQP extends Component {
                   <th>Subject Name</th>
                   <th>Staff Name</th>
                   <th>ShortForm</th>
+                  <th>Year</th>
                   <th>QP Link</th>
                 </tr>
               </thead>
@@ -136,7 +138,7 @@ class SearchQP extends Component {
     }
 
     const count=Math.ceil(this.state.qpData.length / this.state.perPage);
-    if(count!=1&&count!=0)
+    if(count!==1&&count!==0)
     {
       return(
         <div>
@@ -185,6 +187,32 @@ class SearchQP extends Component {
         </Card>
 
         <FormQP handleSubmit={this.handleSubmit.bind(this)} />
+        <br/>
+        <Container>
+          <h5 className="centerIt">Yearwise question paper collection status</h5>
+          <Row>
+            <Col lg={3} md={3} sm={6}>
+              <a href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2018batch.md" target="_blank">
+                <Button style={{backgroundColor: "violet"}} variant="contained" block>2018-2023</Button>
+              </a>
+            </Col>
+            <Col lg={3} md={3} sm={6}>
+              <a href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2017batch.md" target="_blank">
+                <Button style={{backgroundColor: "violet"}} variant="contained" block>2017-2022</Button>
+              </a>
+            </Col>
+            <Col lg={3} md={3} sm={6}>
+              <a href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2016batch.md" target="_blank"> 
+                <Button style={{backgroundColor: "violet"}} variant="contained" block>2016-2021</Button>
+              </a> 
+            </Col>
+            <Col lg={3} md={3} sm={6}>
+              <a href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2015batch.md" target="_blank">
+                <Button style={{backgroundColor: "violet"}} variant="contained" block>2015-2020</Button>
+              </a>
+            </Col>
+          </Row>
+        </Container>
         <br />
         {QPContainer}
       </div>

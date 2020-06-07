@@ -65,6 +65,13 @@ margin-top: 30px;
   padding:1px;
 }
 
+.errormessage{
+  font-size: 14px;
+  color: red;
+  text-align: left;
+  margin-top:8px;
+  margin-left:5px;
+}
 
 ::placeholder {
   font-size: 11px;
@@ -205,4 +212,8 @@ margin-top: 30px;
 
 .violet {
   color: violet
+}
+
+.centerIt {
+  text-align: center;
 }
