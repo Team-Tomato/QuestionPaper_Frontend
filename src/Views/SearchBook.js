@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../Styles/style.css'
 import Loader from 'react-loading';
-import { Form, Row, Col, Input, Button, Container, Card, CardBody, CardDeck, Table } from 'reactstrap'
+import { Form, Row, Col, Input, Button, Container, Card, CardBody, Table } from 'reactstrap'
 import ReactPaginate from 'react-paginate';
 import '../Styles/pagination.css'
 

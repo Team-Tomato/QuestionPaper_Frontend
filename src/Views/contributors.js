@@ -22,12 +22,12 @@ class contributors extends Component {
     output = await (await fetch('https://api.github.com/orgs/Team-Tomato/repos')).json()
     this.setState({ repo: output })
     var person;
-    for (var i = 0; i < this.state.repo.length; i++) {
-
-      var url = this.state.repo[i].contributors_url
+    for (var it = 0; it < this.state.repo.length; it++) {
+      var url = this.state.repo[it].contributors_url
       person = await (await fetch(url)).json()
       this.state.user.push(person)
     }
+    
     for (var i = 0; i < this.state.user.length; i++) {
       for (var j = 0; j < this.state.user[i].length; j++) {
         if (!this.state.login.includes(this.state.user[i][j].login)) {
@@ -43,7 +43,7 @@ class contributors extends Component {
     return (
       <div>
         <Card className="gradient">
-          <CardBody className ="welcome-title" style={{
+          <CardBody className="welcome-title" style={{
                 position: 'absolute', left: '50%', top: '50%',
                 transform: 'translate(-50%, -50%)',
                 color:'white'
@@ -68,7 +68,7 @@ class contributors extends Component {
                     >
                       <a href={'https://github.com/' + res.login} className="a" target="_blank" style={{ textDecoration: 'none' }} >
                         <div className="card" style={{ textDecoration: 'none' }} >
-                          <img src={'https://avatars2.githubusercontent.com/u/' + res.id + '?v=4'} className="profile-align" style={{ textDecoration: 'none' }} />
+                          <img alt="" src={'https://avatars2.githubusercontent.com/u/' + res.id + '?v=4'} className="profile-align" style={{ textDecoration: 'none' }} />
                           <div className="card-body text-dark">
                             <h2 className="card-title" style={{ textDecoration: 'none' }}>{res.login}</h2>
                           </div>
