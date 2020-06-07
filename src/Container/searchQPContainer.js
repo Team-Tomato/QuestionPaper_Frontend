@@ -100,6 +100,7 @@ class SearchQP extends Component {
               <td>{data['subjectName']}</td>
               <td>{data['staff']}</td>
               <td>{data['shortForm']}</td>
+              <td>{data.year}</td>
               <a href={data['url']} target="blank" className="violet"><td>{data['url']}</td></a>
             </tr>
           )
@@ -113,6 +114,7 @@ class SearchQP extends Component {
                   <th>Subject Name</th>
                   <th>Staff Name</th>
                   <th>ShortForm</th>
+                  <th>Year</th>
                   <th>QP Link</th>
                 </tr>
               </thead>
