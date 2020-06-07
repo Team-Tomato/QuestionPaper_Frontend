@@ -154,9 +154,9 @@ class SearchQP extends Component {
 
         <FormQP handleSubmit={this.handleSubmit.bind(this)} />
         <br />
-        
+        {QPContainer} 
             <div>
-            {QPContainer} <ReactPaginate
+            <ReactPaginate
                     previousLabel={"prev"}
                     nextLabel={"next"}
                     breakLabel={"..."}
