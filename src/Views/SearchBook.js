@@ -2,23 +2,14 @@ import React, { Component } from 'react';
 import '../Styles/style.css'
 import Loader from 'react-loading';
 import { Form, Row, Col, Input, Button, Container, Card, CardBody, CardDeck, Table } from 'reactstrap'
-import ReactPaginate from 'react-paginate';
-import '../Styles/pagination.css'
 
 const valreg=RegExp(/^\s+$/)
 class Project extends Component {
-  constructor(){
-    super()
-  this.state = {
+  state = {
     query: '',
     loading: false,
-    person: [],
-    offset:0,
-    perPage:10,
-    currentPage:0
-  };
-  this.handlePageClick = this.handlePageClick.bind(this)
-}
+    person: []
+  }
 
   onChange = e => {
     const { value } = e.target;
@@ -53,16 +44,6 @@ class Project extends Component {
     this.setState({ loading: true })
     this.search(query)
   }
-  handlePageClick=(e)=>{
-    const selectedPage = e.selected;
-    const offset = selectedPage * this.state.perPage;
-
-    this.setState({
-        currentPage: selectedPage,
-        offset: offset
-    });
-
-};
 
   render() {
     const {error} = this.state;
@@ -70,8 +51,7 @@ class Project extends Component {
     let table = []
     if (this.state.loading === false) {
       if (this.state.person !== [] && (this.state.person).length !== 0) {
-        const slice=this.state.person.slice(this.state.offset, this.state.offset + this.state.perPage)
-        table = slice.map((data, index) => {
+        table = this.state.person.map((data, index) => {
           return (
             <tr key={index}>
               <td>{data.title}</td>
@@ -112,9 +92,6 @@ class Project extends Component {
         <Loader type={"bars"} color={"black"} />
       </div>
     }
-    const count=Math.ceil(this.state.person.length / this.state.perPage);
-    if(count!=1&&count!=0)
-    {
     return (
       <div>
         <Card className="gradient">
@@ -149,58 +126,8 @@ class Project extends Component {
           </div>
         </Container>
         {BookContainer}
-      
-      <div>
-       <ReactPaginate
-              previousLabel={"prev"}
-              nextLabel={"next"}
-              breakLabel={"..."}
-              breakClassName={"break-me"}
-              pageCount={count}
-              marginPagesDisplayed={2}
-              pageRangeDisplayed={5}
-              onPageChange={this.handlePageClick}
-              containerClassName={"pagination"}
-              subContainerClassName={"pages pagination"}
-              activeClassName={"active"}/>
-      </div>
       </div>
     )
-        }
-        else{
-          return (
-            <div>
-              <Card className="gradient">
-                <CardBody className="welcome-title" style={{
-                  position: 'absolute', left: '50%', top: '50%',
-                  transform: 'translate(-50%, -50%)',
-                  color: 'white'
-                }}>
-                  <h5>Books destination for Integrated students</h5>
-                </CardBody>
-              </Card>
-              <br />
-              <Container>
-                <Card className="correctMargin">
-                  <CardBody className="removeIndent">
-                    <Form>
-                      <Row>
-                        <Col sm={6} md={8} lg={10} className="addIndent">
-                          <Input type="text" placeholder="Enter the Title or Author name" onChange={this.onChange} />
-                        </Col>
-                        <Col sm={6} md={4} lg={2} className="addIndent">
-                          <Button style={{ backgroundColor: "violet" }} variant="contained" block onClick={this.handleLogin}>Search</Button>
-                        </Col>
-                      </Row>
-                    </Form>
-                  </CardBody>
-                </Card>
-                <div>
-                </div>
-              </Container>
-              {BookContainer}
-              </div>)
-        }
   }
 }
 

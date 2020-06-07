@@ -154,9 +154,9 @@ class SearchQP extends Component {
 
         <FormQP handleSubmit={this.handleSubmit.bind(this)} />
         <br />
-        {QPContainer} 
+        {QPContainer}    
             <div>
-            <ReactPaginate
+                <ReactPaginate
                     previousLabel={"prev"}
                     nextLabel={"next"}
                     breakLabel={"..."}
@@ -170,7 +170,6 @@ class SearchQP extends Component {
                     activeClassName={"active"}/>
             </div>
             </div>
-            
       )
     }
     else{
