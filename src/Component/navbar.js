@@ -1,11 +1,12 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { Collapse,  Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import { NavLink as RRNavLink } from 'react-router-dom';
 import '../Styles/style.css'
 
 class Header extends Component {
-  constructor() {
-    super()
+
+  constructor(props) {
+    super(props)
     this.state = {
       isOpen: false
     };
@@ -13,9 +14,11 @@ class Header extends Component {
     this.toggle = this.toggle.bind(this)
   }
 
+  
   toggle() {
+    const {isOpen}=this.state;
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpen: !isOpen
     })
   }
 
@@ -29,7 +32,7 @@ class Header extends Component {
     return (
       <div>
         <Navbar expand="md" className='TopNavbar' light>
-          <NavbarBrand href="/" className='TopNavbarBrand' >
+          <NavbarBrand href="/" className='TopNavbarBrand' onClick={this.state.isOpen==false}>
             <img src={require("../../public/logo40.png")} alt=""/>
             Team Tomato
           </NavbarBrand>
@@ -38,22 +41,22 @@ class Header extends Component {
             <Nav navbar pills>
               {/* className="mr-auto" */}
               <NavItem>
-                <NavLink tag={RRNavLink} className='NavbarItem' to='/searchQP/' activeClassName="active" exact path="/searchQP/" activeStyle={{backgroundColor: 'violet', color: 'white'}}> Search QP </NavLink>
+                <NavLink tag={RRNavLink} onClick={this.toggle} className='NavbarItem' to='/searchQP/' activeClassName="active" exact path="/searchQP/" activeStyle={{backgroundColor: 'violet', color: 'white'}}> Search QP </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={RRNavLink} className='NavbarItem' to="/books/" activeClassName="active" exact path="/books/" activeStyle={{backgroundColor: 'violet', color: 'white'}}>Search Book</NavLink>
+                <NavLink tag={RRNavLink} onClick={this.toggle} className='NavbarItem' to="/books/" activeClassName="active" exact path="/books/" activeStyle={{backgroundColor: 'violet', color: 'white'}}>Search Book</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={RRNavLink} className='NavbarItem' to="/templateQP/" activeClassName="active" exact path="/templateQP/" activeStyle={{backgroundColor: 'violet', color: 'white'}}>Template</NavLink>
+                <NavLink tag={RRNavLink} onClick={this.toggle} className='NavbarItem' to="/templateQP/" activeClassName="active" exact path="/templateQP/" activeStyle={{backgroundColor: 'violet', color: 'white'}}>Template</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={RRNavLink} className='NavbarItem' to="/contributors/" activeClassName="active" exact path="/contributors/" activeStyle={{backgroundColor: 'violet', color: 'white'}}>Contributors</NavLink>
+                <NavLink tag={RRNavLink} onClick={this.toggle} className='NavbarItem' to="/contributors/" activeClassName="active" exact path="/contributors/" activeStyle={{backgroundColor: 'violet', color: 'white'}}>Contributors</NavLink>
               </NavItem >
               <NavItem>
-                <NavLink tag={RRNavLink} className='NavbarItem' to="/projects/" activeClassName="active" exact path="/projects/" activeStyle={{backgroundColor: 'violet', color: 'white'}}>Projects</NavLink>
+                <NavLink tag={RRNavLink} onClick={this.toggle} className='NavbarItem' to="/projects/" activeClassName="active" exact path="/projects/" activeStyle={{backgroundColor: 'violet', color: 'white'}}>Projects</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={RRNavLink} className='NavbarItem' to="/contact/" activeClassName="active" exact path="/contact/" activeStyle={{backgroundColor: 'violet', color: 'white'}}>Contact</NavLink>
+                <NavLink tag={RRNavLink} onClick={this.toggle} className='NavbarItem' to="/contact/" activeClassName="active" exact path="/contact/" activeStyle={{backgroundColor: 'violet', color: 'white'}}>Contact</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
