@@ -3,7 +3,7 @@ import '../Styles/style.css'
 import Loader from 'react-loading';
 import { Form, Row, Col, Input, Button, Container, Card, CardBody, Table } from 'reactstrap'
 import ReactPaginate from 'react-paginate';
-import '../Styles/pagination.css';
+import '../Styles/pagination.css'
 
 const valreg=RegExp(/^\s+$/)
 class Project extends Component {
@@ -19,7 +19,6 @@ class Project extends Component {
   };
   this.handlePageClick = this.handlePageClick.bind(this)
 }
-
   onChange = e => {
     const { value } = e.target;
     let error= this.state.error;  
@@ -105,7 +104,7 @@ class Project extends Component {
     }
     else {
       BookContainer = <div style={{
-        position: 'absolute', left: '50%', top: '75%',
+        position: 'absolute', left: '50%', top: '100%',
         transform: 'translate(-50%, -50%)'
       }}>
         <Loader type={"bars"} color={"black"} />
@@ -141,7 +140,7 @@ class Project extends Component {
                   <Col sm={6} md={4} lg={2} className="addIndent">
                     <Button disabled={!this.state.value || this.state.value.trim().length === 0} style={{ backgroundColor: "violet" }} variant="contained" block onClick={this.handleLogin}>Search</Button>
                   </Col>
-                </Row>               
+                </Row>
               </Form>
             </CardBody>
           </Card>
