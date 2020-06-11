@@ -81,7 +81,7 @@ class contributors extends Component {
 
             </div>
           </div>) : (<div style={{
-            position: 'absolute', left: '50%', top: '90%',
+            position: 'absolute', left: '50%', top: '60%',
             transform: 'translate(-50%, -50%)'
           }}>
             <Loader type={"bars"} color={"black"} />
