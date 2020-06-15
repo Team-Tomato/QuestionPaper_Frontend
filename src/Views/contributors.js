@@ -80,11 +80,14 @@ class contributors extends Component {
               </div>
 
             </div>
-          </div>) : (<div style={{
+          </div>) : (<div>
+          <div style={{
             position: 'absolute', left: '50%', top: '55%',
             transform: 'translate(-50%, -50%)'
           }}>
             <Loader type={"bars"} color={"black"} />
+          </div><br/><br/>
+          <h5 className="centerIt">This might take sometime</h5>
           </div>)
         }
       </div>
