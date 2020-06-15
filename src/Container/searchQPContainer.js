@@ -153,6 +153,32 @@ class SearchQP extends Component {
 
         <FormQP handleSubmit={this.handleSubmit.bind(this)} />
         <br />
+        <Container>
+          <h5 className="centerIt">Yearwise question paper collection status</h5>
+          <Row>
+            <Col lg={3} md={3} sm={6}>
+              <a href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2018batch.md" target="_blank">
+                <Button style={{backgroundColor: "violet"}} variant="contained" block>2018-2023</Button>
+              </a>
+            </Col>
+            <Col lg={3} md={3} sm={6}>
+              <a href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2017batch.md" target="_blank">
+                <Button style={{backgroundColor: "violet"}} variant="contained" block>2017-2022</Button>
+              </a>
+            </Col>
+            <Col lg={3} md={3} sm={6}>
+              <a href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2016batch.md" target="_blank"> 
+                <Button style={{backgroundColor: "violet"}} variant="contained" block>2016-2021</Button>
+              </a> 
+            </Col>
+            <Col lg={3} md={3} sm={6}>
+              <a href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2015batch.md" target="_blank">
+                <Button style={{backgroundColor: "violet"}} variant="contained" block>2015-2020</Button>
+              </a>
+            </Col>
+          </Row>
+        </Container>
+        <br />
         {QPContainer}    
             <div>
                 <ReactPaginate
