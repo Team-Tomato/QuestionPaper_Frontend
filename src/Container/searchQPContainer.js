@@ -20,7 +20,6 @@ class SearchQP extends Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handlePageClick = this.handlePageClick.bind(this)
-    this.onsubClick = this.onsubClick.bind(this)
   }
 
   async handleSubmit(event, query) {
@@ -57,23 +56,8 @@ class SearchQP extends Component {
         currentPage: selectedPage,
         offset: offset
     });
-  };
-    onsubClick=(slice)=>{
-          this.state.qpData.sort(function(a,b){
-                  if(a.subjectName.toLowerCase()<b.subjectName.toLowerCase())
-                  return -1;
-                  if(a.subjectName.toLowerCase()>b.subjectName.toLowerCase())
-                  return 1;
-                  return 0;
-          },(res)=>{
-             this.setState({
-               qpData:res
-             })
-          });
-          
-        console.log(this.state.qpData)
-    }
 
+};
   render() {
     let QPContainer
 
@@ -109,7 +93,6 @@ class SearchQP extends Component {
     if (this.state.loading === false) {
       if (this.state.qpData !== [] && (this.state.qpData).length !== 0) {
         const slice=this.state.qpData.slice(this.state.offset, this.state.offset + this.state.perPage)
-        console.log(slice)
         table = slice.map((data, index) => {
           return (
             <tr key={index}>
@@ -124,7 +107,6 @@ class SearchQP extends Component {
 
         QPContainer =
           <Container>
-            <Button onClick={this.onsubClick(slice)}>subject</Button>
             <Table striped hover responsive>
               <thead>
                 <tr>
@@ -147,7 +129,7 @@ class SearchQP extends Component {
     }
     else {
       QPContainer = <div style={{
-        position: 'absolute', left: '50%', top: '92%',
+        position: 'absolute', left: '50%', top: '85%',
         transform: 'translate(-50%, -50%)'
       }}>
         <Loader type={"bars"} color={"black"} />

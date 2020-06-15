@@ -104,7 +104,11 @@ class Project extends Component {
     }
     else {
       BookContainer = <div style={{
+<<<<<<< HEAD
         position: 'absolute', left: '50%', top: '100%',
+=======
+        position: 'absolute', left: '50%', top: '77%',
+>>>>>>> ae47315f9051acdb78c1a2dd98566f1f273f0cf4
         transform: 'translate(-50%, -50%)'
       }}>
         <Loader type={"bars"} color={"black"} />
