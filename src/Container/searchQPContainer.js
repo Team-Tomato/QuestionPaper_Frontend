@@ -129,7 +129,7 @@ class SearchQP extends Component {
     }
     else {
       QPContainer = <div style={{
-        position: 'absolute', left: '50%', top: '92%',
+        position: 'absolute', left: '50%', top: '85%',
         transform: 'translate(-50%, -50%)'
       }}>
         <Loader type={"bars"} color={"black"} />
