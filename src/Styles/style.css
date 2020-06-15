@@ -1,5 +1,18 @@
-.TopNavbar {
-  background-color: rgb(218, 78, 218);
+/* .TopNavbar {
+  /* background-color: rgb(218, 78, 218); 
+} */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Times New Roman', Times, serif;
+  background-color: white;
+  position: relative;
+  padding-bottom: 50px;
+  min-height: 100vh;
 }
 
 .TopNavbarBrand {
@@ -8,20 +21,41 @@
 
 .NavbarItem {
   color: white;
+  text-align: center;
 }
 
 .cardPadding {
   padding-bottom: 15px;
 }
 
+.card{
+  width: 20rem;
+}
 
-.search-label{
+.card:hover{
+  box-shadow: 5px 10px 20px 1px rgba(0, 0, 0, 0.253) !important
+}
+
+.card-Body{
+  padding: 3rem 0 !important;
+}
+
+.card-protext{
+  font-size: 0.9rem;
+  padding: 0.4rem 1.9rem;
+}
+
+.containers-fluid .row{
+  padding-top: 4rem;
+  padding-left: 3rem;
+}
+
+/* .search-label{
 justify-content: center;
 align-items: center;
 margin-bottom: 20px;
 margin-top: 30px;
-}
-
+} */
 
 .header{
   color: black;
@@ -36,15 +70,53 @@ margin-top: 30px;
   padding:6px;
 }
 
-.footer{
-  color: black;
-  background: rgb(221, 215, 215);
-  margin: 8px;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 12px;
-  padding:1px;
+main {
+  width: 90vw;
+  margin: 0 auto;
+  padding: 30px 20px;
 }
 
+.content {
+  min-height: 100%;
+  position: relative;
+}
+
+.content-inside {
+  padding: 20px;
+  padding-bottom: 50px;
+}
+
+.footer{
+  background: linear-gradient(to bottom right, violet, pink);
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  height: 3.5rem;
+  top: '50%';
+  left: '50%';
+  transform: 'translate(-50%, -50%)';
+}
+
+.footerConfig {
+  text-decoration-color: white;
+  position: relative;
+  float: left;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.footerText {
+  color: white
+}
+
+.errormessage{
+  font-size: 14px;
+  color: red;
+  text-align: left;
+  margin-top:8px;
+  margin-left:5px;
+}
 
 ::placeholder {
   font-size: 11px;
@@ -65,7 +137,21 @@ margin-top: 30px;
   font-size: 11px;
   font-family: "Times New Roman", Times, serif;
 }
+  .card-img-top{
+    width: 100%;
+    height: auto;
+  }
 
+  .card-protext{
+    width: 100%;
+    height: auto;
+  }
+
+  .project-Title{
+    width: 100%;
+    height: auto;
+  }
+ 
 }
 
 
@@ -84,6 +170,22 @@ margin-top: 30px;
       font-size: 15px;
       font-family: "Times New Roman", Times, serif;
     }
+
+    .card-img-top{
+      width: 100%;
+      height: auto;
+    }
+
+    .card-protext{
+      width: 100%;
+      height: auto;
+    }
+
+    .project-Title{
+      width: 100%;
+      height: auto;
+    }
+
 }
 
 @media(min-width:768px){
@@ -101,6 +203,21 @@ margin-top: 30px;
       font-size: 16px;
       font-family: "Times New Roman", Times, serif;
     }
+
+    .card-img-top{
+      width: 100%;
+      height: auto;
+    }
+
+    .card-protext{
+      width: 100%;
+      height: auto;
+    }
+    .project-Title{
+      width: 100%;
+      height: auto;
+    }
+
 }
 
 @media(min-width:992px){
@@ -108,6 +225,40 @@ margin-top: 30px;
     height: 150px;
     width: 100%;
   }
+
+  .card-img-top{
+    width: 100%;
+    height: auto;
+  }
+
+  .card-protext{
+    width: 100%;
+    height: auto;
+  }
+
+  .project-Title{
+    width: 100%;
+    height: auto;
+  }
+
 }
 
+.addIndent {
+  margin-bottom: 15px;
+}
 
+.removeIndent {
+  margin-bottom: -15px;
+}
+
+.correctMargin {
+  left: -10px;
+}
+
+.violet {
+  color: violet
+}
+
+.centerIt {
+  text-align: center;
+}

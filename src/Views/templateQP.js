@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
+import {Card, CardBody} from 'reactstrap';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <Card className="gradient">
+                <CardBody className="welcome-title" style={{
+                    position: 'absolute', left: '50%', top: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    color: 'white'
+                }}>
+                    <h4>Work in Porgress. Check us at 15.06.2020</h4>
+                </CardBody>
+            </Card>
+        );
+    }
 }
 
 export default App;

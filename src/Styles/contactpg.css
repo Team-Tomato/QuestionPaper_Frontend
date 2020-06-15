@@ -29,15 +29,17 @@ line-height: 10px;
     width: 100%;
   }
 }
-.navyblue{
-  color: #000080;
-}
-.yellow{
-  color:#E1AD01;
+
+.violet{
+  color:violet;
 }
 .pink{
   color:#E75480 ;
 }
 .brown{
   color: #654321;
+}
+
+.indentCorrection {
+  margin-left: 0px;
 }
