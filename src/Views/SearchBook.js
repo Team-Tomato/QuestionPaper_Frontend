@@ -15,8 +15,7 @@ class Project extends Component {
     person: [],
     offset:0,
     perPage:10,
-    currentPage:0,
-    noData:0
+    currentPage:0
   };
   this.handlePageClick = this.handlePageClick.bind(this)
 }
@@ -55,10 +54,6 @@ class Project extends Component {
       person: data,
       loading: false
     })
-    if(this.state.person.length==0)
-    {
-      this.setState({noData:1})
-    }
   }
 
   handleLogin = e => {
@@ -116,46 +111,6 @@ class Project extends Component {
       </div>
     }
 
-    if(this.state.noData==1)
-    {
-      return(
-        <div>
-          <Card className="gradient">
-          <CardBody className="welcome-title" style={{
-            position: 'absolute', left: '50%', top: '50%',
-            transform: 'translate(-50%, -50%)',
-            color: 'white'
-          }}>
-            <h5>Books destination for Integrated students</h5>
-          </CardBody>
-        </Card>
-        <br />
-        <Container>
-          <Card className="correctMargin">
-            <CardBody className="removeIndent">
-              <Form>
-                <Row>
-                  <Col sm={6} md={8} lg={10} className="addIndent">
-                    <Input type="text" placeholder="Enter the Title or Author name" onChange={this.onChange} />
-                    {error === true && (
-                      <div className="errormessage">title or author name is required</div>
-                    )}
-                  </Col>
-                  <Col sm={6} md={4} lg={2} className="addIndent">
-                    <Button disabled={!this.state.value || this.state.value.trim().length === 0} style={{ backgroundColor: "violet" }} variant="contained" block onClick={this.handleLogin}>Search</Button>
-                  </Col>
-                </Row>
-              </Form>
-            </CardBody>
-          </Card>
-          <div>
-          </div>
-        </Container>
-        {BookContainer}<br/>
-          <h5 className="centerIt">Sorry,we are not able to find the book you are looking for</h5>
-        </div>
-      )
-    }
     const count=Math.ceil(this.state.person.length / this.state.perPage);
     if(count!==1&&count!==0)
     {
