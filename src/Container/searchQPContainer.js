@@ -16,8 +16,7 @@ class SearchQP extends Component {
       qpData: [],
       offset:0,
       perPage:10,
-      currentPage:0,
-      noData:0
+      currentPage:0
     };
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handlePageClick = this.handlePageClick.bind(this)
@@ -47,10 +46,6 @@ class SearchQP extends Component {
         loading: false
       })
       // console.log(response, "REs")
-      if(this.state.qpData.length==0)
-      {
-        this.setState({noData:1})
-      }
     })
   }
   handlePageClick=(e)=>{
@@ -141,53 +136,6 @@ class SearchQP extends Component {
       </div>
     }
 
-    if(this.state.noData==1)
-    {
-      return(
-      <div>
-        <Card className="gradient">
-          <CardBody className="welcome-title" style={{
-            position: 'absolute', left: '50%', top: '50%',
-            transform: 'translate(-50%, -50%)',
-            color: 'white'
-          }}>
-            <h5>Search for integrated M.Sc question papers</h5>
-          </CardBody>
-        </Card>
-
-        <FormQP handleSubmit={this.handleSubmit.bind(this)} />
-        <br/>
-        <h5 className="centerIt">Sorry,we are not able to find the question paper you are looking for</h5>
-        <Container>
-          <h5 className="centerIt">Yearwise question paper collection status</h5>
-          <Row>
-            <Col lg={3} md={3} sm={6}>
-              <a href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2018batch.md" target="_blank">
-                <Button style={{backgroundColor: "violet"}} variant="contained" block>2018-2023</Button>
-              </a>
-            </Col>
-            <Col lg={3} md={3} sm={6}>
-              <a href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2017batch.md" target="_blank">
-                <Button style={{backgroundColor: "violet"}} variant="contained" block>2017-2022</Button>
-              </a>
-            </Col>
-            <Col lg={3} md={3} sm={6}>
-              <a href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2016batch.md" target="_blank"> 
-                <Button style={{backgroundColor: "violet"}} variant="contained" block>2016-2021</Button>
-              </a> 
-            </Col>
-            <Col lg={3} md={3} sm={6}>
-              <a href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2015batch.md" target="_blank">
-                <Button style={{backgroundColor: "violet"}} variant="contained" block>2015-2020</Button>
-              </a>
-            </Col>
-          </Row>
-        </Container>
-        <br />
-        {QPContainer}
-      </div>
-      )
-    }
     const count=Math.ceil(this.state.qpData.length / this.state.perPage);
     if(count!==1&&count!==0)
     {
