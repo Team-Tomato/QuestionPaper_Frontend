@@ -115,7 +115,6 @@ class Project extends Component {
         <Loader type={"bars"} color={"black"} />
       </div>
     }
-
     const count=Math.ceil(this.state.person.length / this.state.perPage);
     return (
       <div>
@@ -151,8 +150,9 @@ class Project extends Component {
           </div>
         </Container>
         {BookContainer}
+      
         {this.state.noData ? (
-          <div>
+          <div><br/>
             <h5 className="centerIt">Sorry,we are not able to find the book you are looking for</h5>
             </div>
             
