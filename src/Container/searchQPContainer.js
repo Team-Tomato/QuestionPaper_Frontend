@@ -141,6 +141,7 @@ class SearchQP extends Component {
       </div>
     }
 
+    
     const count=Math.ceil(this.state.qpData.length / this.state.perPage);
     return (
       <div>
