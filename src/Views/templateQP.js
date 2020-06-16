@@ -10,7 +10,7 @@ class App extends Component {
                     transform: 'translate(-50%, -50%)',
                     color: 'white'
                 }}>
-                    <h4>Work in Porgress. Check us at 15.06.2020</h4>
+                    <h4>Work in Porgress. Check us at 30.06.2020</h4>
                 </CardBody>
             </Card>
         );
