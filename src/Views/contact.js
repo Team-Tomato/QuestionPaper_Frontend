@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
 import {
     Form,
-    Input,
-    Button, Card, CardBody, Container,
-    FormFeedback
+    Card, CardBody, Container,
 } from 'reactstrap';
 import '../Styles/contactpg.css'
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import styled from 'styled-components';
+
+const StyledTextField = styled(TextField)`{
+    label.Mui-focused {
+      color: violet;
+    }
+    .MuiOutlinedInput-root {
+      &.Mui-focused fieldset {
+        border-color: violet;
+      }
+    }`;
 
 class App extends Component {
 
@@ -104,6 +115,7 @@ class App extends Component {
         }
     }
     render() {
+        
         const { name, email, message } = this.state;
         this.validate(this.state.name,this.state.email,this.state.message)
         return (
@@ -123,22 +135,22 @@ class App extends Component {
 
                     <h3 className="center">or</h3>
                     <Form>
-                        <Input type="text" name="name" value={name} onBlur={this.handleBlur('name')}
-                           
-                           invalid={this.state.errors.name!==''} placeholder="Your Name" sm={10} onChange={this.changeHandler} />
-                           <FormFeedback>{this.state.errors.name}</FormFeedback>
+                        <StyledTextField fullWidth type="text" name="name" value={name} style={{marginBottom:"10px"}}
+                        size="small" error={this.state.errors.name!==''} onBlur={this.handleBlur('name')}
+                        onChange={this.changeHandler} id="outlined-error-helper-text" label="Your Name"
+                        helperText={this.state.errors.name} variant="outlined"/>
+                        
+                        <StyledTextField fullWidth type="email" name="email" value={email} style={{marginBottom:"10px"}}
+                        size="small" error={this.state.errors.email!==''} onBlur={this.handleBlur('email')}
+                        onChange={this.changeHandler} id="outlined-error-helper-text" label="youremail@email.com"
+                        helperText={this.state.errors.email} variant="outlined"/>
+                        
+                        <StyledTextField id="outlined-multiline-static" label="Your Message" multiline  style={{marginBottom:"10px"}}
+                        name="message" fullWidth error={this.state.errors.message!==''} onBlur={this.handleBlur('message')}
+                        onChange={this.changeHandler} value={message} helperText={this.state.errors.message}
+                        rows={4} variant="outlined"/>
                         <br />
-                        <Input type="email" name="email" onBlur={this.handleBlur('email')}
-                           
-                           invalid={this.state.errors.email!==''} value={email} placeholder="youremail@email.com" sm={10} onChange={this.changeHandler} />
-                           <FormFeedback>{this.state.errors.email}</FormFeedback>
-                        <br />
-                        <Input type="textarea" name="message" onBlur={this.handleBlur('message')}
-                           
-                           invalid={this.state.errors.message!==''} value={message} placeholder="Your Message" sm={10} onChange={this.changeHandler} />
-                           <FormFeedback>{this.state.errors.message}</FormFeedback>
-                        <br />
-                        <Button onClick={this.submitHandler} style={{ backgroundColor: "violet" }} variant="contained" block>Send</Button>
+                        <Button onClick={this.submitHandler} className="col-md-12" style={{ backgroundColor: "violet",color:"white" }} variant="contained" block>Send</Button>
                     </Form>
                 </Container>
             </div>

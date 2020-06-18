@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Card, CardBody } from 'reactstrap'
-import { Container, Row, Col, Table, Button } from 'reactstrap'
+import { Container, Row, Col, Table, Button1 } from 'reactstrap'
 import FormQP from '../Component/searQPForm.js'
+import Button from '@material-ui/core/Button';
 import '../Styles/style.css'
 import Loader from 'react-loading';
 import '../Styles/contributors.css'
@@ -162,22 +163,22 @@ class SearchQP extends Component {
           <Row>
             <Col lg={3} md={3} sm={6}>
               <a href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2018batch.md" target="_blank">
-                <Button style={{backgroundColor: "violet"}} variant="contained" block>2018-2023</Button>
+                <Button className="col-md-12" style={{backgroundColor: "violet",color:"white"}} variant="contained" block>2018-2023</Button>
               </a>
             </Col>
             <Col lg={3} md={3} sm={6}>
               <a href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2017batch.md" target="_blank">
-                <Button style={{backgroundColor: "violet"}} variant="contained" block>2017-2022</Button>
+                <Button className="col-md-12" style={{backgroundColor: "violet",color:"white"}} variant="contained" block>2017-2022</Button>
               </a>
             </Col>
             <Col lg={3} md={3} sm={6}>
               <a href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2016batch.md" target="_blank"> 
-                <Button style={{backgroundColor: "violet"}} variant="contained" block>2016-2021</Button>
+                <Button className="col-md-12" style={{backgroundColor: "violet",color:"white"}} variant="contained" block>2016-2021</Button>
               </a> 
             </Col>
             <Col lg={3} md={3} sm={6}>
               <a href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2015batch.md" target="_blank">
-                <Button style={{backgroundColor: "violet"}} variant="contained" block>2015-2020</Button>
+                <Button className="col-md-12" style={{backgroundColor: "violet",color:"white"}} variant="contained" block>2015-2020</Button>
               </a>
             </Col>
           </Row>

@@ -6,9 +6,10 @@ import tableau from '../images/t20.png';
 import webapp from '../images/webapp.png';
 import flutter from '../images/flutter.png';
 import '../Styles/project.css'
+import Button from '@material-ui/core/Button';
 import {
     Row, Col, Card, CardImg, CardText, CardBody,
-    CardTitle, Button, Badge, Container
+    CardTitle, Badge, Container
 } from 'reactstrap';
 
 
@@ -39,7 +40,7 @@ class Project extends Component {
                                     <Badge color="dark" pill>Flask</Badge>
                                     <Badge color="dark" pill>PostgreSQL</Badge>
                                 </CardText>
-                                <a href="https://github.com/Team-Tomato/QuestionPaper_Frontend" target="_blank"><Button style={{ backgroundColor: "#da4eda" }} variant="contained">Github Repo</Button></a>
+                                <a href="https://github.com/Team-Tomato/QuestionPaper_Frontend" target="_blank"><Button style={{ backgroundColor: "#da4eda",color:"white" }} variant="contained">Github Repo</Button></a>
                             </CardBody>
                         </Card>
                     </Col>
@@ -54,7 +55,7 @@ class Project extends Component {
                                     <Badge color="dark" pill>NLP</Badge>
                                     <Badge color="dark" pill>PostgreSQL</Badge>
                                 </CardText>
-                                <Button style={{ backgroundColor: "violet" }} variant="contained">In Progress</Button>
+                                <Button style={{ backgroundColor: "violet",color:"white" }} variant="contained">In Progress</Button>
                             </CardBody>
                         </Card>
                     </Col>
@@ -67,7 +68,7 @@ class Project extends Component {
                                 <CardText>
                                     <Badge color="dark" pill>Tableau</Badge>
                                 </CardText>
-                                <Button style={{ backgroundColor: "violet" }} variant="contained">In Progress</Button>
+                                <Button style={{ backgroundColor: "violet",color:"white" }} variant="contained">In Progress</Button>
                             </CardBody>
                         </Card>
                     </Col>
@@ -81,7 +82,7 @@ class Project extends Component {
                                     <Badge color="dark" pill>Node.js</Badge>
                                     <Badge color="dark" pill>Dialogflow</Badge>
                                 </CardText>
-                                <a href="https://github.com/Team-Tomato/GAction_MovieRecommendation" target="_blank"><Button style={{ backgroundColor: "#da4eda" }} variant="contained">Github Repo</Button></a>
+                                <a href="https://github.com/Team-Tomato/GAction_MovieRecommendation" target="_blank"><Button style={{ backgroundColor: "#da4eda",color:"white" }} variant="contained">Github Repo</Button></a>
                             </CardBody>
                         </Card>
                     </Col>
@@ -96,7 +97,7 @@ class Project extends Component {
                                     <Badge color="dark" pill>Dialogflow</Badge>
                                     <Badge color="dark" pill>Canvas</Badge>
                                 </CardText>
-                                <a href="https://github.com/Team-Tomato/GAction_TeamTomato" target="_blank"><Button style={{ backgroundColor: "#da4eda" }} variant="contained">Github Repo</Button></a>
+                                <a href="https://github.com/Team-Tomato/GAction_TeamTomato" target="_blank"><Button style={{ backgroundColor: "#da4eda",color:"white" }} variant="contained">Github Repo</Button></a>
                             </CardBody>
                         </Card>
                     </Col>
@@ -111,7 +112,7 @@ class Project extends Component {
                                     <Badge color="dark" pill>CSS</Badge>
                                     <Badge color="dark" pill>HTML</Badge>
                                 </CardText>
-                                <a href="https://github.com/Team-Tomato/oneClick-chrome-extension" target="_blank"><Button style={{ backgroundColor: "#da4eda" }} variant="contained">Github Repo</Button></a>
+                                <a href="https://github.com/Team-Tomato/oneClick-chrome-extension" target="_blank"><Button style={{ backgroundColor: "#da4eda",color:"white" }} variant="contained">Github Repo</Button></a>
                             </CardBody>
                         </Card>
                     </Col>
