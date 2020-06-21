@@ -116,6 +116,38 @@ class Project extends Component {
                             </CardBody>
                         </Card>
                     </Col>
+                    <Col md={3} lg={3} sm={12}>
+                        <Card className="indentCorrection" syle={{height:'100%'}}>
+                            <CardImg src={teamaction} alt="Card image cap" />
+                            <CardBody>
+                                <CardTitle>Cricket Data Analysis</CardTitle>
+                                <CardText>Live Streaming of Match Data</CardText>
+                                <br />
+                                <CardText>
+                                    <Badge color="dark" pill>JavaScript</Badge>
+                                    <Badge color="dark" pill>CSS</Badge>
+                                    <Badge color="dark" pill>HTML</Badge>
+                                </CardText>
+                                <Button style={{ backgroundColor: "violet" }} variant="contained">In Progress</Button>
+                            </CardBody>
+                        </Card>
+                    </Col>
+                    <Col md={3} lg={3} sm={12}>
+                        <Card className="indentCorrection">
+                            <CardImg src={extension} alt="Card image cap" />
+                            <CardBody>
+                                <CardTitle>Fun Kids</CardTitle>
+                                <CardText>Learning App for kids</CardText>
+                                <br />
+                                <CardText>
+                                    <Badge color="dark" pill>ML</Badge>
+                                    <Badge color="dark" pill>Javascript</Badge>
+                                    <Badge color="dark" pill>HTML</Badge>
+                                </CardText>
+                                <Button style={{ backgroundColor: "violet" }} variant="contained">In Progress</Button>
+                            </CardBody>
+                        </Card>
+                    </Col>
                 </Row>
                 </Container>
             </div>
