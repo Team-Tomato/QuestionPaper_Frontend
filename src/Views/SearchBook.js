@@ -1,11 +1,25 @@
 import React, { Component } from 'react';
 import '../Styles/style.css'
 import Loader from 'react-loading';
-import { Form, Row, Col, Input, Button, Container, Card, CardBody, Table } from 'reactstrap'
+import { Form, Row, Col, Container, Card, CardBody, Table } from 'reactstrap'
 import ReactPaginate from 'react-paginate';
 import '../Styles/pagination.css'
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import styled from 'styled-components';
+
+const StyledTextField = styled(TextField)`{
+  label.Mui-focused {
+    color: violet;
+  }
+  .MuiOutlinedInput-root {
+    &.Mui-focused fieldset {
+      border-color: violet;
+    }
+  }`;
 
 const valreg=RegExp(/^\s+$/)
+
 class Project extends Component {
   constructor(){
     super()
@@ -134,13 +148,13 @@ class Project extends Component {
               <Form>
                 <Row>
                   <Col sm={6} md={8} lg={10} className="addIndent">
-                    <Input type="text" placeholder="Enter the Title or Author name" onChange={this.onChange} />
+                  <StyledTextField fullWidth type="text" label="Enter the Title or Author name"  onChange={this.onChange} id="outlined-size-small" variant="outlined"size="small"/>
                     {error === true && (
                       <div className="errormessage">title or author name is required</div>
                     )}
                   </Col>
                   <Col sm={6} md={4} lg={2} className="addIndent">
-                    <Button disabled={!this.state.value || this.state.value.trim().length === 0} style={{ backgroundColor: "violet" }} variant="contained" block onClick={this.handleLogin}>Search</Button>
+                    <Button type="submit" className="col-md-12" disabled={!this.state.value || this.state.value.trim().length === 0} style={{ backgroundColor: "violet",color:"white"}} variant="contained" block onClick={this.handleLogin}>Search</Button>
                   </Col>
                 </Row>
               </Form>
