@@ -5,6 +5,8 @@ import movie from '../images/gaction2.png';
 import tableau from '../images/t20.png';
 import webapp from '../images/webapp.png';
 import flutter from '../images/flutter.png';
+import CDA from '../images/cda.png';
+import funkids from '../images/funkids.png';
 import '../Styles/project.css'
 import Button from '@material-ui/core/Button';
 import {
@@ -118,15 +120,14 @@ class Project extends Component {
                     </Col>
                     <Col md={3} lg={3} sm={12}>
                         <Card className="indentCorrection" syle={{height:'100%'}}>
-                            <CardImg src={teamaction} alt="Card image cap" />
+                            <CardImg src={CDA} alt="Card image cap" />
                             <CardBody>
                                 <CardTitle>Cricket Data Analysis</CardTitle>
-                                <CardText>Live Streaming of Match Data</CardText>
+                                <CardText>T20 Data Analysis</CardText>
                                 <br />
                                 <CardText>
-                                    <Badge color="dark" pill>JavaScript</Badge>
-                                    <Badge color="dark" pill>CSS</Badge>
-                                    <Badge color="dark" pill>HTML</Badge>
+                                    <Badge color="dark" pill>Electron Js</Badge>
+                                    <Badge color="dark" pill>Node Js</Badge>
                                 </CardText>
                                 <Button style={{ backgroundColor: "violet" }} variant="contained">In Progress</Button>
                             </CardBody>
@@ -134,15 +135,14 @@ class Project extends Component {
                     </Col>
                     <Col md={3} lg={3} sm={12}>
                         <Card className="indentCorrection">
-                            <CardImg src={extension} alt="Card image cap" />
+                            <CardImg src={funkids} alt="Card image cap" />
                             <CardBody>
                                 <CardTitle>Fun Kids</CardTitle>
-                                <CardText>Learning App for kids</CardText>
+                                <CardText>Interactive App for kids</CardText>
                                 <br />
                                 <CardText>
-                                    <Badge color="dark" pill>ML</Badge>
-                                    <Badge color="dark" pill>Javascript</Badge>
-                                    <Badge color="dark" pill>HTML</Badge>
+                                    <Badge color="dark" pill>React Js</Badge>
+                                    <Badge color="dark" pill>FastAPI</Badge>
                                 </CardText>
                                 <Button style={{ backgroundColor: "violet" }} variant="contained">In Progress</Button>
                             </CardBody>
