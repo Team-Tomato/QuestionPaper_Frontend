@@ -17,10 +17,13 @@ class SearchQP extends Component {
       offset:0,
       perPage:10,
       currentPage:0,
-      noData:false
+      noData:false,
+      sort:false,
+      var:''
     };
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handlePageClick = this.handlePageClick.bind(this)
+    this.handleSubClick=this.handleSubClick.bind(this)
   }
 
   async handleSubmit(event, query) {
@@ -44,10 +47,13 @@ class SearchQP extends Component {
     }).then(response => {
       this.setState({
         qpData: response,
-        loading: false
+        loading: false,
+        sort:false,
+        var:''
       })
+      console.log(response.subjectName)
       // console.log(response, "REs")
-    if(this.state.qpData.length==0)
+    if(this.state.qpData.length===0)
     {
       this.setState({noData:true})
     }else{this.setState({noData:false})}
@@ -56,13 +62,16 @@ class SearchQP extends Component {
   handlePageClick=(e)=>{
     const selectedPage = e.selected;
     const offset = selectedPage * this.state.perPage;
-
     this.setState({
         currentPage: selectedPage,
         offset: offset
     });
-
 };
+handleSubClick=(e,value)=>{
+  e.preventDefault();
+this.setState({sort:true,
+var:value})
+}
   render() {
     let QPContainer
 
@@ -97,6 +106,29 @@ class SearchQP extends Component {
     //Loading Option
     if (this.state.loading === false) {
       if (this.state.qpData !== [] && (this.state.qpData).length !== 0) {
+        if(this.state.sort)
+        {const v=this.state.var
+          const sorted=this.state.qpData.sort(function(a,b){
+            if(a[v]<b[v])
+            return -1;
+            if(a[v]<b[v])
+            return 1;
+            return 0;
+        }); 
+        const slice=sorted.slice(this.state.offset, this.state.offset + this.state.perPage) 
+        table = slice.map((data, index) => {
+          return (
+            <tr key={index}>
+              <td>{data['subjectName']}</td>
+              <td>{data['staff']}</td>
+              <td>{data['shortForm']}</td>
+              <td>{data.year}</td>
+              <a href={data['url']} target="blank" className="violet"><td>{data['url']}</td></a>
+            </tr>
+          )
+        })
+        }
+        else{
         const slice=this.state.qpData.slice(this.state.offset, this.state.offset + this.state.perPage)
         table = slice.map((data, index) => {
           return (
@@ -109,16 +141,16 @@ class SearchQP extends Component {
             </tr>
           )
         })
-
+      }
         QPContainer =
           <Container>
             <Table striped hover responsive>
               <thead>
                 <tr>
-                  <th>Subject Name</th>
-                  <th>Staff Name</th>
-                  <th>ShortForm</th>
-                  <th>Year</th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'subjectName') }} style={{backgroundColor: "violet"}} variant="contained" >Subject Name</Button></th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'staff') }} style={{backgroundColor: "violet"}} variant="contained" >Staff Name</Button></th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'shortForm') }} style={{backgroundColor: "violet"}} variant="contained" >ShortForm</Button></th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'year') }} style={{backgroundColor: "violet"}} variant="contained" >Year</Button></th>
                   <th>QP Link</th>
                 </tr>
               </thead>
