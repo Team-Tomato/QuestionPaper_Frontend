@@ -30,9 +30,12 @@ class Project extends Component {
     offset:0,
     perPage:10,
     currentPage:0,
-    noData:false
+    noData:false,
+    sort:false,
+      var:''
   };
   this.handlePageClick = this.handlePageClick.bind(this)
+  this.handleSubClick=this.handleSubClick.bind(this)
 }
   onChange = e => {
     const { value } = e.target;
@@ -61,6 +64,7 @@ class Project extends Component {
         offset: offset
     });
   }
+ 
   async search(query) {
     const url = "https://teamtomato.herokuapp.com/api/v1/book/search?search_str=" + query //fetch the specific book
     const response = await fetch(url)
@@ -81,12 +85,40 @@ class Project extends Component {
     this.search(query)
   }
 
+  handleSubClick=(e,value)=>{
+    e.preventDefault();
+  this.setState({sort:true,
+  var:value})
+  }
   render() {
     const {error} = this.state;
     let BookContainer
     let table = []
     if (this.state.loading === false) {
       if (this.state.person !== [] && (this.state.person).length !== 0) {
+        if(this.state.sort)
+        {const v=this.state.var
+          const sorted=this.state.person.sort(function(a,b){
+            if(a[v]<b[v])
+            return -1;
+            if(a[v]<b[v])
+            return 1;
+            return 0;
+        }); 
+        const slice=sorted.slice(this.state.offset, this.state.offset + this.state.perPage) 
+        table = slice.map((data, index) => {
+          return (
+            <tr key={index}>
+            <td>{data.title}</td>
+            <td>{data.author}</td>
+            <td>{data.isbn}</td>
+            <td>{data.publisher}</td>
+            <a href={data.url} target="blank" className="violet"><td>{data.url}</td></a>
+          </tr>
+          )
+        })
+        }
+        else{
         const slice=this.state.person.slice(this.state.offset, this.state.offset + this.state.perPage)
         table = slice.map((data, index) => {
           return (
@@ -98,16 +130,16 @@ class Project extends Component {
               <a href={data.url} target="blank" className="violet"><td>{data.url}</td></a>
             </tr>
           )
-        })
+        })}
         BookContainer =
           <Container>
             <Table striped hover responsive>
               <thead>
                 <tr>
-                  <th>TITLE</th>
-                  <th>AUTHOR</th>
-                  <th>ISBN</th>
-                  <th>PUBLISHER</th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'title') }} style={{backgroundColor: "violet"}}>TITLE</Button></th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'author') }} style={{backgroundColor: "violet"}}>AUTHOR</Button> </th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'isbn')}} style={{backgroundColor: "violet"}}>ISBN</Button></th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'publisher')}} style={{backgroundColor: "violet"}}>PUBLISHER</Button></th>
                   <th>URL</th>
                 </tr>
               </thead>
