@@ -3,7 +3,6 @@ import Typing from 'react-typing-animation';
 import { Container, Row, Col, Button } from 'reactstrap';
 import '../Styles/home.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import withSplashScreen from '../Component/withSplashScreen'
 import { Lines } from 'react-preloaders';
 
 class Home extends Component {
