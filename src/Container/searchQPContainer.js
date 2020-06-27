@@ -3,6 +3,8 @@ import { Card, CardBody } from 'reactstrap'
 import { Container, Row, Col, Table, Button1 } from 'reactstrap'
 import FormQP from '../Component/searQPForm.js'
 import Button from '@material-ui/core/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSortAlphaDown } from '@fortawesome/free-solid-svg-icons'
 import '../Styles/style.css'
 import Loader from 'react-loading';
 import '../Styles/contributors.css'
@@ -121,9 +123,9 @@ var:value})
           return (
             <tr key={index}>
               <td>{data['subjectName']}</td>
-              <td>{data['staff']}</td>
-              <td>{data['shortForm']}</td>
-              <td>{data.year}</td>
+              <td style={{textAlign:"center"}}>{data['staff']}</td>
+              <td style={{textAlign:"center"}}>{data['shortForm']}</td>
+              <td style={{textAlign:"center"}}>{data.year}</td>
               <a href={data['url']} target="blank" className="violet"><td>{data['url']}</td></a>
             </tr>
           )
@@ -135,9 +137,9 @@ var:value})
           return (
             <tr key={index}>
               <td>{data['subjectName']}</td>
-              <td>{data['staff']}</td>
-              <td>{data['shortForm']}</td>
-              <td>{data.year}</td>
+              <td style={{textAlign:"center"}}>{data['staff']}</td>
+              <td style={{textAlign:"center"}}>{data['shortForm']}</td>
+              <td style={{textAlign:"center"}}>{data.year}</td>
               <a href={data['url']} target="blank" className="violet"><td>{data['url']}</td></a>
             </tr>
           )
@@ -148,10 +150,10 @@ var:value})
             <Table striped hover responsive>
               <thead>
                 <tr>
-                  <th><Button onClick={(event) => { this.handleSubClick(event, 'subjectName') }} style={{backgroundColor: "violet"}} variant="contained" >Subject Name</Button></th>
-                  <th><Button onClick={(event) => { this.handleSubClick(event, 'staff') }} style={{backgroundColor: "violet"}} variant="contained" >Staff Name</Button></th>
-                  <th><Button onClick={(event) => { this.handleSubClick(event, 'shortForm') }} style={{backgroundColor: "violet"}} variant="contained" >ShortForm</Button></th>
-                  <th><Button onClick={(event) => { this.handleSubClick(event, 'year') }} style={{backgroundColor: "violet"}} variant="contained" >Year</Button></th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'subjectName') }} style={{backgroundColor: "violet",width:160}} variant="contained" >Subject Name<FontAwesomeIcon icon = {faSortAlphaDown}/></Button></th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'staff') }} style={{backgroundColor: "violet",width:150}} variant="contained" >Staff Name<FontAwesomeIcon icon = {faSortAlphaDown}/></Button></th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'shortForm') }} style={{backgroundColor: "violet",width:150}} variant="contained" >Short Form<FontAwesomeIcon icon = {faSortAlphaDown}/></Button></th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'year') }} style={{backgroundColor: "violet",width:150}} variant="contained" >Year<FontAwesomeIcon icon = {faSortAlphaDown}/></Button></th>
                   <th>QP Link</th>
                 </tr>
               </thead>
