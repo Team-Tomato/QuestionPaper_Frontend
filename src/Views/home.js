@@ -24,7 +24,7 @@ class Home extends Component {
                                 <FontAwesomeIcon icon="hand-point-right" color="violet" /> Do real time projects
                             </h3>
                             <br /><br /><br />
-                            <a href="https://github.com/Team-Tomato" target="blank" className="underlineOverride"><Button style={{ backgroundColor: "violet" }} variant="contained" md={6} lg={6} sm={6} block>Github</Button></a>
+                            <a style={{textDecoration: 'none' }} href="https://github.com/Team-Tomato" target="blank" className="underlineOverride"><Button style={{ backgroundColor: "violet",textDecoration: 'none'  }} variant="contained" md={6} lg={6} sm={6} block>Github</Button></a>
                         </Typing>
                     </Col>
                 </Row>
