@@ -7,6 +7,8 @@ import '../Styles/pagination.css'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSortAlphaDown } from '@fortawesome/free-solid-svg-icons'
 
 const StyledTextField = styled(TextField)`{
   label.Mui-focused {
@@ -110,9 +112,9 @@ class Project extends Component {
           return (
             <tr key={index}>
             <td>{data.title}</td>
-            <td>{data.author}</td>
+            <td style={{textAlign:"center"}}>{data.author}</td>
             <td>{data.isbn}</td>
-            <td>{data.publisher}</td>
+            <td style={{textAlign:"center"}}>{data.publisher}</td>
             <a href={data.url} target="blank" className="violet"><td>{data.url}</td></a>
           </tr>
           )
@@ -124,9 +126,9 @@ class Project extends Component {
           return (
             <tr key={index}>
               <td>{data.title}</td>
-              <td>{data.author}</td>
+              <td style={{textAlign:"center"}}>{data.author}</td>
               <td>{data.isbn}</td>
-              <td>{data.publisher}</td>
+              <td style={{textAlign:"center"}}>{data.publisher}</td>
               <a href={data.url} target="blank" className="violet"><td>{data.url}</td></a>
             </tr>
           )
@@ -136,10 +138,10 @@ class Project extends Component {
             <Table striped hover responsive>
               <thead>
                 <tr>
-                  <th><Button onClick={(event) => { this.handleSubClick(event, 'title') }} style={{backgroundColor: "violet"}}>TITLE</Button></th>
-                  <th><Button onClick={(event) => { this.handleSubClick(event, 'author') }} style={{backgroundColor: "violet"}}>AUTHOR</Button> </th>
-                  <th><Button onClick={(event) => { this.handleSubClick(event, 'isbn')}} style={{backgroundColor: "violet"}}>ISBN</Button></th>
-                  <th><Button onClick={(event) => { this.handleSubClick(event, 'publisher')}} style={{backgroundColor: "violet"}}>PUBLISHER</Button></th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'title')}} style={{backgroundColor: "violet",width:100}}>TITLE <FontAwesomeIcon icon = {faSortAlphaDown}/></Button></th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'author')}} style={{backgroundColor: "violet",width:100}}>AUTHOR <FontAwesomeIcon icon = {faSortAlphaDown}/></Button> </th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'isbn')}} style={{backgroundColor: "violet",width:120}}>ISBN <FontAwesomeIcon icon = {faSortAlphaDown}/></Button></th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'publisher')}} style={{backgroundColor: "violet",width:120}}>PUBLISHER <FontAwesomeIcon icon = {faSortAlphaDown}/></Button></th>
                   <th>URL</th>
                 </tr>
               </thead>
