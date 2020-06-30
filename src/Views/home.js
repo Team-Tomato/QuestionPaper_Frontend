@@ -3,10 +3,12 @@ import Typing from 'react-typing-animation';
 import { Container, Row, Col, Button } from 'reactstrap';
 import '../Styles/home.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {Lines} from 'react-preloaders'
 
 class Home extends Component {
     render() {
         return (
+            <div>
             <Container>
                 <br /><br />
                 <Row>
@@ -29,6 +31,8 @@ class Home extends Component {
                     </Col>
                 </Row>
             </Container>
+            <Lines color={'rgb(158, 38, 102)'} time={1800} />
+            </div>
         )
     }
 }
