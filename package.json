@@ -20,7 +20,6 @@
     "react-dom": "^16.13.1",
     "react-loading": "^2.0.3",
     "react-paginate": "^6.3.2",
-    "react-preloaders": "^3.0.3",
     "react-responsive-navbar": "^1.0.11",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^0.9.5",
