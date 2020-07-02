@@ -1,0 +1,93 @@
+exports[`Form Testing Matches the snapshot 1`] = `
+<div>
+  <div
+    className="header">
+    <h1>
+      We will be happy to hear from you !
+    </h1>
+    <h4>
+      Get in touch with us.
+    </h4>
+  </div>
+  <div
+    className="container">
+    <div
+      className="indentCorrection card">
+      <div
+        className="card-body">
+        <h5>
+          Use the public key
+        </h5>
+        <h2
+          className="violet">
+          D16C 2228 B32C EA4A B6B8 B92B EE4D DD8F DA96 7765
+        </h2>
+        <h5>
+          to mail us at teamtomato.oss@gmail.com
+        </h5>
+      </div>
+    </div>
+    <h3
+      className="center">
+      or
+    </h3>
+    <form
+      className="">
+      <input
+        className="form-control"
+        name="name"
+        onBlur={[Function]}
+        onChange={[Function]}
+        placeholder="Your Name"
+        sm={10}
+        type="text"
+        value="" />
+      <div
+        className="invalid-feedback">
+        
+      </div>
+      <br />
+      <input
+        className="form-control"
+        name="email"
+        onBlur={[Function]}
+        onChange={[Function]}
+        placeholder="youremail@email.com"
+        sm={10}
+        type="email"
+        value="" />
+      <div
+        className="invalid-feedback">
+        
+      </div>
+      <br />
+      <textarea
+        className="form-control"
+        name="message"
+        onBlur={[Function]}
+        onChange={[Function]}
+        placeholder="Your Message"
+        sm={10}
+        value="" />
+      <div
+        className="invalid-feedback">
+        
+      </div>
+      <br />
+      <button
+        aria-label={null}
+        className="btn btn-secondary btn-block"
+        onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "violet",
+          }
+        }
+        type="button"
+        variant="contained">
+        Send
+      </button>
+    </form>
+  </div>
+</div>
+`;
