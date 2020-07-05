@@ -34,7 +34,8 @@ class Project extends Component {
     currentPage:0,
     noData:false,
     sort:false,
-      var:''
+    choice:'',
+    prev:''
   };
   this.handlePageClick = this.handlePageClick.bind(this)
   this.handleSubClick=this.handleSubClick.bind(this)
@@ -73,7 +74,10 @@ class Project extends Component {
     const data = await response.json();
     this.setState({
       person: data,
-      loading: false
+      loading: false,
+      sort:false,
+      choice:'',
+      prev:''
     })
     if(this.state.person.length==0)
     {
@@ -90,7 +94,8 @@ class Project extends Component {
   handleSubClick=(e,value)=>{
     e.preventDefault();
   this.setState({sort:true,
-  var:value})
+    prev:this.state.choice,
+  choice:value})
   }
   render() {
     const {error} = this.state;
@@ -99,7 +104,10 @@ class Project extends Component {
     if (this.state.loading === false) {
       if (this.state.person !== [] && (this.state.person).length !== 0) {
         if(this.state.sort)
-        {const v=this.state.var
+        {
+          if(this.state.prev !== this.state.choice)
+          {
+          const v=this.state.choice
           const sorted=this.state.person.sort(function(a,b){
             if(a[v]<b[v])
             return -1;
@@ -118,7 +126,29 @@ class Project extends Component {
             <a href={data.url} target="blank" className="violet"><td>{data.url}</td></a>
           </tr>
           )
+        })}
+        else{
+          const v=this.state.choice
+          const sorted=this.state.person.sort(function(a,b){
+            if(a[v]>b[v])
+            return -1;
+            if(a[v]>b[v])
+            return 1;
+            return 0;
+        }); 
+        const slice=sorted.slice(this.state.offset, this.state.offset + this.state.perPage) 
+        table = slice.map((data, index) => {
+          return (
+            <tr key={index}>
+            <td>{data.title}</td>
+            <td style={{textAlign:"center"}}>{data.author}</td>
+            <td>{data.isbn}</td>
+            <td style={{textAlign:"center"}}>{data.publisher}</td>
+            <a href={data.url} target="blank" className="violet"><td>{data.url}</td></a>
+          </tr>
+          )
         })
+        }
         }
         else{
         const slice=this.state.person.slice(this.state.offset, this.state.offset + this.state.perPage)
@@ -138,10 +168,10 @@ class Project extends Component {
             <Table striped hover responsive>
               <thead>
                 <tr>
-                  <th><Button onClick={(event) => { this.handleSubClick(event, 'title')}} style={{backgroundColor: "violet",width:100}}>TITLE <FontAwesomeIcon icon = {faSortAlphaDown}/></Button></th>
-                  <th><Button onClick={(event) => { this.handleSubClick(event, 'author')}} style={{backgroundColor: "violet",width:100}}>AUTHOR <FontAwesomeIcon icon = {faSortAlphaDown}/></Button> </th>
-                  <th><Button onClick={(event) => { this.handleSubClick(event, 'isbn')}} style={{backgroundColor: "violet",width:120}}>ISBN <FontAwesomeIcon icon = {faSortAlphaDown}/></Button></th>
-                  <th><Button onClick={(event) => { this.handleSubClick(event, 'publisher')}} style={{backgroundColor: "violet",width:120}}>PUBLISHER <FontAwesomeIcon icon = {faSortAlphaDown}/></Button></th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'title')}} style={{backgroundColor: "violet",color:"white",width:100}}>Title <FontAwesomeIcon icon = {faSortAlphaDown}/></Button></th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'author')}} style={{backgroundColor: "violet",color:"white",width:100}}>Author <FontAwesomeIcon icon = {faSortAlphaDown}/></Button> </th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'isbn')}} style={{backgroundColor: "violet",color:"white",width:120}}>ISBN <FontAwesomeIcon icon = {faSortAlphaDown}/></Button></th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'publisher')}} style={{backgroundColor: "violet",color:"white",width:120}}>Publisher <FontAwesomeIcon icon = {faSortAlphaDown}/></Button></th>
                   <th>URL</th>
                 </tr>
               </thead>

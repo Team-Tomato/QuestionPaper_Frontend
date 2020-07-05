@@ -22,7 +22,8 @@ class SearchQP extends Component {
       currentPage:0,
       noData:false,
       sort:false,
-      var:''
+      choice:'',
+      prev:''
     };
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handlePageClick = this.handlePageClick.bind(this)
@@ -52,7 +53,8 @@ class SearchQP extends Component {
         qpData: response,
         loading: false,
         sort:false,
-        var:''
+        choice:'',
+        prev:''
       })
       console.log(response.subjectName)
       // console.log(response, "REs")
@@ -72,8 +74,11 @@ class SearchQP extends Component {
 };
 handleSubClick=(e,value)=>{
   e.preventDefault();
-this.setState({sort:true,
-var:value})
+ 
+this.setState(({sort:true,
+  prev:this.state.choice,
+choice:value
+}))
 }
   render() {
     let QPContainer
@@ -110,7 +115,10 @@ var:value})
     if (this.state.loading === false) {
       if (this.state.qpData !== [] && (this.state.qpData).length !== 0) {
         if(this.state.sort)
-        {const v=this.state.var
+        {
+          if(this.state.prev !== this.state.choice)
+          {
+          const v=this.state.choice
           const sorted=this.state.qpData.sort(function(a,b){
             if(a[v]<b[v])
             return -1;
@@ -129,7 +137,29 @@ var:value})
               <a href={data['url']} target="blank" className="violet"><td>{data['url']}</td></a>
             </tr>
           )
+        })}
+        else{
+          const v=this.state.choice
+          const sorted=this.state.qpData.sort(function(a,b){
+            if(a[v]>b[v])
+            return -1;
+            if(a[v]>b[v])
+            return 1;
+            return 0;
+        }); 
+        const slice=sorted.slice(this.state.offset, this.state.offset + this.state.perPage) 
+        table = slice.map((data, index) => {
+          return (
+            <tr key={index}>
+              <td>{data['subjectName']}</td>
+              <td style={{textAlign:"center"}}>{data['staff']}</td>
+              <td style={{textAlign:"center"}}>{data['shortForm']}</td>
+              <td style={{textAlign:"center"}}>{data.year}</td>
+              <a href={data['url']} target="blank" className="violet"><td>{data['url']}</td></a>
+            </tr>
+          )
         })
+        }
         }
         else{
         const slice=this.state.qpData.slice(this.state.offset, this.state.offset + this.state.perPage)
@@ -150,10 +180,10 @@ var:value})
             <Table striped hover responsive>
               <thead>
                 <tr>
-                  <th><Button onClick={(event) => { this.handleSubClick(event, 'subjectName') }} style={{backgroundColor: "violet",width:160}} variant="contained" >Subject Name<FontAwesomeIcon icon = {faSortAlphaDown}/></Button></th>
-                  <th><Button onClick={(event) => { this.handleSubClick(event, 'staff') }} style={{backgroundColor: "violet",width:150}} variant="contained" >Staff Name<FontAwesomeIcon icon = {faSortAlphaDown}/></Button></th>
-                  <th><Button onClick={(event) => { this.handleSubClick(event, 'shortForm') }} style={{backgroundColor: "violet",width:150}} variant="contained" >Short Form<FontAwesomeIcon icon = {faSortAlphaDown}/></Button></th>
-                  <th><Button onClick={(event) => { this.handleSubClick(event, 'year') }} style={{backgroundColor: "violet",width:150}} variant="contained" >Year<FontAwesomeIcon icon = {faSortAlphaDown}/></Button></th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'subjectName') }} style={{backgroundColor: "violet",color:"white",width:160}} variant="contained" >Subject Name<FontAwesomeIcon icon = {faSortAlphaDown}/></Button></th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'staff') }} style={{backgroundColor: "violet",color:"white",width:150}} variant="contained" >Staff Name<FontAwesomeIcon icon = {faSortAlphaDown}/></Button></th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'shortForm') }} style={{backgroundColor: "violet",color:"white",width:150}} variant="contained" >Short Form<FontAwesomeIcon icon = {faSortAlphaDown}/></Button></th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'year') }} style={{backgroundColor: "violet",color:"white",width:150}} variant="contained" >Year<FontAwesomeIcon icon = {faSortAlphaDown}/></Button></th>
                   <th>QP Link</th>
                 </tr>
               </thead>
