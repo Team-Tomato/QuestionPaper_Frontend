@@ -1,7 +1,7 @@
 import MathJax from 'react-mathjax2'
 import React, { Component } from "react";
 import {Tex,InlineTex} from 'react-tex'
-const ascii = 'U = 1/(R_(si) + sum_(i=1)^n(s_n/lambda_n) + R_(se))'
+const ascii = 'sum_(i=1)^n i^3=((n(n+1))/2)^2'
  
 class Math extends Component {
    render(){
@@ -30,7 +30,6 @@ class Math extends Component {
         >
             <MathJax.Text text={ tex }/>
         </MathJax.Context> 
-            
             }
         </div>
     );
