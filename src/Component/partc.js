@@ -193,7 +193,7 @@ class Partc extends Component {
     this.state.qp[id].subqp[subid].errors.mark="Mark should not be empty";
   }
   exportPDFWithComponent = event => {
-    
+    this.pdfExportComponent.save();
 };
 
     openModal=(event) =>{
@@ -553,15 +553,21 @@ handleBlurSubQp=(field,index,subid)=>(evt)=>{
             <a className="close" onClick={this.closeModal}>
               &times;
             </a>
-          
-            <div>
+            <PDFExport
+                        ref={component => (this.pdfExportComponent = component)}
+                        paperSize="auto"
+                        margin={40}
+                        fileName={`Report for ${new Date().getFullYear()}`}
+                        author="KendoReact Team"
+                    >
+            <div id="convert">
             
             <Row className="form-group">
-              <Col md={3}>
+              <Col md={5}>
                 <Label >{"Date : "+this.props.header.date}</Label>
               </Col>
-              <Col md={3} className="offset-md-6">
-                <Label >{"Rollno : "+this.props.header.rollno}</Label>
+              <Col md={3} className="offset-md-4">
+                <Label >{"Rollno : "}</Label>
               </Col>
           </Row>
           <Row className="form-group row-align">
@@ -600,11 +606,11 @@ handleBlurSubQp=(field,index,subid)=>(evt)=>{
             :<Label style={{textAlign:'right'}}>{1+id}</Label>}
             
             </Col>
-           
+           <Col md={8}>
+            <Label><Math ques={x.question}/></Label>
             
-            <Math ques={x.question}/>
             <img style={{padding:'15px',paddingLeft:'55px',alignItems:'center',justifyContent:'center'}}height="200px" src={x.imagePreviewUrl} />
-              
+            </Col>
             <Col md={1}>
             <Label>({x.mark})</Label>
             </Col>
@@ -733,7 +739,7 @@ handleBlurSubQp=(field,index,subid)=>(evt)=>{
             })
             }
             </div>
-            
+            </PDFExport>
             </div>
             
             </Scroll.Element>
