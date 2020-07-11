@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Card, CardBody } from 'reactstrap'
-import { Container, Row, Col, Table, Button } from 'reactstrap'
+import { Container, Row, Col, Table, Button1 } from 'reactstrap'
 import FormQP from '../Component/searQPForm.js'
+import Button from '@material-ui/core/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSortAlphaDown } from '@fortawesome/free-solid-svg-icons'
 import '../Styles/style.css'
 import Loader from 'react-loading';
 import '../Styles/contributors.css'
@@ -16,10 +19,15 @@ class SearchQP extends Component {
       qpData: [],
       offset:0,
       perPage:10,
-      currentPage:0
+      currentPage:0,
+      noData:false,
+      sort:false,
+      choice:'',
+      prev:''
     };
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handlePageClick = this.handlePageClick.bind(this)
+    this.handleSubClick=this.handleSubClick.bind(this)
   }
 
   async handleSubmit(event, query) {
@@ -43,21 +51,35 @@ class SearchQP extends Component {
     }).then(response => {
       this.setState({
         qpData: response,
-        loading: false
+        loading: false,
+        sort:false,
+        choice:'',
+        prev:''
       })
+      console.log(response.subjectName)
       // console.log(response, "REs")
+    if(this.state.qpData.length===0)
+    {
+      this.setState({noData:true})
+    }else{this.setState({noData:false})}
     })
   }
   handlePageClick=(e)=>{
     const selectedPage = e.selected;
     const offset = selectedPage * this.state.perPage;
-
     this.setState({
         currentPage: selectedPage,
         offset: offset
     });
-
 };
+handleSubClick=(e,value)=>{
+  e.preventDefault();
+ 
+this.setState(({sort:true,
+  prev:this.state.choice,
+choice:value
+}))
+}
   render() {
     let QPContainer
 
@@ -92,28 +114,76 @@ class SearchQP extends Component {
     //Loading Option
     if (this.state.loading === false) {
       if (this.state.qpData !== [] && (this.state.qpData).length !== 0) {
+        if(this.state.sort)
+        {
+          if(this.state.prev !== this.state.choice)
+          {
+          const v=this.state.choice
+          const sorted=this.state.qpData.sort(function(a,b){
+            if(a[v]<b[v])
+            return -1;
+            if(a[v]<b[v])
+            return 1;
+            return 0;
+        }); 
+        const slice=sorted.slice(this.state.offset, this.state.offset + this.state.perPage) 
+        table = slice.map((data, index) => {
+          return (
+            <tr key={index}>
+              <td>{data['subjectName']}</td>
+              <td style={{textAlign:"center"}}>{data['staff']}</td>
+              <td style={{textAlign:"center"}}>{data['shortForm']}</td>
+              <td style={{textAlign:"center"}}>{data.year}</td>
+              <a href={data['url']} target="blank" className="violet"><td>{data['url']}</td></a>
+            </tr>
+          )
+        })}
+        else{
+          const v=this.state.choice
+          const sorted=this.state.qpData.sort(function(a,b){
+            if(a[v]>b[v])
+            return -1;
+            if(a[v]>b[v])
+            return 1;
+            return 0;
+        }); 
+        const slice=sorted.slice(this.state.offset, this.state.offset + this.state.perPage) 
+        table = slice.map((data, index) => {
+          return (
+            <tr key={index}>
+              <td>{data['subjectName']}</td>
+              <td style={{textAlign:"center"}}>{data['staff']}</td>
+              <td style={{textAlign:"center"}}>{data['shortForm']}</td>
+              <td style={{textAlign:"center"}}>{data.year}</td>
+              <a href={data['url']} target="blank" className="violet"><td>{data['url']}</td></a>
+            </tr>
+          )
+        })
+        }
+        }
+        else{
         const slice=this.state.qpData.slice(this.state.offset, this.state.offset + this.state.perPage)
         table = slice.map((data, index) => {
           return (
             <tr key={index}>
               <td>{data['subjectName']}</td>
-              <td>{data['staff']}</td>
-              <td>{data['shortForm']}</td>
-              <td>{data.year}</td>
+              <td style={{textAlign:"center"}}>{data['staff']}</td>
+              <td style={{textAlign:"center"}}>{data['shortForm']}</td>
+              <td style={{textAlign:"center"}}>{data.year}</td>
               <a href={data['url']} target="blank" className="violet"><td>{data['url']}</td></a>
             </tr>
           )
         })
-
+      }
         QPContainer =
           <Container>
             <Table striped hover responsive>
               <thead>
                 <tr>
-                  <th>Subject Name</th>
-                  <th>Staff Name</th>
-                  <th>ShortForm</th>
-                  <th>Year</th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'subjectName') }} style={{backgroundColor: "violet",color:"white",width:160}} variant="contained" >Subject Name<FontAwesomeIcon icon = {faSortAlphaDown}/></Button></th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'staff') }} style={{backgroundColor: "violet",color:"white",width:150}} variant="contained" >Staff Name<FontAwesomeIcon icon = {faSortAlphaDown}/></Button></th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'shortForm') }} style={{backgroundColor: "violet",color:"white",width:150}} variant="contained" >Short Form<FontAwesomeIcon icon = {faSortAlphaDown}/></Button></th>
+                  <th><Button onClick={(event) => { this.handleSubClick(event, 'year') }} style={{backgroundColor: "violet",color:"white",width:150}} variant="contained" >Year<FontAwesomeIcon icon = {faSortAlphaDown}/></Button></th>
                   <th>QP Link</th>
                 </tr>
               </thead>
@@ -129,49 +199,15 @@ class SearchQP extends Component {
     }
     else {
       QPContainer = <div style={{
-        position: 'absolute', left: '50%', top: '92%',
+        position: 'absolute', left: '50%', top: '85%',
         transform: 'translate(-50%, -50%)'
       }}>
         <Loader type={"bars"} color={"black"} />
       </div>
     }
 
+    
     const count=Math.ceil(this.state.qpData.length / this.state.perPage);
-    if(count!==1&&count!==0)
-    {
-      return(
-        <div>
-        <Card className="gradient">
-          <CardBody className="welcome-title" style={{
-            position: 'absolute', left: '50%', top: '50%',
-            transform: 'translate(-50%, -50%)',
-            color: 'white'
-          }}>
-            <h5>Search for integrated M.Sc question papers</h5>
-          </CardBody>
-        </Card>
-
-        <FormQP handleSubmit={this.handleSubmit.bind(this)} />
-        <br />
-        {QPContainer}    
-            <div>
-                <ReactPaginate
-                    previousLabel={"prev"}
-                    nextLabel={"next"}
-                    breakLabel={"..."}
-                    breakClassName={"break-me"}
-                    pageCount={count}
-                    marginPagesDisplayed={2}
-                    pageRangeDisplayed={5}
-                    onPageChange={this.handlePageClick}
-                    containerClassName={"pagination"}
-                    subContainerClassName={"pages pagination"}
-                    activeClassName={"active"}/>
-            </div>
-            </div>
-      )
-    }
-    else{
     return (
       <div>
         <Card className="gradient">
@@ -190,32 +226,53 @@ class SearchQP extends Component {
           <h5 className="centerIt">Yearwise question paper collection status</h5>
           <Row>
             <Col lg={3} md={3} sm={6}>
-              <a href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2018batch.md" target="_blank">
-                <Button style={{backgroundColor: "violet"}} variant="contained" block>2018-2023</Button>
+              <a style={{textDecoration: 'none' }} href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2018batch.md" target="_blank">
+                <Button className="col-md-12" style={{backgroundColor: "violet",color:"white",textDecoration: 'none' }} variant="contained" block>2018-2023</Button>
               </a>
             </Col>
             <Col lg={3} md={3} sm={6}>
-              <a href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2017batch.md" target="_blank">
-                <Button style={{backgroundColor: "violet"}} variant="contained" block>2017-2022</Button>
+              <a style={{textDecoration: 'none' }} href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2017batch.md" target="_blank">
+                <Button className="col-md-12" style={{backgroundColor: "violet",color:"white",textDecoration: 'none' }} variant="contained" block>2017-2022</Button>
               </a>
             </Col>
             <Col lg={3} md={3} sm={6}>
-              <a href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2016batch.md" target="_blank"> 
-                <Button style={{backgroundColor: "violet"}} variant="contained" block>2016-2021</Button>
+              <a style={{textDecoration: 'none' }} href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2016batch.md" target="_blank"> 
+                <Button className="col-md-12" style={{backgroundColor: "violet",color:"white",textDecoration: 'none' }} variant="contained" block>2016-2021</Button>
               </a> 
             </Col>
             <Col lg={3} md={3} sm={6}>
-              <a href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2015batch.md" target="_blank">
-                <Button style={{backgroundColor: "violet"}} variant="contained" block>2015-2020</Button>
+              <a style={{textDecoration: 'none' }} href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2015batch.md" target="_blank">
+                <Button className="col-md-12" style={{backgroundColor: "violet",color:"white",textDecoration: 'none' }} variant="contained" block>2015-2020</Button>
               </a>
             </Col>
           </Row>
         </Container>
         <br />
         {QPContainer}
+        {this.state.noData ? (
+          <div>
+            <h5 className="centerIt">Sorry,we are not able to find the question paper you are looking for</h5>
+            </div>
+            
+            ):(count>1 ? (
+              <div>
+                 <ReactPaginate
+                    previousLabel={"prev"}
+                    nextLabel={"next"}
+                    breakLabel={"..."}
+                    breakClassName={"break-me"}
+                    pageCount={count}
+                    marginPagesDisplayed={2}
+                    pageRangeDisplayed={5}
+                    onPageChange={this.handlePageClick}
+                    containerClassName={"pagination"}
+                    subContainerClassName={"pages pagination"}
+                    activeClassName={"active"}/>
+              </div>
+            ):(<div></div>)
+            )}
       </div>
     )
-        }
   }
 }
 
