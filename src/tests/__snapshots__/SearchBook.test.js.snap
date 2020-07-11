@@ -1,0 +1,65 @@
+exports[`search book testing Matches the snapshot 1`] = `
+<div>
+  <div
+    className="gradient card">
+    <div
+      className="welcome-title card-body"
+      style={
+        Object {
+          "color": "white",
+          "left": "50%",
+          "position": "absolute",
+          "top": "50%",
+          "transform": "translate(-50%, -50%)",
+        }
+      }>
+      <h5>
+        Books destination for Integrated students
+      </h5>
+    </div>
+  </div>
+  <br />
+  <div
+    className="container">
+    <div
+      className="correctMargin card">
+      <div
+        className="removeIndent card-body">
+        <form
+          className="">
+          <div
+            className="row">
+            <div
+              className="addIndent col-sm-6 col-md-8 col-lg-10">
+              <input
+                className="form-control"
+                onChange={[Function]}
+                placeholder="Enter the Title or Author name"
+                type="text" />
+            </div>
+            <div
+              className="addIndent col-sm-6 col-md-4 col-lg-2">
+              <button
+                aria-label={null}
+                className="btn btn-secondary btn-block disabled"
+                disabled={true}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "violet",
+                  }
+                }
+                type="button"
+                variant="contained">
+                Search
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div />
+  </div>
+  <h6 />
+</div>
+`;
