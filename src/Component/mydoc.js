@@ -6,56 +6,70 @@ import Scroll from 'react-scroll';
 import { PDFExport } from "@progress/kendo-react-pdf";
 import subdivide from '../images/subdivide.png'
 import MathJax from 'react-mathjax2'
+import jsPDF from 'jspdf'
+import { renderToStaticMarkup } from 'react-dom/server';
 import html2canvas from 'html2canvas'
-
- 
-const styles = StyleSheet.create({
-  page: {
-    flexDirection: 'row',
-    backgroundColor: '#E4E4E4',
-  },
-  section: {
-    margin: 10,
-    padding: 10,
-    flexGrow: 1,
-  }
-})
-
- class mydoc extends Component {
+class mydoc extends Component {
      constructor(props)
      {
          super(props);
      }
     
-    exportPDFWithComponent() {
-      const element = document.querySelector("#pdf")
-
+    // exportPDFWithComponent() {
+      // const element = document.querySelector("#MathJax-Element-1-Frame")
+      // const svg = element.getElementsByTagName('svg')[0].outerHTML;
+      // console.log(svg)
+      // const svgString = encodeURIComponent(renderToStaticMarkup(svg));
+      // const dataUri = `url("data:image/svg+xml,${svg}")`;
+      // console.log(dataUri)
+      // var printDoc = new jsPDF();
+      // printDoc.fromHTML(svg, 10, 10, {'width': 100});
+      // printDoc.output("dataurlnewwindow"); // this opens a new popup,  after this the PDF opens the print window view but there are browser inconsistencies with how this is handled
         // this.pdfExportComponent.save();
-    };
+    // };
 
-    async componentDidMount() {
-      const script = document.createElement("script");
-      script.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default";
-      script.type = "text/x-mathjax-config"
-      script.value = MathJax.Hub.Config({
-        extensions: ["tex2jax.js", "TeX/AMSmath.js"],
-        jax: ["input/TeX", "output/SVG"],
-      });
-      document.body.appendChild(script);
+    exportPDFWithComponent() {
+      let element = document.getElementById('pdf')
+      console.log(element)
+      html2canvas(element, {scrollY: -window.scrollY}).then(function(canvas) {
+        var myImage = canvas.toDataURL("image/png,1.0");
+        document.body.append(canvas)
+        // Adjust width and height
+        // console.log(myImage)
+        var imgWidth = (canvas.width * 20) / 240;
+        var imgHeight = (canvas.height * 20) / 240; 
+        // jspdf changes
+        var pdf = new jsPDF('p', 'mm');
+        pdf.addImage(myImage, 'PNG', 10, 10, imgWidth, imgHeight); // 2: 19    
+        // pdf.output("dataurlnewwindow");
+        pdf.save("HTML-Document.pdf");
+ });
+
+ 
+    }
+
+    // async componentDidMount() {
+    //   const script = document.createElement("script");
+    //   script.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default";
+    //   script.type = "text/x-mathjax-config"
+    //   script.value =    MathJax.Hub.Config({
+    //     extensions: ["tex2jax.js", "TeX/AMSmath.js"],
+    //     jax: ["input/TeX", "output/HTML-CSS"],
+    // });
+    //   document.body.appendChild(script);
      
       // MathJax.Hub.Register.StartupHook("MathMenu Ready",function () {
       //   MathJax.Hub.Config({
       //     extensions: ["tex2jax.js", "TeX/AMSmath.js"],
-      //     jax: ["input/TeX", "output/SVG"],
+      //     jax: ["input/TeX", "output/HTML-CSS"],
       //   });
-      //   MathJax.Menu.BGSTYLE["z-index"] = 2001;
       // });
       
-    }
+    // }
    
     render() {
         return (
-        
+          <div>
           <div id="pdf">
           <div>
             <PDFExport
@@ -66,7 +80,6 @@ const styles = StyleSheet.create({
                         author="KendoReact Team"
                     >
             <div id="convert">
-            
             <Row className="form-group">
               <Col md={5}>
                 <Label >{"Date : "+this.props.header.date}</Label>
@@ -76,10 +89,6 @@ const styles = StyleSheet.create({
               </Col>
           </Row>
           <Row className="form-group row-align">
-          <div>$$a sum_(i=1)^n i^3=((n(n+1))/2)^2 $$</div>
-          <div>$$a asqrtb $$</div>
-          <div>$$a sum_(i=1)^n i^3=((n(n+1))/2)^2 $$</div>
-
           <Label style={{textAlign:'center'}}>{"Subject : "+this.props.header.subject}</Label>
           </Row>
           <Row className="form-group row-align"> 
@@ -99,7 +108,6 @@ const styles = StyleSheet.create({
           <Label >{"Marks : "+this.props.header.marks}</Label>
           </Col>
           </Row>
-
             <Row className="form-group row-align"> 
             <Label style={{textAlign:'center'}}><b>PART-A</b></Label> 
             <Label>({this.props.totala})</Label> 
@@ -116,8 +124,8 @@ const styles = StyleSheet.create({
             
             </Col>
            <Col md={8}>
+           <div id='demo1'>$$This is unfair a sum_(i=1)^n i^3=((n(n+1))/2)^2 $$</div>
             <Label><Math ques={x.question}/></Label>
-            
             <img style={{padding:'15px',paddingLeft:'55px',alignItems:'center',justifyContent:'center'}}height="200px" src={x.imagePreviewUrl} />
             </Col>
             <Col md={1}>
@@ -251,7 +259,7 @@ const styles = StyleSheet.create({
             </PDFExport>
             </div>
             
-            
+            </div>
             <Button onClick={this.exportPDFWithComponent} style={{alignItems:'center'}}>Generate PDF</Button>
             </div>
             
