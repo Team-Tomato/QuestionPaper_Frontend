@@ -11,7 +11,8 @@ class Math extends Component {
             {/* <InlineTex texContent={tex} /> */
             <MathJax.Context
             input='ascii'
-            onLoad={ () => console.log("Loaded MathJax script!") }
+            onLoad={ () => {
+                console.log("Loaded MathJax script!")} }
             onError={ (MathJax, error) => {
                 console.warn(error);
                 console.log("Encountered a MathJax error, re-attempting a typeset!");
@@ -25,7 +26,9 @@ class Math extends Component {
                      useMathMLspacing: true,
                      delimiters: [["$$","$$"]],
                      preview: "none",
-                }
+                },
+                extensions: ["tex2jax.js", "TeX/AMSmath.js"],
+                jax: ["input/TeX", "output/HTML-CSS"]
             } }
         >
             <MathJax.Text text={ tex }/>

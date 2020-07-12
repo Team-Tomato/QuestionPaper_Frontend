@@ -3,40 +3,34 @@ import {Row,Col,Input, Label, Button} from 'reactstrap'
 import Math from './math' 
 import Popup from 'reactjs-popup';
 import Scroll from 'react-scroll';
-import { PDFExport } from "@progress/kendo-react-pdf";
-import subdivide from '../images/subdivide.png'
- class mydoc extends Component {
+import MathJax from 'react-mathjax2'
+import jsPDF from 'jspdf'
+import html2canvas from 'html2canvas'
+
+class mydoc extends Component {
      constructor(props)
      {
          super(props);
      }
-     exportPDFWithComponent = event => {
-        this.pdfExportComponent.save();
-    };
+
+     exportPDFWithComponent() {
+      let element = document.getElementById('pdf')
+      html2canvas(element, {scrollY: -window.scrollY, pagesplit: true}).then(function(canvas) {
+        var myImage = canvas.toDataURL("image/png,1.0");
+        // document.body.append(canvas)
+        var imgWidth = (canvas.width * 20) / 240;
+        var imgHeight = (canvas.height * 20) / 240; 
+        var pdf = new jsPDF('p', 'mm');
+        pdf.addImage(myImage, 'PNG', 10, 10, imgWidth, imgHeight);
+        pdf.save("question_paper.pdf");
+      });
+     }
+
     render() {
         return (
-            <div>
-              <Popup
-          open={this.props.open}
-          modal
-          closeOnDocumentClick
-          onClose={this.props.closeModal}
-          style={{overflow:'scroll'}}
-        >
           
-         <Scroll.Element className="element" style={{overflow:'scroll',position:'relative',height:'620px'}}> 
-          <div>
-            <a className="close" onClick={this.props.closeModal}>
-              &times;
-            </a>
-            <PDFExport
-                        ref={component => (this.pdfExportComponent = component)}
-                        paperSize="auto"
-                        margin={40}
-                        fileName={`Report for ${new Date().getFullYear()}`}
-                        author="KendoReact Team"
-                    >
-            <div id="convert">
+          <div id="pdf">
+            <div id="pdf1">
             
             <Row className="form-group">
               <Col md={5}>
@@ -215,13 +209,9 @@ import subdivide from '../images/subdivide.png'
             })
             }
             </div>
-            </PDFExport>
-            </div>
             
-            </Scroll.Element>
             
             <Button onClick={this.exportPDFWithComponent} style={{alignItems:'center'}}>Generate PDF</Button>
-            </Popup>
             </div>
         )
     }
