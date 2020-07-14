@@ -6,7 +6,7 @@ import Scroll from 'react-scroll';
 import MathJax from 'react-mathjax2'
 import jsPDF from 'jspdf'
 import html2canvas from 'html2canvas'
-
+import html2pdf from 'html2pdf.js'
 class mydoc extends Component {
      constructor(props)
      {
@@ -16,14 +16,66 @@ class mydoc extends Component {
      exportPDFWithComponent() {
       let element = document.getElementById('pdf')
       html2canvas(element, {scrollY: -window.scrollY, pagesplit: true}).then(function(canvas) {
-        var myImage = canvas.toDataURL("image/png,1.0");
+        var imgData = canvas.toDataURL("image/png,1.0");
         // document.body.append(canvas)
-        var imgWidth = (canvas.width * 20) / 240;
-        var imgHeight = (canvas.height * 20) / 240; 
-        var pdf = new jsPDF('p', 'mm');
-        pdf.addImage(myImage, 'PNG', 10, 10, imgWidth, imgHeight);
-        pdf.save("question_paper.pdf");
+        // var imgWidth = (canvas.width * 20) / 240;
+        // var imgHeight = (canvas.height * 20) / 240; 
+        // var pdf = new jsPDF('p', 'mm');
+        // pdf.addImage(myImage, 'PNG', 10, 10, imgWidth, imgHeight);
+        // pdf.save("question_paper.pdf");
+        var imgWidth = 210; 
+        var pageHeight = 295;  
+        var imgHeight = canvas.height * imgWidth / canvas.width;
+        var heightLeft = imgHeight;
+        // console.log(canvas.height)
+        // console.log(canvas.width)
+        console.log(imgHeight)
+        console.log(heightLeft)
+        var doc = new jsPDF('p', 'mm','a4');
+        var position = 10;
+  
+        doc.addImage(imgData, 'PNG', 2, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+        console.log(heightLeft)
+        while (heightLeft >= 0) {
+          console.log("loop")
+          console.log(heightLeft)
+          position = heightLeft - imgHeight;
+          console.log(position)
+          doc.addPage();
+          doc.addImage(imgData, 'PNG', 2, position, imgWidth, imgHeight);
+          heightLeft -= pageHeight;
+        }
+        doc.save( 'file.pdf');﻿
       });
+      // var opt = {
+      //   margin:       1,
+      //   filename:     'myfile.pdf',
+      //   image:        { type: 'jpeg', quality: 0.98 },
+      //   html2canvas:  { scale: 2 },
+      //   jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+      // };
+       
+      // // New Promise-based usage:
+      // html2pdf().from(element).set(opt).save();
+      // const opt = {
+      //   margin:       [0,0],
+      //   filename:     'myfile.pdf',
+      //   image:        { type: 'jpeg', quality: 0.98 },
+      //   html2canvas:  { dpi: 192 },
+      //   jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+      // };
+      // const doc = new jsPDF(opt.jsPDF);
+      // const pageSize = jsPDF.getPageSize(opt.jsPDF);
+      // for(let i = 0; i < element.length; i++){
+      //   const page = element[i];
+      //   const pageImage =  html2pdf().from(page).set(opt).outputImg();
+      //   if(i != 0) {
+      //     doc.addPage();
+      //   }
+      //   doc.addImage(pageImage.src, 'jpeg', opt.margin[0], opt.margin[1], pageSize.width, pageSize.height);
+      // }
+      // doc.save('myfile.pdf')
      }
 
     render() {
