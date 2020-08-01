@@ -1,9 +1,11 @@
+import 'jsdom-global/register';
 import React from 'react';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import fetchMock from 'jest-fetch-mock';
 
 import SearchQP from '../Views/searchQP';
+import SearchBook from '../Views/SearchBook';
 import { mount, shallow } from 'enzyme';
 import { create } from 'react-test-renderer';
 
@@ -16,7 +18,7 @@ describe('Testing Search Qp page',()=>{
         expect(snap.toJSON()).toMatchSnapshot();
     });
     test.skip('testing input',()=>{
-        const QP = mount(<SearchQP  />)
+        const QP = shallow(<SearchQP  />)
         const container = QP.find('Container');
         expect(container).toHaveLength(2);
         let card = container.find('Card');
