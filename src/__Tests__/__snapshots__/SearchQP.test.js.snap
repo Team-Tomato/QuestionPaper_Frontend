@@ -1,0 +1,303 @@
+exports[`Testing Search Qp page Matches snapshots 1`] = `
+<div>
+  <div
+    className="gradient card">
+    <div
+      className="welcome-title card-body"
+      style={
+        Object {
+          "color": "white",
+          "left": "50%",
+          "position": "absolute",
+          "top": "50%",
+          "transform": "translate(-50%, -50%)",
+        }
+      }>
+      <h5>
+        Search for integrated M.Sc question papers
+      </h5>
+    </div>
+  </div>
+  <div
+    className="container">
+    <br />
+    <div
+      className="correctMargin card">
+      <div
+        className="removeIndent card-body">
+        <form
+          className=""
+          onSubmit={[Function]}>
+          <div
+            className="addSpace row">
+            <div
+              className="addIndent col-sm-6 col-md-8 col-lg-10">
+              <div
+                className="MuiFormControl-root MuiTextField-root sc-AxjAm kClKlr MuiFormControl-fullWidth">
+                <label
+                  className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-marginDense MuiInputLabel-outlined"
+                  data-shrink={false}
+                  htmlFor="outlined-size-small keywordSearch"
+                  id="outlined-size-small keywordSearch-label">
+                  Search subject name or staff
+                </label>
+                <div
+                  className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-marginDense MuiOutlinedInput-marginDense"
+                  onClick={[Function]}>
+                  <input
+                    aria-describedby={undefined}
+                    aria-invalid={false}
+                    autoComplete={undefined}
+                    autoFocus={false}
+                    className="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense"
+                    defaultValue={undefined}
+                    disabled={false}
+                    id="outlined-size-small keywordSearch"
+                    name="keywordSearch"
+                    onAnimationStart={[Function]}
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={undefined}
+                    onKeyUp={undefined}
+                    placeholder={undefined}
+                    readOnly={undefined}
+                    required={false}
+                    rows={undefined}
+                    type="text"
+                    value={undefined} />
+                  <fieldset
+                    aria-hidden={true}
+                    className="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+                    style={undefined}>
+                    <legend
+                      className="PrivateNotchedOutline-legendLabelled-3">
+                      <span>
+                        Search subject name or staff
+                      </span>
+                    </legend>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+            <div
+              className="addIndent col-sm-6 col-md-4 col-lg-2">
+              <button
+                block={true}
+                className="MuiButtonBase-root MuiButton-root MuiButton-contained col-md-12 Mui-disabled Mui-disabled"
+                disabled={true}
+                onBlur={[Function]}
+                onClick={undefined}
+                onDragLeave={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseDown={[Function]}
+                onMouseLeave={[Function]}
+                onMouseUp={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "violet",
+                    "color": "white",
+                  }
+                }
+                tabIndex={-1}
+                type="submit">
+                <span
+                  className="MuiButton-label">
+                  Search
+                </span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div
+    className="container">
+    <h5
+      className="centerIt">
+      Yearwise question paper collection status
+    </h5>
+    <div
+      className="row">
+      <div
+        className="col-sm-6 col-md-3 col-lg-3">
+        <a
+          href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2018batch.md"
+          style={
+            Object {
+              "textDecoration": "none",
+            }
+          }
+          target="_blank">
+          <button
+            block={true}
+            className="MuiButtonBase-root MuiButton-root MuiButton-contained col-md-12"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={undefined}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            style={
+              Object {
+                "backgroundColor": "violet",
+                "color": "white",
+                "textDecoration": "none",
+              }
+            }
+            tabIndex={0}
+            type="button">
+            <span
+              className="MuiButton-label">
+              2018-2023
+            </span>
+          </button>
+        </a>
+      </div>
+      <div
+        className="col-sm-6 col-md-3 col-lg-3">
+        <a
+          href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2017batch.md"
+          style={
+            Object {
+              "textDecoration": "none",
+            }
+          }
+          target="_blank">
+          <button
+            block={true}
+            className="MuiButtonBase-root MuiButton-root MuiButton-contained col-md-12"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={undefined}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            style={
+              Object {
+                "backgroundColor": "violet",
+                "color": "white",
+                "textDecoration": "none",
+              }
+            }
+            tabIndex={0}
+            type="button">
+            <span
+              className="MuiButton-label">
+              2017-2022
+            </span>
+          </button>
+        </a>
+      </div>
+      <div
+        className="col-sm-6 col-md-3 col-lg-3">
+        <a
+          href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2016batch.md"
+          style={
+            Object {
+              "textDecoration": "none",
+            }
+          }
+          target="_blank">
+          <button
+            block={true}
+            className="MuiButtonBase-root MuiButton-root MuiButton-contained col-md-12"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={undefined}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            style={
+              Object {
+                "backgroundColor": "violet",
+                "color": "white",
+                "textDecoration": "none",
+              }
+            }
+            tabIndex={0}
+            type="button">
+            <span
+              className="MuiButton-label">
+              2016-2021
+            </span>
+          </button>
+        </a>
+      </div>
+      <div
+        className="col-sm-6 col-md-3 col-lg-3">
+        <a
+          href="https://github.com/Team-Tomato/Learn/blob/master/QP%20Data/2015batch.md"
+          style={
+            Object {
+              "textDecoration": "none",
+            }
+          }
+          target="_blank">
+          <button
+            block={true}
+            className="MuiButtonBase-root MuiButton-root MuiButton-contained col-md-12"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={undefined}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            style={
+              Object {
+                "backgroundColor": "violet",
+                "color": "white",
+                "textDecoration": "none",
+              }
+            }
+            tabIndex={0}
+            type="button">
+            <span
+              className="MuiButton-label">
+              2015-2020
+            </span>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+  <br />
+  <h6 />
+  <div />
+</div>
+`;
