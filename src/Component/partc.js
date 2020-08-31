@@ -281,65 +281,65 @@ class Partc extends Component {
 
   onClick = (e) => {
     e.preventDefault();
-  //   var qpa=''+qpaMark
-  //   var tota=''+(this.props.sab.total)
-  //   var qpb=''+qpbMark
-  //   var totb=''+(this.props.sb.total)
-  //   var qpc=''+qpcMark
-  //   var totc=''+(this.state.total)
-  //   var tot=''+this.props.header.marks
-  //  // console.log(tot)
-  //  var total=parseInt(this.props.sab.total)+parseInt(this.props.sb.total)+parseInt(this.state.total)
-  //  //console.log(total)
-  //  var total_abc=''+total
-  // // console.log(typeof(total_abc))
-  //   if(qpa!=tota){ 
-  //    this.state.noMatchA=true
-  //   }
-  //   if(qpa==tota){
-  //     this.state.noMatchA=false
-  //   }
-  //   if(qpb!=totb){ 
-  //     this.state.noMatchB=true
-  //    }
-  //    if(qpb==totb){
-  //      this.state.noMatchB=false
-  //    }
-  //    if(qpc!=totc){ 
-  //     this.state.noMatchC=true
-  //    }
-  //    if(qpc==totc){
-  //      this.state.noMatchC=false
-  //    }
-  //    if(tot!=total_abc){ 
-  //     this.state.noMatch=true
-  //     console.log(this.state.noMatch)
-  //    }
-  //    if(tot==total_abc){
-  //      this.state.noMatch=false
-  //      //console.log(this.state.noMatch)
-  //    }
-  //    if(this.state.field){
-  //      alert("Some Field is not typed")
-  //    }
-  //    else if(this.state.noMatch){
-  //     alert("Total is not equal")
-  //    }
-  //    else if(this.state.noMatchA){
-  //     alert("Total is not equal in Part-A")
-  //    }
-  //    else if(this.state.noMatchB){
-  //     alert("Total is not equal in Part-B")
-  //    }
-  //    else if(this.state.noMatchC){
-  //     alert("Total is not equal in Part-C")
-  //    }
-  //    if(this.state.noMatchA||this.state.noMatchB||this.state.noMatchC||this.state.noMatch){
-  //      this.setState({open:false})
-  //    }
-  //    else{
-  //      this.setState({open:true})
-  //    }
+    var qpa=''+qpaMark
+    var tota=''+(this.props.sab.total)
+    var qpb=''+qpbMark
+    var totb=''+(this.props.sb.total)
+    var qpc=''+qpcMark
+    var totc=''+(this.state.total)
+    var tot=''+this.props.header.marks
+   // console.log(tot)
+   var total=parseInt(this.props.sab.total)+parseInt(this.props.sb.total)+parseInt(this.state.total)
+   //console.log(total)
+   var total_abc=''+total
+  // console.log(typeof(total_abc))
+    if(qpa!=tota){ 
+     this.state.noMatchA=true
+    }
+    if(qpa==tota){
+      this.state.noMatchA=false
+    }
+    if(qpb!=totb){ 
+      this.state.noMatchB=true
+     }
+     if(qpb==totb){
+       this.state.noMatchB=false
+     }
+     if(qpc!=totc){ 
+      this.state.noMatchC=true
+     }
+     if(qpc==totc){
+       this.state.noMatchC=false
+     }
+     if(tot!=total_abc){ 
+      this.state.noMatch=true
+      console.log(this.state.noMatch)
+     }
+     if(tot==total_abc){
+       this.state.noMatch=false
+       //console.log(this.state.noMatch)
+     }
+     if(this.state.field){
+       alert("Some Field is not typed")
+     }
+     else if(this.state.noMatch){
+      alert("Total is not equal")
+     }
+     else if(this.state.noMatchA){
+      alert("Total is not equal in Part-A")
+     }
+     else if(this.state.noMatchB){
+      alert("Total is not equal in Part-B")
+     }
+     else if(this.state.noMatchC){
+      alert("Total is not equal in Part-C")
+     }
+     if(this.state.noMatchA||this.state.noMatchB||this.state.noMatchC||this.state.noMatch){
+       this.setState({open:false})
+     }
+     else{
+       this.setState({open:true})
+     }
     this.setState({open:true})
 }
 
